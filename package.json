@@ -13,9 +13,10 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
-    "start": "ng serve",
+    "start:main": "npm run generate-apps-tsconfig && ng serve -o --port 4400",
     "build": "ng build",
     "test": "ng test",
+    "test:cov": "ng test --codeCoverage=true",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
@@ -34,7 +35,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "cz": "git-cz",
-    "help": "nx help"
+    "help": "nx help",
+    "generate-apps-tsconfig": "node ./scripts/generate-app-tsconfig.js"
   },
   "private": true,
   "dependencies": {
@@ -55,6 +57,8 @@
     "react-dom": "16.10.2"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^8.2.0",
+    "@angular-builders/dev-server": "^7.3.1",
     "@angular-devkit/build-angular": "^0.803.3",
     "@angular/cli": "8.3.3",
     "@angular/compiler-cli": "^8.2.0",
@@ -77,10 +81,15 @@
     "eslint": "6.1.0",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
-    "prettier": "1.18.2",
+    "prettier": "^1.18.2",
+    "rxjs-tslint-rules": "^4.26.1",
+    "stylelint": "^11.1.1",
+    "stylelint-order": "^3.1.1",
+    "stylelint-selector-bem-pattern": "^2.1.0",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.4.5"
   },
   "config": {

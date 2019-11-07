@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      env:
+        GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_AUTH_TOKEN }}
+        CI: true
+      run: |
+        git checkout master
+        touch test.txt
+        git add .
+        git config user.name "bab2683"
+        git config user.email "barahona.braulio@gmail.com"
+        git commit -m "test commit"
+        git remote set-url origin https://bab2683:$GITHUB_AUTH_TOKEN>@github.com/bab2683/bab.git
+        git push
