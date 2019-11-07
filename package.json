@@ -13,7 +13,8 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
-    "start:main": "npm run generate-apps-tsconfig && ng serve -o --port 4400",
+    "start:main": "npm run generate-apps-tsconfig && ng serve main-angular --open=true --port 4400",
+    "start:mainr": "npm run generate-apps-tsconfig && ng serve main-react --open=true --port 4500",
     "build": "ng build",
     "test": "ng test",
     "test:cov": "ng test --codeCoverage=true",

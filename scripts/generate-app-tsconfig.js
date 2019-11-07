@@ -28,28 +28,30 @@ apps.forEach(app => {
 
   const localPaths = appTsConfigFile.compilerOptions.paths;
 
-  // Change local paths
-  const modifiedLocalPaths = Object.keys(localPaths).reduce((pathObj, currentPath) => {
-    // Ignore libraries paths
-    if (currentPath.indexOf(librariesPrefix) === -1) {
-      pathObj[currentPath] = localPaths[currentPath].map(localPath => {
-        // Change only unchanged paths
-        if (localPath.indexOf(pathToApps) === -1) {
-          return `${pathToApps}/${app}/${localPath}`;
-        }
-        return localPath;
-      });
-    }
-    return pathObj;
-  }, {});
-  appTsConfigFile.compilerOptions.baseUrl = '../../';
-  appTsConfigFile.compilerOptions.paths = {
-    ...modifiedLocalPaths,
-    ...onlyLibrariesPaths
-  };
+  if (localPaths) {
+    // Change local paths
+    const modifiedLocalPaths = Object.keys(localPaths).reduce((pathObj, currentPath) => {
+      // Ignore libraries paths
+      if (currentPath.indexOf(librariesPrefix) === -1) {
+        pathObj[currentPath] = localPaths[currentPath].map(localPath => {
+          // Change only unchanged paths
+          if (localPath.indexOf(pathToApps) === -1) {
+            return `${pathToApps}/${app}/${localPath}`;
+          }
+          return localPath;
+        });
+      }
+      return pathObj;
+    }, {});
+    appTsConfigFile.compilerOptions.baseUrl = '../../';
+    appTsConfigFile.compilerOptions.paths = {
+      ...modifiedLocalPaths,
+      ...onlyLibrariesPaths
+    };
 
-  // Save changes
-  writeFileSync(`apps/${app}/tsconfig.json`, JSON.stringify(appTsConfigFile));
+    // Save changes
+    writeFileSync(`apps/${app}/tsconfig.json`, JSON.stringify(appTsConfigFile));
+  }
 });
 
 console.log('The tsconfig file of all apps have been updated');
