@@ -13,6 +13,12 @@
     },
     "main-angular": {
       "tags": []
+    },
+    "main-react": {
+      "tags": []
+    },
+    "main-react-e2e": {
+      "tags": []
     }
   }
 }
