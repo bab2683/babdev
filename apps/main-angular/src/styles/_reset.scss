@@ -1,0 +1,26 @@
+* {
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  transition-duration: 0s;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a,
+button {
+  cursor: pointer;
+}

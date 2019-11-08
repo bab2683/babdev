@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { environment } from '@env/environment';
+import { Component, ViewChild } from '@angular/core';
+import { SidebarComponent, SidebarStatus } from '@babdev/sidebar';
 
 @Component({
   selector: 'babdev-root',
@@ -7,9 +7,14 @@ import { environment } from '@env/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('sidebar', { static: true }) sidebar: SidebarComponent;
   title = 'main-angular';
 
-  constructor() {
-    console.log('environment', environment);
-  }
+  // sidebarStatus(status: SidebarStatus) {
+  //   console.log('sidebar status', status);
+  // }
+
+  // openSidebar(): void {
+  //   this.sidebar.open();
+  // }
 }

@@ -49,6 +49,9 @@
     "@angular/platform-browser": "^8.2.0",
     "@angular/platform-browser-dynamic": "^8.2.0",
     "@angular/router": "^8.2.0",
+    "@fortawesome/angular-fontawesome": "^0.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@nrwl/angular": "^8.7.0",
     "core-js": "^2.5.4",
     "core-js3": "npm:core-js@^3.4.0",
@@ -102,12 +105,17 @@
       "path": "./node_modules/cz-conventional-changelog",
       "scopeList": [
         "config",
+        "documentation",
+        "external libraries",
+        "linter",
         "routing",
         "scripts",
         "setup",
+        "sidebar",
         "ssr",
         "styleguide",
         "tests",
+        "utils",
         "workflows"
       ]
     }

@@ -1,8 +1,7 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
 
 import './app.scss';
-
-import { Route, Link } from 'react-router-dom';
 
 export const App = () => {
   /*
@@ -32,7 +31,6 @@ export const App = () => {
                 viewBox="0 0 24 24"
               >
                 <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
               </svg>
               Star
             </div>
@@ -41,14 +39,6 @@ export const App = () => {
         <p>Here are some links to help you get started.</p>
         <ul className="resources">
           <li className="col-span-2">
-            <li className="col-span-2">
-              <a
-                className="resource flex"
-                href="https://connect.nrwl.io/app/courses/nx-workspaces/intro"
-              >
-                Nx video course
-              </a>
-            </li>
             <a className="resource flex" href="https://nx.dev/react/getting-started/what-is-nx">
               Nx video tutorial
             </a>
