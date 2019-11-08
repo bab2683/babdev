@@ -17,10 +17,7 @@ module.exports = config => {
     })
   );
 
-  // config.resolve.alias['@babdev/styleguide'] = path.join(
-  //   __dirname,
-  //   'libs/styleguide/src/lib/sass/'
-  // );
+  config.resolve.alias['@styleguide'] = path.join(__dirname, 'libs/styleguide/src/lib/sass/');
 
   return config;
 };

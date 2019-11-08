@@ -1,0 +1,25 @@
+$white: #fff;
+$grey: #e2e2e2;
+
+$colors: (
+  "white": $white,
+  "grey": $grey
+);
+
+:root {
+  @each $color-name, $color in $colors {
+    --color-#{$color-name}: #{$color};
+  }
+}
+
+@function color($name) {
+  $mapped-color: map-get($colors, $name);
+
+  @if ($mapped-color) {
+    @return var(--color-#{$name});
+  }
+
+  @else {
+    @error "#{$name} color does not exist";
+  }
+}

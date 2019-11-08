@@ -19,6 +19,9 @@
     },
     "main-react-e2e": {
       "tags": []
+    },
+    "styleguide": {
+      "tags": []
     }
   }
 }

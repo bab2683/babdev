@@ -106,6 +106,7 @@
         "scripts",
         "setup",
         "ssr",
+        "styleguide",
         "tests",
         "workflows"
       ]

@@ -23,7 +23,7 @@
             "aot": false,
             "customWebpackConfig": {},
             "assets": ["apps/main-angular/src/favicon.ico", "apps/main-angular/src/assets"],
-            "styles": ["apps/main-angular/src/styles.scss"],
+            "styles": ["apps/main-angular/src/styles/main.scss"],
             "scripts": []
           },
           "configurations": {
@@ -217,6 +217,34 @@
             "tsConfig": ["apps/main-react-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/main-react-e2e/**"]
           }
+        }
+      }
+    },
+    "styleguide": {
+      "projectType": "library",
+      "root": "libs/styleguide",
+      "sourceRoot": "libs/styleguide/src",
+      "prefix": "babdev",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/styleguide/tsconfig.lib.json", "libs/styleguide/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/styleguide/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/styleguide/jest.config.js",
+            "tsConfig": "libs/styleguide/tsconfig.spec.json",
+            "setupFile": "libs/styleguide/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

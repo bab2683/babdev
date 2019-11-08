@@ -1,0 +1,22 @@
+$mobile-start-width: px-to-rem(320);
+$mobile-portrait-limit: px-to-rem(480);
+$mobile-landscape-limit: px-to-rem(768);
+$tablet-limit: px-to-rem(1024);
+
+@mixin mobile-portrait {
+  @media only screen and (max-width: $mobile-portrait-limit) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media only screen and (max-width: $mobile-landscape-limit) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin from-mobile-up {
+  @media only screen and (min-width: $mobile-landscape-limit) {
+    @content;
+  }
+}
