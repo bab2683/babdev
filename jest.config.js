@@ -25,7 +25,7 @@ module.exports = {
       statements: 90
     }
   },
-  coverageReporters: ['html'],
+  coverageReporters: ['text', 'html'],
   moduleFileExtensions: ['ts', 'js', 'html'],
   passWithNoTests: true,
   resolver: '@nrwl/jest/plugins/resolver',

@@ -22,6 +22,12 @@
     },
     "styleguide": {
       "tags": []
+    },
+    "sidebar": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
     }
   }
 }

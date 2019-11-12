@@ -7,6 +7,4 @@ import 'core-js3/stable';
 
 import 'regenerator-runtime/runtime';
 
-/**
- * This file contains polyfills loaded on all browsers
- **/
+// This file contains polyfills loaded on all browsers

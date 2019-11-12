@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@styleguide/main";
+@import "reset";
+
+:root {
+  --babdev-sidebar-animation: 350ms ease;
+  --babdev-sidebar-padding: #{px-to-rem(20)} #{px-to-rem(10)} #{px-to-rem(10)};
+}

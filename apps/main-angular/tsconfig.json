@@ -1,1 +1,1 @@
-{"extends":"../../tsconfig.json","compilerOptions":{"baseUrl":"../../","types":["node","jest"],"paths":{"@env/*":["apps/main-angular/src/environments/*"],"@babdev/styleguide":["libs/styleguide/src/index.ts"]}},"include":["**/*.ts"]}
+{"extends":"../../tsconfig.json","compilerOptions":{"baseUrl":"../../","types":["node","jest"],"paths":{"@env/*":["apps/main-angular/src/environments/*"],"@babdev/styleguide":["libs/styleguide/src/index.ts"],"@babdev/sidebar":["libs/sidebar/src/index.ts"],"@babdev/utils":["libs/utils/src/index.ts"]}},"include":["**/*.ts"]}

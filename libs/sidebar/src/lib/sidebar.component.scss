@@ -1,0 +1,38 @@
+@import "~@styleguide/_colors";
+@import "~@styleguide/_functions";
+
+$sidebar-padding: px-to-rem(10);
+$class-prefix: "babdev-sidebar";
+
+.#{$class-prefix} {
+  background: var(--babdev-sidebar-background, $grey);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  padding: var(--babdev-sidebar-padding, $sidebar-padding);
+  position: fixed;
+  top: 0;
+  width: var(--babdev-sidebar-width, auto);
+  z-index: 2;
+}
+
+.#{$class-prefix}-overlay {
+  background-color: var(--babdev-sidebar-overlay-color, rgba(0, 0, 0, 0.4));
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+
+  &--hidden {
+    z-index: -1;
+  }
+}
+
+.#{$class-prefix}-close-button {
+  font-size: px-to-rem(20);
+  position: absolute;
+  right: px-to-rem(5);
+  top: px-to-rem(5);
+}

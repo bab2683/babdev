@@ -1,0 +1,21 @@
+<!-- <div class="babdev-sidebar-overlay"
+*ngIf="withOverlay && status !== sidebarStatus.CLOSE"
+></div> -->
+<div
+  class="babdev-sidebar-overlay"
+  [@overlayAnimation]="state$ | async"
+  [ngClass]="{ 'babdev-sidebar-overlay--hidden': status === sidebarStatus.CLOSE }"
+  *ngIf="withOverlay"
+  (click)="close()"
+></div>
+<section
+  class="babdev-sidebar"
+  [ngClass]="sidebarClasses$ | async"
+  [@sidebarTranslateAnimation]="state$ | async"
+  (@sidebarTranslateAnimation.done)="animationComplete($event)"
+>
+  <button class="babdev-sidebar-close-button" (click)="close()">
+    <fa-icon [icon]="closeButtonIconId"></fa-icon>
+  </button>
+  <ng-content></ng-content>
+</section>
