@@ -1,16 +1,12 @@
+$main: #424343;
 $white: #fff;
 $grey: #e2e2e2;
 
 $colors: (
   "white": $white,
-  "grey": $grey
+  "grey": $grey,
+  "main": $main
 );
-
-:root {
-  @each $color-name, $color in $colors {
-    --color-#{$color-name}: #{$color};
-  }
-}
 
 @function color($name) {
   $mapped-color: map-get($colors, $name);
@@ -21,5 +17,29 @@ $colors: (
 
   @else {
     @error "#{$name} color does not exist";
+  }
+}
+
+@function get-shades($color-name, $color) {
+  $map: (
+    #{$color-name}-light-10: mix($white, $color, 10),
+    #{$color-name}-light-20: mix($white, $color, 20),
+    #{$color-name}-light-30: mix($white, $color, 30),
+    #{$color-name}-light-40: mix($white, $color, 40),
+    #{$color-name}-light-50: mix($white, $color, 50),
+    #{$color-name}-light-60: mix($white, $color, 60),
+    #{$color-name}-light-70: mix($white, $color, 70),
+    #{$color-name}-light-80: mix($white, $color, 80),
+    #{$color-name}-light-90: mix($white, $color, 90)
+  );
+
+  @return $map;
+}
+
+$colors: map-merge($map1: $colors, $map2: get-shades("main", $main));
+
+:root {
+  @each $color-name, $color in $colors {
+    --color-#{$color-name}: #{$color};
   }
 }
