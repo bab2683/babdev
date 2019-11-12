@@ -1,7 +1,7 @@
 <!-- <div class="babdev-sidebar-overlay"
 *ngIf="withOverlay && status !== sidebarStatus.CLOSE"
 ></div> -->
-<div
+<!-- <div
   class="babdev-sidebar-overlay"
   [@overlayAnimation]="state$ | async"
   [ngClass]="{ 'babdev-sidebar-overlay--hidden': status === sidebarStatus.CLOSE }"
@@ -18,4 +18,19 @@
     <fa-icon [icon]="closeButtonIconId"></fa-icon>
   </button>
   <ng-content></ng-content>
-</section>
+</section> -->
+
+<mat-sidenav-container [hasBackdrop]="withOverlay" (backdropClick)="overlayClick($event)">
+  <mat-sidenav
+    #sidenav
+    [mode]="mode"
+    [opened]="openedAtInit"
+    (closed)="updateState(sidebarStatus.CLOSE)"
+    (opened)="updateState(sidebarStatus.OPEN)"
+  >
+    <ng-content select="[sidebarContent]"></ng-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content select="[pageContent]"></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

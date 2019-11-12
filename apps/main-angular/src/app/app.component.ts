@@ -13,8 +13,4 @@ export class AppComponent {
   // sidebarStatus(status: SidebarStatus) {
   //   console.log('sidebar status', status);
   // }
-
-  // openSidebar(): void {
-  //   this.sidebar.open();
-  // }
 }

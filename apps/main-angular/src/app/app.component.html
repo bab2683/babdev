@@ -1,18 +1,37 @@
-<!-- <babdev-sidebar #sidebar (currentStatus)="sidebarStatus($event)"
-  >sidebar content here</babdev-sidebar
-> -->
-<babdev-sidebar #sidebar>sidebar content here</babdev-sidebar>
+<!-- <babdev-sidebar #sidebar (currentStatus)="sidebarStatus($event)" [openedAtInit]="true">
+  <ng-container sidebarContent>
+    sidebar content here
+  </ng-container>
 
-<div class="page">
-  <header>
-    header
-  </header>
-  <main class="page__content">
-    main content here
-    <!-- <button (click)="openSidebar()">Open sidebar</button> -->
-    <router-outlet></router-outlet>
-  </main>
-  <footer>
-    footer
-  </footer>
-</div>
+  <div class="page" pageContent>
+    <header>
+      header
+    </header>
+    <main class="page__content">
+      main content here
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      footer
+    </footer>
+  </div>
+</babdev-sidebar> -->
+
+<babdev-sidebar #sidebar [openedAtInit]="true" [withTouch]="true">
+  <ng-container sidebarContent>
+    sidebar content here
+  </ng-container>
+
+  <div class="page" pageContent>
+    <header>
+      header
+    </header>
+    <main class="page__content">
+      main content here
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      footer
+    </footer>
+  </div>
+</babdev-sidebar>
