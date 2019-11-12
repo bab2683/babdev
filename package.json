@@ -37,7 +37,8 @@
     "dep-graph": "nx dep-graph",
     "cz": "git-cz",
     "help": "nx help",
-    "generate-apps-tsconfig": "node ./scripts/generate-app-tsconfig.js"
+    "generate-apps-tsconfig": "node ./scripts/generate-app-tsconfig.js",
+    "lib-publish": "node ./scripts/publish.js"
   },
   "private": true,
   "dependencies": {
