@@ -1,7 +1,17 @@
 import { SidebarPosition, SidebarStatus, SidebarTouchDirection } from './sidebar.enum';
 
-export const getTouchDirection = (start: Touch, end: Touch): SidebarTouchDirection =>
-  start.clientX > end.clientX ? SidebarTouchDirection.LEFT : SidebarTouchDirection.RIGHT;
+export function getTouchDirection(
+  start: Touch,
+  end: Touch
+): { direction: SidebarTouchDirection; distance: number } {
+  const direction: SidebarTouchDirection =
+    start.clientX > end.clientX ? SidebarTouchDirection.LEFT : SidebarTouchDirection.RIGHT;
+  const distance: number =
+    direction === SidebarTouchDirection.LEFT
+      ? start.clientX - end.clientX
+      : end.clientX - start.clientX;
+  return { direction, distance };
+}
 
 export function determineEvent(
   direction: SidebarTouchDirection,

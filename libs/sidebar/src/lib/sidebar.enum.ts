@@ -14,3 +14,9 @@ export enum SidebarPosition {
   LEFT = 'left',
   RIGHT = 'right'
 }
+
+export enum SidebarMode {
+  OVER = 'over',
+  PUSH = 'push',
+  SIDE = 'side'
+}

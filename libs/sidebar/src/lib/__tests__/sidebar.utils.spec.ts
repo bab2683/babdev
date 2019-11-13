@@ -5,22 +5,23 @@ describe('sidebar utils', () => {
   describe('getTouchDirection', () => {
     let start: any;
     let end: any;
-    let result: SidebarTouchDirection;
 
     it('should return SidebarTouchDirection.RIGHT', () => {
       start = { clientX: 10 } as any;
       end = { clientX: 20 } as any;
-      result = getTouchDirection(start, end);
+      const { direction, distance } = getTouchDirection(start, end);
 
-      expect(result).toEqual(SidebarTouchDirection.RIGHT);
+      expect(direction).toEqual(SidebarTouchDirection.RIGHT);
+      expect(distance).toEqual(10);
     });
 
     it('should return SidebarTouchDirection.LEFT', () => {
-      start = { clientX: 30 } as any;
+      start = { clientX: 40 } as any;
       end = { clientX: 20 } as any;
-      result = getTouchDirection(start, end);
+      const { direction, distance } = getTouchDirection(start, end);
 
-      expect(result).toEqual(SidebarTouchDirection.LEFT);
+      expect(direction).toEqual(SidebarTouchDirection.LEFT);
+      expect(distance).toEqual(20);
     });
   });
 

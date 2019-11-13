@@ -1,50 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SidebarComponent should emit only initial value 1`] = `
-Array [
-  Array [
-    "open",
-  ],
-]
-`;
-
 exports[`SidebarComponent should match snapshot 1`] = `
 <babdev-sidebar
-  classPrefix={[Function String]}
-  closeButtonIconId={[Function Object]}
   currentStatus={[Function EventEmitter]}
   initialPosition={[Function String]}
-  initialState={[Function String]}
-  isClose$={[Function Observable]}
+  mode={[Function String]}
   moving="false"
+  openedAtInit="false"
   position={[Function String]}
-  sidebarClasses$={[Function Observable]}
-  sidebarStaticClasses={[Function Array]}
   sidebarStatus={[Function Object]}
+  sidenav={[Function ElementRef]}
   state$={[Function Observable]}
   stateSubject={[Function BehaviorSubject]}
   status={[Function String]}
-  withOverlay={[Function Boolean]}
+  touchTolerance={[Function Number]}
+  withOverlay="false"
   withTouch={[Function Boolean]}
 >
-  <div
-    class="babdev-sidebar-overlay ng-tns-c1-0 babdev-sidebar-overlay--hidden ng-trigger ng-trigger-overlayAnimation ng-star-inserted"
-    ng-reflect-klass="babdev-sidebar-overlay"
-    ng-reflect-ng-class="[object Object]"
-    style="opacity:0;0:opacity;"
-  /><section
-    class="babdev-sidebar ng-trigger ng-trigger-sidebarTranslateAnimation babdev-sidebar--close"
-    ng-reflect-klass="babdev-sidebar"
-    ng-reflect-ng-class="babdev-sidebar--close"
-    style="transform:translateX(-100%);0:transform;"
-  >
-    <button
-      class="babdev-sidebar-close-button"
-    >
-      <fa-icon
-        class="ng-tns-c1-0"
-      />
-    </button>
-  </section>
+  <mat-sidenav-container>
+    <mat-sidenav />
+    <mat-sidenav-content />
+  </mat-sidenav-container>
 </babdev-sidebar>
 `;

@@ -1,11 +1,20 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import * as rxjs from 'rxjs';
+
+import { MatSidenav } from '@angular/material/sidenav';
 
 import { SidebarComponent } from '../sidebar.component';
 import { SidebarStatus } from '../sidebar.enum';
 import * as utils from '../sidebar.utils';
+
+@Component({
+  template: ''
+})
+class SideNavStubComponent {
+  public open = jest.fn();
+  public close = jest.fn();
+}
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -14,10 +23,12 @@ describe('SidebarComponent', () => {
   let getDirectionSpy: any;
   let determineEventSpy: any;
 
+  let sidenavOpenSpy: any;
+  let sidenavCloseSpy: any;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarComponent],
-      imports: [NoopAnimationsModule],
+      declarations: [SidebarComponent, SideNavStubComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
@@ -25,7 +36,15 @@ describe('SidebarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
+
+    component.sidenav = TestBed.createComponent<MatSidenav>(
+      SideNavStubComponent as any
+    ).componentInstance;
+
     emitSpy = jest.spyOn(component.currentStatus, 'emit');
+
+    sidenavCloseSpy = spyOn(component.sidenav, 'close');
+    sidenavOpenSpy = spyOn(component.sidenav, 'open');
   });
 
   it('should create', () => {
@@ -37,45 +56,45 @@ describe('SidebarComponent', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  it('should emit only initial value', () => {
-    component.initialState = SidebarStatus.OPEN;
-
-    fixture.detectChanges();
+  it('should not do anything on open', () => {
+    component.openedAtInit = true;
+    component.ngOnInit();
     component.open();
-    expect(emitSpy.mock.calls).toMatchSnapshot();
+
+    expect(sidenavOpenSpy).not.toHaveBeenCalled();
+  });
+
+  it('should not do anything on close', () => {
+    component.ngOnInit();
+    component.close();
+
+    expect(sidenavCloseSpy).not.toHaveBeenCalled();
   });
 
   describe('emit status', () => {
     it('should emit SidebarStatus.OPENING', () => {
-      fixture.detectChanges();
+      component.ngOnInit();
       component.open();
+
       expect(emitSpy).toHaveBeenCalledWith(SidebarStatus.OPENING);
+      expect(sidenavOpenSpy).toHaveBeenCalled();
     });
 
     it('should emit SidebarStatus.CLOSING', () => {
-      component.initialState = SidebarStatus.OPEN;
-      fixture.detectChanges();
+      component.openedAtInit = true;
+      component.ngOnInit();
       component.close();
 
       expect(emitSpy).toHaveBeenCalledWith(SidebarStatus.CLOSING);
+      expect(sidenavCloseSpy).toHaveBeenCalled();
     });
   });
 
-  describe('animationComplete', () => {
-    beforeEach(() => {
-      fixture.detectChanges();
-    });
+  describe('overlay click', () => {
+    it('should close the sidenav', () => {
+      component.overlayClick();
 
-    it('should change the status to OPEN once OPENING is done', () => {
-      component.animationComplete({ toState: SidebarStatus.OPENING } as any);
-
-      expect(emitSpy).toHaveBeenCalledWith(SidebarStatus.OPEN);
-    });
-
-    it('should change the status to CLOSE once CLOSING is done', () => {
-      component.animationComplete({ toState: SidebarStatus.CLOSING } as any);
-
-      expect(emitSpy).toHaveBeenCalledWith(SidebarStatus.CLOSE);
+      expect(emitSpy).toHaveBeenCalledWith(SidebarStatus.CLOSING);
     });
   });
 
@@ -110,11 +129,26 @@ describe('SidebarComponent', () => {
           .mockReturnValueOnce(rxjs.of(startEvent))
           .mockReturnValueOnce(rxjs.of(moveEvent));
 
+        component.touchTolerance = 10;
         fixture.detectChanges();
 
         expect(getDirectionSpy).toHaveBeenCalled();
         expect(determineEventSpy).toHaveBeenCalled();
         expect(openSpy).toHaveBeenCalled();
+      });
+
+      it('should not open the sidebar when touch is brief', () => {
+        jest
+          .spyOn(rxjs, 'fromEvent')
+          .mockReturnValueOnce(rxjs.of(startEvent))
+          .mockReturnValueOnce(rxjs.of(moveEvent));
+
+        component.touchTolerance = 100;
+        fixture.detectChanges();
+
+        expect(getDirectionSpy).toHaveBeenCalled();
+        expect(determineEventSpy).toHaveBeenCalled();
+        expect(openSpy).not.toHaveBeenCalled();
       });
 
       it('should close the sidebar', () => {
@@ -123,6 +157,7 @@ describe('SidebarComponent', () => {
           .mockReturnValueOnce(rxjs.of(moveEvent))
           .mockReturnValueOnce(rxjs.of(startEvent));
 
+        component.touchTolerance = 10;
         fixture.detectChanges();
 
         expect(getDirectionSpy).toHaveBeenCalled();
