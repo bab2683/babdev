@@ -4,6 +4,7 @@ exports[`AppComponent should match the snapshot 1`] = `
 <babdev-root
   sidebar={[Function ElementRef]}
   title={[Function String]}
+  translateService={[Function Object]}
 >
   <babdev-sidebar>
     
@@ -18,7 +19,21 @@ exports[`AppComponent should match the snapshot 1`] = `
       <main
         class="page__content"
       >
-         main content here 
+        <div>
+           main content here common library test 
+          <br />
+          <span>
+            common.TIME.DAY.SINGLE
+          </span>
+          <br />
+          <button>
+            Change to en
+          </button>
+          <br />
+          <button>
+            Change to it
+          </button>
+        </div>
         <router-outlet />
       </main>
       <footer>

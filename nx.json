@@ -28,6 +28,12 @@
     },
     "utils": {
       "tags": []
+    },
+    "translate": {
+      "tags": []
+    },
+    "request": {
+      "tags": []
     }
   }
 }

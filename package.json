@@ -112,7 +112,9 @@
         "config",
         "documentation",
         "external libraries",
+        "i18n",
         "linter",
+        "requests",
         "routing",
         "scripts",
         "setup",
@@ -120,6 +122,7 @@
         "ssr",
         "styleguide",
         "tests",
+        "translation",
         "utils",
         "workflows"
       ]
