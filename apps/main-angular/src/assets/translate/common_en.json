@@ -1,0 +1,16 @@
+{
+  "TIME": {
+    "YEAR": {
+      "SINGLE": "year",
+      "MULTIPLE": "years"
+    },
+    "MONTH": {
+      "SINGLE": "month",
+      "MULTIPLE": "months"
+    },
+    "DAY": {
+      "SINGLE": "day",
+      "MULTIPLE": "days"
+    }
+  }
+}

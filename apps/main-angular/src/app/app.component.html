@@ -27,7 +27,14 @@
       header
     </header>
     <main class="page__content">
-      main content here
+      <div>
+        main content here common library test
+        <br />
+        <span>{{ 'common.TIME.DAY.SINGLE' | translate | async }}</span>
+        <br />
+        <button (click)="translateService.changeActiveLanguage('en')">Change to en</button
+        ><br /><button (click)="translateService.changeActiveLanguage('it')">Change to it</button>
+      </div>
       <router-outlet></router-outlet>
     </main>
     <footer>

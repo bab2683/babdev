@@ -18,7 +18,9 @@
     "paths": {
       "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
       "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
-      "@babdev/utils": ["libs/utils/src/index.ts"]
+      "@babdev/utils": ["libs/utils/src/index.ts"],
+      "@babdev/translate": ["libs/translate/src/index.ts"],
+      "@babdev/request": ["libs/request/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

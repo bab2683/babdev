@@ -1,0 +1,16 @@
+{
+  "TIME": {
+    "YEAR": {
+      "SINGLE": "anno",
+      "MULTIPLE": "anni"
+    },
+    "MONTH": {
+      "SINGLE": "mese",
+      "MULTIPLE": "mesi"
+    },
+    "DAY": {
+      "SINGLE": "giorno",
+      "MULTIPLE": "giorni"
+    }
+  }
+}

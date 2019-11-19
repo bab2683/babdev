@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { SidebarComponent, SidebarStatus } from '@babdev/sidebar';
+import { TranslateService } from '@babdev/translate';
 
 @Component({
   selector: 'babdev-root',
@@ -9,6 +10,10 @@ import { SidebarComponent, SidebarStatus } from '@babdev/sidebar';
 export class AppComponent {
   @ViewChild('sidebar', { static: true }) sidebar: SidebarComponent;
   title = 'main-angular';
+
+  constructor(public translateService: TranslateService) {
+    console.log(this.translateService);
+  }
 
   // sidebarStatus(status: SidebarStatus) {
   //   console.log('sidebar status', status);

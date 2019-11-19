@@ -24,6 +24,7 @@
     "directive-selector": [true, "attribute", "app", "camelCase"],
     "forin": true,
     "import-blacklist": [true, "rxjs/Rx"],
+    "interface-name": [false],
     "interface-over-type-literal": true,
     "max-line-length": [true, { "limit": 100, "ignore-pattern": "\\* .+" }],
     "member-access": false,
