@@ -3,6 +3,19 @@
     "nrwl.angular-console",
     "angular.ng-template",
     "ms-vscode.vscode-typescript-tslint-plugin",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "mikael.angular-beastcode",
+    "coenraads.bracket-pair-colorizer",
+    "msjsdiag.debugger-for-chrome",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "ritwickdey.liveserver",
+    "shd101wyy.markdown-preview-enhanced",
+    "dbankier.vscode-quick-select",
+    "miclo.sort-typescript-imports",
+    "shinnn.stylelint",
+    "cssho.vscode-svgviewer",
+    "gruntfuggly.todo-tree",
+    "vscode-icons-team.vscode-icons"
   ]
 }
