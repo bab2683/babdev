@@ -1,4 +1,8 @@
 {
+  "PAGES": {
+    "HOME": "Home",
+    "CONTACTS": "Contacts"
+  },
   "TIME": {
     "YEAR": {
       "SINGLE": "year",

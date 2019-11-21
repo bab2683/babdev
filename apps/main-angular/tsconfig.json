@@ -1,1 +1,23 @@
-{"extends":"../../tsconfig.json","compilerOptions":{"baseUrl":"../../","types":["node","jest"],"paths":{"@env/*":["apps/main-angular/src/environments/*"],"@enums":["apps/main-angular/src/enums/index.ts"],"@models":["apps/main-angular/src/models/index.ts"],"@constants":["apps/main-angular/src/constants/index.ts"],"@babdev/styleguide":["libs/styleguide/src/index.ts"],"@babdev/sidebar":["libs/sidebar/src/index.ts"],"@babdev/utils":["libs/utils/src/index.ts"],"@babdev/translate":["libs/translate/src/index.ts"],"@babdev/request":["libs/request/src/index.ts"]}},"include":["**/*.ts"]}
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "types": ["node", "jest"],
+    "paths": {
+      "@env/*": ["apps/main-angular/src/environments/*"],
+      "@enums": ["apps/main-angular/src/enums/index.ts"],
+      "@models": ["apps/main-angular/src/models/index.ts"],
+      "@constants": ["apps/main-angular/src/constants/index.ts"],
+      "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
+      "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
+      "@babdev/sidebar-testing": ["libs/sidebar/src/testing/index.ts"],
+      "@babdev/utils": ["libs/utils/src/index.ts"],
+      "@babdev/translate": ["libs/translate/src/index.ts"],
+      "@babdev/translate-testing": ["libs/translate/src/testing/index.ts"],
+      "@babdev/request": ["libs/request/src/index.ts"],
+      "@babdev/request-testing": ["libs/request/src/testing/index.ts"],
+      "@babdev/testing": ["libs/testing/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts"]
+}

@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 import { DictionaryLoader } from '../translate.model';
 import { TranslateService } from '../translate.service';

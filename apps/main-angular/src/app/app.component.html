@@ -19,7 +19,7 @@
 
 <babdev-sidebar #sidebar [openedAtInit]="true" [withTouch]="true">
   <ng-container sidebarContent>
-    sidebar content here
+    <babdev-page-list></babdev-page-list>
   </ng-container>
 
   <div class="page" pageContent>
@@ -27,15 +27,15 @@
       header
     </header>
     <main class="page__content">
-      <div>
-        main content here common library test
+      <div class="page__router" [@routerAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+        <!-- main content here common library test
         <br />
         <span>{{ 'common.TIME.DAY.SINGLE' | translate | async }}</span>
         <br />
         <button (click)="translateService.changeActiveLanguage('en')">Change to en</button
-        ><br /><button (click)="translateService.changeActiveLanguage('it')">Change to it</button>
+        ><br /><button (click)="translateService.changeActiveLanguage('it')">Change to it</button> -->
       </div>
-      <router-outlet></router-outlet>
     </main>
     <footer>
       footer
