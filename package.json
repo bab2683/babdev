@@ -38,6 +38,7 @@
     "dep-graph": "nx dep-graph",
     "cz": "git-cz",
     "help": "nx help",
+    "prettier": "pretty-quick",
     "generate-apps-tsconfig": "node ./scripts/generate-app-tsconfig.js",
     "lib-publish": "node ./scripts/publish.js"
   },
@@ -95,6 +96,7 @@
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
     "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.1",
     "rxjs-tslint-rules": "^4.26.1",
     "stylelint": "^11.1.1",
     "stylelint-order": "^3.1.1",

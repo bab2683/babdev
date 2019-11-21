@@ -1,14 +1,14 @@
 const { execSync } = require('child_process');
 const { writeFileSync } = require('fs');
 
+const { getOnlyApps } = require('./get-projects');
+
 const librariesPrefix = '@babdev/';
 const pathToApps = 'apps';
 
-const apps = execSync('(cd apps/ && ls)')
-  .toString()
-  .match(/(.+)/gm)
-  // Comment next line to generate files for e2e projects as well
-  .filter(app => app.indexOf('e2e') === -1);
+const apps = getOnlyApps();
+
+const changedFiles = [];
 
 const rootTsConfigPaths = require(`../tsconfig.json`).compilerOptions.paths;
 
@@ -29,6 +29,9 @@ apps.forEach(app => {
   const localPaths = appTsConfigFile.compilerOptions.paths;
 
   if (localPaths) {
+    let changedAtLeastOnePath = false;
+    let librariesPathPresent = 0;
+
     // Change local paths
     const modifiedLocalPaths = Object.keys(localPaths).reduce((pathObj, currentPath) => {
       // Ignore libraries paths
@@ -36,22 +39,35 @@ apps.forEach(app => {
         pathObj[currentPath] = localPaths[currentPath].map(localPath => {
           // Change only unchanged paths
           if (localPath.indexOf(pathToApps) === -1) {
+            changedAtLeastOnePath = true;
             return `${pathToApps}/${app}/${localPath}`;
           }
           return localPath;
         });
+      } else {
+        librariesPathPresent = librariesPathPresent + 1;
       }
       return pathObj;
     }, {});
-    appTsConfigFile.compilerOptions.baseUrl = '../../';
-    appTsConfigFile.compilerOptions.paths = {
-      ...modifiedLocalPaths,
-      ...onlyLibrariesPaths
-    };
 
-    // Save changes
-    writeFileSync(`apps/${app}/tsconfig.json`, JSON.stringify(appTsConfigFile));
+    if (changedAtLeastOnePath || Object.keys(onlyLibrariesPaths).length !== librariesPathPresent) {
+      appTsConfigFile.compilerOptions.baseUrl = '../../';
+      appTsConfigFile.compilerOptions.paths = {
+        ...modifiedLocalPaths,
+        ...onlyLibrariesPaths
+      };
+
+      // Save changes
+      writeFileSync(`apps/${app}/tsconfig.json`, JSON.stringify(appTsConfigFile));
+
+      changedFiles.push(app);
+    }
   }
 });
 
-console.log('The tsconfig file of all apps have been updated');
+if (changedFiles.length) {
+  execSync('npm run prettier');
+  console.log('The tsconfig file of the following apps have been updated', changedFiles);
+} else {
+  console.log('no changes needed');
+}
