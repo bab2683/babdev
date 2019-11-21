@@ -1,0 +1,9 @@
+@import "~@styleguide/_functions";
+
+.page-list {
+  &__item {
+    & + & {
+      margin-top: px-to-rem(10);
+    }
+  }
+}

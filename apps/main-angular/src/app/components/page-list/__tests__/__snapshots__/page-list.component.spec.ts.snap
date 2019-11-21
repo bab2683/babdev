@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageListComponent should match snapshot 1`] = `
+<babdev-page-list
+  pages={[Function Array]}
+>
+  <ul
+    class="page-list"
+  >
+    
+    <li
+      class="page-list__item"
+    >
+      <a
+        class="page-list__link link-effect-1"
+        ng-reflect-link-params=""
+      >
+        common.PAGES.HOME
+      </a>
+    </li>
+    <li
+      class="page-list__item"
+    >
+      <a
+        class="page-list__link link-effect-1"
+        ng-reflect-link-params="contacts"
+      >
+        common.PAGES.CONTACTS
+      </a>
+    </li>
+  </ul>
+</babdev-page-list>
+`;

@@ -1,0 +1,40 @@
+@mixin link-effect-1(
+  $open-char: "[",
+  $closing-char: "]",
+  $translate-duration: 300ms,
+  $opacity-duration: 200ms
+) {
+  .link-effect-1::before,
+  .link-effect-1::after {
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    transition: transform $translate-duration, opacity $opacity-duration;
+  }
+
+  .link-effect-1::before {
+    content: $open-char;
+    margin-right: px-to-rem(10);
+    transform: translate(0, 0);
+  }
+
+  .link-effect-1::after {
+    content: $closing-char;
+    margin-left: px-to-rem(5);
+    transform: translate(px-to-rem(-20), 0);
+  }
+
+  .link-effect-1:hover::before,
+  //.link-effect-1:focus::before
+ {
+    opacity: 1;
+    transform: translate(px-to-rem(-10), 0);
+  }
+
+  .link-effect-1:hover::after,
+  //.link-effect-1:focus::after
+ {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

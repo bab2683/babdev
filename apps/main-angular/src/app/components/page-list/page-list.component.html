@@ -1,5 +1,7 @@
-<ul>
-  <li *ngFor="let page of pages">
-    <a [routerLink]="page.url">{{ page.key | translate | async }}</a>
+<ul class="page-list">
+  <li class="page-list__item" *ngFor="let page of pages">
+    <a class="page-list__link link-effect-1" [routerLink]="page.url">{{
+      page.key | translate | async
+    }}</a>
   </li>
 </ul>

@@ -2,6 +2,9 @@
 
 exports[`AppComponent should match the snapshot 1`] = `
 <babdev-root
+  isBrowser={[Function Boolean]}
+  isMobile="false"
+  platformId={[Function String]}
   sidebar={[Function ElementRef]}
   title={[Function String]}
   translateService={[Function TranslateServiceMock]}

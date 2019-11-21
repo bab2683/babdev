@@ -5,6 +5,10 @@
 
 :root {
   --babdev-sidebar-animation: 350ms ease;
-  --babdev-sidebar-padding: #{px-to-rem(20)} #{px-to-rem(10)} #{px-to-rem(10)};
+  --babdev-sidebar-padding: #{px-to-rem(20)} #{px-to-rem(10)} #{px-to-rem(10)} #{px-to-rem(15)};
   --baddev-content-padding: #{px-to-rem(10)};
+}
+
+body.isDesktop {
+  @include link-effect-1;
 }
