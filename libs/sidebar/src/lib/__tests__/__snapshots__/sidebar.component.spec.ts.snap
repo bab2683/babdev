@@ -18,7 +18,11 @@ exports[`SidebarComponent should match snapshot 1`] = `
   withTouch={[Function Boolean]}
 >
   <mat-sidenav-container>
-    <mat-sidenav />
+    <mat-sidenav>
+      <div
+        class="babdev-sidebar"
+      />
+    </mat-sidenav>
     <mat-sidenav-content />
   </mat-sidenav-container>
 </babdev-sidebar>

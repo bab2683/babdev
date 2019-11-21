@@ -11,6 +11,7 @@ import { translateConfig } from '@constants';
 
 import { AppComponent } from './app.component';
 import { PageListComponent } from './components/page-list/page-list.component';
+import { routes } from './pages/app.routes';
 
 @NgModule({
   declarations: [AppComponent, PageListComponent],
@@ -19,7 +20,7 @@ import { PageListComponent } from './components/page-list/page-list.component';
     BrowserAnimationsModule,
     FontAwesomeModule,
     RequestModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(routes),
     SidebarModule,
     TranslateModule.forRoot(translateConfig)
   ],

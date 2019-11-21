@@ -1,20 +1,11 @@
 import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
-import { Pipe, PipeTransform } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@babdev/translate';
-import { of } from 'rxjs';
+import { TranslatePipeMock, TranslateServiceMock } from '@babdev/translate-testing';
 
 import { AppComponent } from '../app.component';
-
-@Pipe({
-  name: 'translate'
-})
-export class TranslatePipeMock implements PipeTransform {
-  transform(key: string): any {
-    return of(key);
-  }
-}
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -22,12 +13,12 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, NoopAnimationsModule],
       declarations: [AppComponent, TranslatePipeMock],
       providers: [
         {
           provide: TranslateService,
-          useValue: {}
+          useClass: TranslateServiceMock
         }
       ],
       schemas: [NO_ERRORS_SCHEMA]

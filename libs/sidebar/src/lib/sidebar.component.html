@@ -28,7 +28,9 @@
     (closed)="updateState(sidebarStatus.CLOSE)"
     (opened)="updateState(sidebarStatus.OPEN)"
   >
-    <ng-content select="[sidebarContent]"></ng-content>
+    <div class="babdev-sidebar">
+      <ng-content select="[sidebarContent]"></ng-content>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <ng-content select="[pageContent]"></ng-content>

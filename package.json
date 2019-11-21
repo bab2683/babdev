@@ -111,11 +111,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog",
       "scopeList": [
+        "animations",
         "config",
         "dependencies",
         "documentation",
         "external libraries",
-        "i18n",
+        "home-page",
         "linter",
         "requests",
         "routing",

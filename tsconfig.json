@@ -18,9 +18,13 @@
     "paths": {
       "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
       "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
+      "@babdev/sidebar-testing": ["libs/sidebar/src/testing/index.ts"],
       "@babdev/utils": ["libs/utils/src/index.ts"],
       "@babdev/translate": ["libs/translate/src/index.ts"],
-      "@babdev/request": ["libs/request/src/index.ts"]
+      "@babdev/translate-testing": ["libs/translate/src/testing/index.ts"],
+      "@babdev/request": ["libs/request/src/index.ts"],
+      "@babdev/request-testing": ["libs/request/src/testing/index.ts"],
+      "@babdev/testing": ["libs/testing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -5,10 +5,7 @@ import { AvailableLanguages } from '@enums';
 export const translateConfig: TranslateConfig = {
   defaultLanguage: AvailableLanguages.EN,
   filesExtension: 'json',
-  initialDictionaries: [
-    { location: '', name: 'common' },
-    { location: '/pages/home/', name: 'home' }
-  ],
+  initialDictionaries: [{ location: '', name: 'common' }],
   languages: Object.values(AvailableLanguages),
   translationDirectoryRoot: 'assets/translate/'
 };

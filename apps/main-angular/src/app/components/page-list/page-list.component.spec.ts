@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterLinkDirectiveStub } from '@babdev/testing';
+import { TranslatePipeMock } from '@babdev/translate-testing';
 
 import { PageListComponent } from './page-list.component';
 
@@ -8,9 +10,8 @@ describe('PageListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageListComponent ]
-    })
-    .compileComponents();
+      declarations: [PageListComponent, RouterLinkDirectiveStub, TranslatePipeMock]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -8,4 +8,11 @@
     flex-grow: 1;
     position: relative;
   }
+
+  &__router {
+    overflow: hidden;
+    padding: var(--baddev-content-padding);
+    position: relative;
+    width: 100%;
+  }
 }
