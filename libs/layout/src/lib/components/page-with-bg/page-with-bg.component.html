@@ -1,0 +1,12 @@
+<div class="content">
+  <ng-content></ng-content>
+</div>
+<div
+  class="bg"
+  *ngIf="bgPath && !isMobile"
+  [ngStyle]="{
+    'background-image': 'url(' + path + ')',
+    'background-position-x': positionX,
+    'background-position-y': positionY
+  }"
+></div>

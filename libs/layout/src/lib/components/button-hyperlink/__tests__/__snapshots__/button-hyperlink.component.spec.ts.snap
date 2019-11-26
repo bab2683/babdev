@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonHyperlinkComponent should match snapshot 1`] = `
+<babdev-button-hyperlink
+  icon={[Function Object]}
+>
+  <a
+    href="null"
+    target="_blank"
+  >
+    <fa-icon />
+  </a>
+</babdev-button-hyperlink>
+`;

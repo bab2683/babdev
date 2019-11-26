@@ -2,10 +2,36 @@ $main: #424343;
 $white: #fff;
 $grey: #e2e2e2;
 
+$facebook-color: #4267b2;
+$linkedin-color: #0077b5;
+$github-color: #24292e;
+$gmail-color: #d44638;
+$skype-color: #00aaf2;
+
 $colors: (
   "white": $white,
   "grey": $grey,
   "main": $main
+);
+
+$brand-colors: (
+  "fb": $facebook-color,
+  "ln": $linkedin-color,
+  "gh": $github-color,
+  "gm": $gmail-color,
+  "sk": $skype-color
+);
+
+@function get-brand-shade-color($color) {
+  @return mix($white, $color, 80);
+}
+
+$brand-color-shades: (
+  "fb-light": get-brand-shade-color($facebook-color),
+  "ln-light": get-brand-shade-color($linkedin-color),
+  "gh-light": get-brand-shade-color($github-color),
+  "gm-light": get-brand-shade-color($gmail-color),
+  "sk-light": get-brand-shade-color($skype-color)
 );
 
 @function color($name) {
@@ -13,9 +39,7 @@ $colors: (
 
   @if ($mapped-color) {
     @return var(--color-#{$name});
-  }
-
-  @else {
+  } @else {
     @error "#{$name} color does not exist";
   }
 }
@@ -35,11 +59,4 @@ $colors: (
 
   @return $map;
 }
-
-$colors: map-merge($map1: $colors, $map2: get-shades("main", $main));
-
-:root {
-  @each $color-name, $color in $colors {
-    --color-#{$color-name}: #{$color};
-  }
-}
+$colors: map-merge($colors, get-shades("main", $main));

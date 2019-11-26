@@ -1,0 +1,67 @@
+@import "~@styleguide_funcional";
+
+$prefix: ".contact-links";
+
+#{$prefix} {
+  margin-top: px-to-rem(40);
+
+  &__icon {
+    font-size: px-to-rem(60);
+  }
+
+  &__text-container {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__text {
+    color: transparent;
+
+    @include transition("color");
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    padding: px-to-rem(5);
+    position: relative;
+
+    @include transition(("color", "background-color"));
+
+    &::before {
+      bottom: 0;
+      content: "";
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      width: 100%;
+      z-index: -1;
+
+      @include transition("transform");
+    }
+
+    @each $name, $color in $brand-colors {
+      &--#{$name} {
+        /* stylelint-disable */
+        &::before {
+          background-color: map-get($map: $brand-color-shades, $key: "#{$name}-light");
+        }
+
+        &:hover {
+          color: $color;
+
+          #{$prefix}__text {
+            color: $color;
+          }
+
+          &::before {
+            transform: scaleX(1);
+          }
+        }
+        /* stylelint-enable */
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LayoutModule } from '@babdev/layout';
 import { TranslateModule } from '@babdev/translate';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ContactsPageComponent } from './components/contacts-page/contacts-page.component';
 
@@ -9,6 +11,8 @@ import { ContactsPageComponent } from './components/contacts-page/contacts-page.
   declarations: [ContactsPageComponent],
   imports: [
     CommonModule,
+    FontAwesomeModule,
+    LayoutModule,
     RouterModule.forChild([
       {
         path: '',

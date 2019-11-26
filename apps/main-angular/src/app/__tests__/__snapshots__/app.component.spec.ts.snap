@@ -20,11 +20,6 @@ exports[`AppComponent should match the snapshot 1`] = `
       class="page"
       pagecontent=""
     >
-      <header
-        class="ng-tns-c1-0"
-      >
-         header 
-      </header>
       <main
         class="page__content"
       >

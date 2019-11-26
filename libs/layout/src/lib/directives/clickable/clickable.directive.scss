@@ -1,0 +1,11 @@
+@import "~@styleguide_funcional";
+
+.babclickable {
+  & > * {
+    display: inline-block;
+
+    & + * {
+      margin-left: px-to-rem(8);
+    }
+  }
+}
