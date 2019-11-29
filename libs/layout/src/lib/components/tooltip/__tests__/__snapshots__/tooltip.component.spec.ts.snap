@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipComponent should match snapshot 1`] = `
+<babdev-tooltip
+  status={[Function String]}
+  tooltip={[Function MatTooltip]}
+>
+  <div />
+</babdev-tooltip>
+`;

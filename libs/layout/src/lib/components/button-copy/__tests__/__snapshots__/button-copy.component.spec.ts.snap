@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonCopyComponent should match snapshot 1`] = `
+<babdev-button-copy
+  button={[Function HTMLElementMock]}
+  icon={[Function Object]}
+>
+  <button
+    babdevcopy=""
+  >
+    <fa-icon />
+  </button>
+</babdev-button-copy>
+`;

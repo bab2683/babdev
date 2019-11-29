@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageWithBgComponent should match snapshot 1`] = `
+<babdev-page-with-bg
+  assetsPath={[Function String]}
+  bgPath={[Function String]}
+  bgPositionX={[Function String]}
+  bgPositionY="0"
+  format={[Function String]}
+  isMobile="false"
+  path={[Function String]}
+  positionX={[Function String]}
+  positionY={[Function String]}
+>
+  <div
+    class="content"
+  /><div
+    class="bg"
+    ng-reflect-ng-style="[object Object]"
+    style="background-image: url(/assets/my_image_path.jpg); background-position-x: center; background-position-y: 0%;"
+  />
+</babdev-page-with-bg>
+`;
+
+exports[`PageWithBgComponent should match snapshot 2`] = `
+<babdev-page-with-bg
+  assetsPath={[Function String]}
+  bgPath={[Function String]}
+  bgPositionX={[Function Number]}
+  bgPositionY={[Function String]}
+  format={[Function String]}
+  isMobile="false"
+  path={[Function String]}
+  positionX={[Function String]}
+  positionY={[Function String]}
+>
+  <div
+    class="content"
+  /><div
+    class="bg"
+    ng-reflect-ng-style="[object Object]"
+    style="background-image: url(/assets/my_image_path.jpg); background-position-x: 10%; background-position-y: top;"
+  />
+</babdev-page-with-bg>
+`;
+
+exports[`PageWithBgComponent should match snapshot 3`] = `
+<babdev-page-with-bg
+  assetsPath={[Function String]}
+  bgPositionX={[Function String]}
+  bgPositionY="0"
+  format={[Function String]}
+  isMobile={[Function Boolean]}
+  path={[Function String]}
+  positionX={[Function String]}
+  positionY={[Function String]}
+>
+  <div
+    class="content"
+  />
+</babdev-page-with-bg>
+`;

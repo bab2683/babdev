@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonMailComponent should match snapshot 1`] = `
+<babdev-button-mail
+  icon={[Function Object]}
+>
+  <a
+    href="mailto:"
+  >
+    <fa-icon />
+  </a>
+</babdev-button-mail>
+`;

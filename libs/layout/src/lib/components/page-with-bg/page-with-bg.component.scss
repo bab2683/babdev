@@ -1,0 +1,16 @@
+@import "~@styleguide_funcional";
+
+:host {
+  display: flex;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: var(--baddev-content-padding);
+}
+
+.bg {
+  background-size: cover;
+  min-width: px-to-rem(300);
+}

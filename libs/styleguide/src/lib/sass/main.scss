@@ -1,5 +1,9 @@
-@import "functions";
-@import "colors";
-@import "media";
-@import "mixins";
+@import "functional";
 @import "anchors";
+@import "typography";
+
+:root {
+  @each $color-name, $color in $colors {
+    --color-#{$color-name}: #{$color};
+  }
+}

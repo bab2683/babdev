@@ -17,7 +17,14 @@ module.exports = config => {
     })
   );
 
-  config.resolve.alias['@styleguide'] = path.join(__dirname, 'libs/styleguide/src/lib/sass/');
+  config.resolve.alias['@styleguide'] = path.join(
+    __dirname,
+    'libs/styleguide/src/lib/sass/main.scss'
+  );
+  config.resolve.alias['@styleguide_funcional'] = path.join(
+    __dirname,
+    'libs/styleguide/src/lib/sass/_functional.scss'
+  );
 
   return config;
 };

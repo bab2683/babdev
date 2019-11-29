@@ -1,3 +1,23 @@
 @function px-to-rem($px) {
   @return #{$px/16}rem;
 }
+
+@function repeat-values($values) {
+  $result: "";
+
+  @each $value in $values {
+    $result: #{$result}, #{$value};
+  }
+
+  @return $result;
+}
+
+@function create-dynamic-list($list, $static) {
+  $result: ();
+
+  @each $value in $list {
+    $result: append($result, "#{$value} #{$static}");
+  }
+
+  @return $result;
+}
