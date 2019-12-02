@@ -4,10 +4,12 @@
     "baseUrl": "../../",
     "types": ["node", "jest"],
     "paths": {
-      "@env/*": ["apps/main-angular/src/environments/*"],
-      "@enums": ["apps/main-angular/src/enums/index.ts"],
-      "@models": ["apps/main-angular/src/models/index.ts"],
       "@constants": ["apps/main-angular/src/constants/index.ts"],
+      "@enums": ["apps/main-angular/src/enums/index.ts"],
+      "@env/*": ["apps/main-angular/src/environments/*"],
+      "@models": ["apps/main-angular/src/models/index.ts"],
+      "@store": ["apps/main-angular/src/app/store/index.ts"],
+
       "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
       "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
       "@babdev/sidebar-testing": ["libs/sidebar/src/testing/index.ts"],

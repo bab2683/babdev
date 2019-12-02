@@ -1,6 +1,6 @@
 import { htmlTag } from './tag.mock';
 
-export class FakeDocument {
+export class DocumentMock {
   eventMap: { [eventName: string]: Function[] } = {};
   mockEventResponse: any = {};
 
