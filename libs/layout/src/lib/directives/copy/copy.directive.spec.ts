@@ -1,11 +1,11 @@
 import { DynamicComponentServiceMock } from '@babdev/layout-testing';
-import { FakeDocument, HTMLElementMock } from '@babdev/testing';
+import { DocumentMock, HTMLElementMock } from '@babdev/testing';
 
 import { CopyDirective } from './copy.directive';
 
 describe('CopyDirective', () => {
   let directive: CopyDirective;
-  let fakeDoc: FakeDocument;
+  let fakeDoc: DocumentMock;
   let serviceMock: DynamicComponentServiceMock;
   let valueToCopy: string;
   const host = new HTMLElementMock();
@@ -18,7 +18,7 @@ describe('CopyDirective', () => {
 
   beforeEach(() => {
     serviceMock = new DynamicComponentServiceMock();
-    fakeDoc = new FakeDocument();
+    fakeDoc = new DocumentMock();
     directive = new CopyDirective(host, fakeDoc, null, serviceMock as any, null);
   });
 

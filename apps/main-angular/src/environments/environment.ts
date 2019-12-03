@@ -16,7 +16,7 @@ export const environment = {
       FIREBASE_MAPS_MESSAGING_ID: '',
       FIREBASE_MAPS_APP_ID: ''
     },
-    ENV_VARS
+    typeof ENV_VARS !== 'undefined' ? ENV_VARS : {}
   )
 };
 /*

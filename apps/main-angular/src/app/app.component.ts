@@ -1,9 +1,12 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent, SidebarStatus } from '@babdev/sidebar';
 import { TranslateService } from '@babdev/translate';
-import { isMobile } from '@babdev/utils';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+import { AppState, getIsMobileState } from '@store';
 
 import { fade } from './pages/route.animations';
 
@@ -13,23 +16,29 @@ import { fade } from './pages/route.animations';
   styleUrls: ['./app.component.scss'],
   animations: [fade]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('sidebar', { static: true }) sidebar: SidebarComponent;
 
-  title = 'main-angular';
-  public isBrowser: boolean;
+  public isMobile$: Observable<boolean>;
   public isMobile: boolean;
+
+  title = 'main-angular';
 
   constructor(
     public translateService: TranslateService,
-    @Inject(PLATFORM_ID) private platformId: string
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-    this.isMobile = isMobile(this.isBrowser);
+    public renderer: Renderer2,
+    private store: Store<AppState>
+  ) {}
 
-    if (this.isBrowser && !this.isMobile) {
-      document.body.classList.add('isDesktop');
-    }
+  public ngOnInit(): void {
+    this.isMobile$ = this.store.pipe(select(getIsMobileState));
+
+    this.isMobile$.pipe(take(1)).subscribe(isMobile => {
+      this.isMobile = isMobile;
+      if (!isMobile) {
+        this.renderer.addClass(document.body, 'isDesktop');
+      }
+    });
   }
 
   public prepareRoute(outlet: RouterOutlet) {

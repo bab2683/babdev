@@ -17,7 +17,7 @@
   </div>
 </babdev-sidebar> -->
 
-<babdev-sidebar #sidebar [openedAtInit]="true" [withTouch]="true">
+<babdev-sidebar #sidebar [openedAtInit]="!isMobile" [withTouch]="isMobile">
   <ng-container sidebarContent>
     <babdev-page-list></babdev-page-list>
   </ng-container>
