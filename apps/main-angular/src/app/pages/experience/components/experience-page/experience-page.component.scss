@@ -1,0 +1,48 @@
+@import "~@styleguide_funcional";
+
+.experience {
+  margin-top: px-to-rem(20);
+}
+
+.card {
+  & + & {
+    margin-top: px-to-rem(10);
+  }
+
+  &__company {
+    margin-top: px-to-rem(5);
+  }
+
+  &__period {
+    margin-top: px-to-rem(5);
+  }
+
+  &__zones {
+    margin-top: px-to-rem(10);
+  }
+
+  &__main {
+    padding-right: px-to-rem(16);
+  }
+
+  &__extra {
+    margin-top: px-to-rem(10);
+  }
+}
+
+:host-context(.isDesktop) {
+  .card {
+    &__zones {
+      display: flex;
+    }
+
+    &__main {
+      width: 70%;
+    }
+
+    &__extra {
+      margin-top: 0;
+      width: 30%;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "name": "Braulio Barahona",
+  "title": "Front-end Developer",
+  "description:": "",
+  "languages": ["en", "it", "es"],
+  "sections": {
+    "experiences": {
+      "title": "experience.TITLE",
+      "items": [
+        {
+          "title": "Front-end Developer",
+          "company": "Ryanair Labs",
+          "dates": {
+            "start": "2019/04/16",
+            "end": null
+          },
+          "description": "experience.RY.DESC",
+          "tasks": [],
+          "technologies": [
+            "Javascript",
+            "HTML 5",
+            "CSS3",
+            "SASS",
+            "NG",
+            "REDUX",
+            "JEST",
+            "NODE",
+            "AWSP",
+            "BOX",
+            "NR",
+            "STORY",
+            "GIT"
+          ]
+        },
+        {
+          "title": "Front-end Developer",
+          "company": "NTT Data",
+          "dates": {
+            "start": "2018/07/16",
+            "end": "2019/04/12"
+          },
+          "description": "experience.NTT.DESC",
+          "tasks": [
+            "experience.NTT.TASKS.NG",
+            "experience.NTT.TASKS.TUTORING",
+            "experience.NTT.TASKS.REACT",
+            "experience.NTT.TASKS.THIRD",
+            "experience.NTT.TASKS.RESEARCH"
+          ],
+          "technologies": [
+            "Javascript",
+            "HTML 5",
+            "CSS3",
+            "SASS",
+            "NG",
+            "NODE",
+            "REACT",
+            "REDUX",
+            "GIT"
+          ]
+        },
+        {
+          "title": "Full-stack Developer",
+          "company": "Sparkling 18",
+          "dates": {
+            "start": "2017/11/20",
+            "end": "2018/07/13"
+          },
+          "description": "experience.RY.DESC",
+          "tasks": [],
+          "technologies": [
+            "Javascript",
+            "HTML 5",
+            "CSS3",
+            "SASS",
+            "NG",
+            "FIREBASE",
+            "FIRESTORE",
+            "GMAPS",
+            "NODE",
+            "EX",
+            "MONGO",
+            "GIT"
+          ]
+        },
+        {
+          "title": "Front-end Developer",
+          "company": "Y&R Group Italia - People Lab Srl",
+          "dates": {
+            "start": "2015/05/01",
+            "end": "2017/11/17"
+          },
+          "description": "experience.RY.DESC",
+          "tasks": [],
+          "technologies": ["Javascript", "HTML 5", "CSS3", "JQUERY", "GULP", "YOUTUBE", "GEXT"]
+        },
+        {
+          "title": "Web Developer",
+          "company": "Just For You srl",
+          "dates": {
+            "start": "2014/01/06",
+            "end": "2015/04/30"
+          },
+          "description": "experience.RY.DESC",
+          "tasks": [],
+          "technologies": ["HTML 5", "CSS3", "PHP", "SQL", "Javascript", "JQUERY", "WP"]
+        }
+      ]
+    },
+    "skills": {
+      "title": "skills.TITLE",
+      "items": [
+        {
+          "title": "skills.SECTIONS.LANGUAGES",
+          "items": ["html", "css", "javascript", "php"]
+        },
+        {
+          "title": "skills.SECTIONS.FRAMEWORKS-LIBRARIES",
+          "items": [
+            { "name": "Angular(v8)", "url": "" },
+            { "name": "React.js", "url": "" },
+            { "name": "Node.js", "url": "" },
+            { "name": "Express.js", "url": "" },
+            { "name": "Redux", "url": "" },
+            { "name": "jQuery", "url": "" }
+          ]
+        },
+        {
+          "title": "skills.SECTIONS.DB",
+          "items": [
+            { "name": "MongoDB", "url": "" },
+            { "name": "SQL", "url": "" },
+            { "name": "Google FireStore", "url": "" }
+          ]
+        },
+        {
+          "title": "skills.SECTIONS.TOOLS",
+          "items": [
+            { "name": "Sass", "url": "" },
+            { "name": "Gulp", "url": "" },
+            { "name": "Typescript", "url": "" }
+          ]
+        },
+        {
+          "title": "common.OTHERS",
+          "items": [
+            { "name": "Git", "url": "" },
+            { "name": "Regular expressions", "url": "" },
+            { "name": "Google Firebase", "url": "" },
+            { "name": "Google maps API", "url": "" },
+            { "name": "Youtube API", "url": "" },
+            { "name": "HTML5 Canvas", "url": "" },
+            { "name": "Google Chrome Extensions", "url": "" }
+          ]
+        }
+      ]
+    }
+  }
+}

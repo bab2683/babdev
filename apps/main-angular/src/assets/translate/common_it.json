@@ -1,7 +1,8 @@
 {
   "PAGES": {
     "HOME": "Home",
-    "CONTACTS": "Contatti"
+    "CONTACTS": "Contatti",
+    "EXPERIENCE": "Esperienze"
   },
   "TIME": {
     "YEAR": {
@@ -15,7 +16,10 @@
     "DAY": {
       "SINGLE": "giorno",
       "MULTIPLE": "giorni"
-    }
+    },
+    "PRESET": "Corrente"
   },
-  "COPIED_TO_CLIPBOARD": "Copiato"
+  "COPIED_TO_CLIPBOARD": "Copiato",
+  "OTHERS": "Altri",
+  "TECHNOLOGIES": "Tecnologie"
 }

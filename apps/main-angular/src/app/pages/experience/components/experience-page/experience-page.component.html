@@ -1,0 +1,72 @@
+<babdev-page-with-bg [bgPath]="bgPath">
+  <h1>
+    {{ 'experience.TITLE' | translate | async }}
+  </h1>
+  <div class="experience" *ngIf="CV$ | async as CV">
+    <babdev-card class="card" *ngFor="let exp of CV.sections.experiences.items">
+      <h2>
+        {{ exp.title }}
+      </h2>
+      <h3 class="card__company">
+        {{ exp.company }}
+      </h3>
+      <h4 class="card__period">
+        {{ exp.dates.start | date: 'LLL yyyy' }} -
+        {{
+          exp.current
+            ? ('common.TIME.PRESENT' | translate | async)
+            : (exp.dates.end | date: 'LLL yyyy')
+        }}
+        ({{
+          exp.duration.years
+            ? exp.duration.years +
+              ' ' +
+              ((exp.duration.years > 1 ? 'common.TIME.YEAR.MULTIPLE' : 'common.TIME.YEAR.SINGLE')
+                | translate
+                | async) +
+              ' '
+            : ''
+        }}{{
+          exp.duration.months
+            ? exp.duration.months +
+              ' ' +
+              ((exp.duration.months > 1
+                ? 'common.TIME.MONTH.MULTIPLE'
+                : 'common.TIME.MONTH.SINGLE')
+                | translate
+                | async)
+            : ''
+        }})
+      </h4>
+      <div class="card__zones">
+        <div class="card__main">
+          <p>{{ exp.description | translate | async }}</p>
+          <ul>
+            <li *ngFor="let task of exp.tasks">
+              {{ task | translate | async }}
+            </li>
+          </ul>
+        </div>
+        <div class="card__extra" *ngIf="exp.technologies.length">
+          <p>
+            <strong>{{ 'common.TECHNOLOGIES' | translate | async }}:</strong>
+          </p>
+          <ul>
+            <li *ngFor="let tech of exp.technologies">
+              <a
+                class="link-effect-1"
+                [href]="technologies[tech].link"
+                *ngIf="technologies && technologies[tech]; else simpleText"
+              >
+                {{ technologies[tech].name }}
+              </a>
+              <ng-template #simpleText>
+                {{ tech }}
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </babdev-card>
+  </div>
+</babdev-page-with-bg>

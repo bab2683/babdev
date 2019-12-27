@@ -28,6 +28,16 @@ exports[`PageListComponent should match snapshot 1`] = `
         common.PAGES.CONTACTS
       </a>
     </li>
+    <li
+      class="page-list__item"
+    >
+      <a
+        class="page-list__link link-effect-1"
+        ng-reflect-link-params="experience"
+      >
+        common.PAGES.EXPERIENCE
+      </a>
+    </li>
   </ul>
 </babdev-page-list>
 `;

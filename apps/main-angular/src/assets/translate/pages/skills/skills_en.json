@@ -1,0 +1,9 @@
+{
+  "TITLE": "Skills",
+  "SECTIONS": {
+    "LANGUAGES": "Coding Languages",
+    "FRAMEWORKS-LIBRARIES": "Framework & Libraries",
+    "DB": "Databases",
+    "TOOLS": "Preprocessors & Toolkits"
+  }
+}
