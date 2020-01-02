@@ -1,6 +1,5 @@
-import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 
 import { Parser, Tester } from '../request.model';
 import { RequestService } from '../request.service';
@@ -37,8 +36,8 @@ describe('RequestService', () => {
       httpMock.get.mockReturnValueOnce(of([1, 2, 3]));
       const parser: Parser = value => value * 2;
 
-      service.get({ url: testUrl, parser }).subscribe(result => {
-        expect(result).toEqual([2, 4, 6]);
+      service.get({ url: testUrl, parser }).subscribe(({ data }) => {
+        expect(data).toEqual([2, 4, 6]);
       });
     });
 
@@ -46,8 +45,8 @@ describe('RequestService', () => {
       httpMock.get.mockReturnValueOnce(of(3));
       const tester: Tester = value => value % 2 === 0;
 
-      service.get({ url: testUrl, tester }).subscribe(result => {
-        expect(result).toEqual(null);
+      service.get({ url: testUrl, tester }).subscribe(({ data }) => {
+        expect(data).toEqual(null);
       });
     });
 
@@ -55,9 +54,27 @@ describe('RequestService', () => {
       httpMock.get.mockReturnValueOnce(of(2));
       const tester: Tester = value => value % 2 === 0;
 
-      service.get({ url: testUrl, tester }).subscribe(result => {
-        expect(result).toEqual(2);
+      service.get({ url: testUrl, tester }).subscribe(({ data }) => {
+        expect(data).toEqual(2);
       });
+    });
+
+    it('should return the cached value when cache is set to true', () => {
+      httpMock.get.mockReturnValueOnce(of('my cache test'));
+
+      service
+        .get({ url: testUrl, cache: true })
+        .pipe(take(1))
+        .subscribe(() => {
+          expect(httpMock.get).toHaveBeenCalled();
+        });
+
+      service
+        .get({ url: testUrl, cache: true })
+        .pipe(take(1))
+        .subscribe(() => {
+          expect(httpMock.get).not.toHaveBeenCalled();
+        });
     });
 
     it('should return an error', () => {
@@ -71,8 +88,8 @@ describe('RequestService', () => {
         )
       );
 
-      service.get({ url: testUrl }).subscribe(result => {
-        expect(result).toEqual({ status: 409 });
+      service.get({ url: testUrl }).subscribe(({ err }) => {
+        expect(err).toEqual({ status: 409 });
       });
     });
   });

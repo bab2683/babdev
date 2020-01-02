@@ -99,7 +99,7 @@ export class TranslateService {
     this.dictionaries[name].location = location;
     return this.req.get<any>({ url: this.generateUrl(location, name, language) }).pipe(
       take(1),
-      tap(data => {
+      tap(({ data }) => {
         this.dictionaries[name][language].loaded = true;
         this.dictionaries[name][language].values = data;
       })

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperiencePageComponent should match snapshot 1`] = `
+<babdev-experience-page
+  bgPath={[Function String]}
+  dictionary={[Function Object]}
+  req={[Function RequestServiceMock]}
+  translateService={[Function TranslateServiceMock]}
+>
+  <babdev-page-with-bg>
+    <h1>
+       
+    </h1>
+    
+  </babdev-page-with-bg>
+</babdev-experience-page>
+`;

@@ -1,0 +1,94 @@
+{
+  "NG": {
+    "link": "",
+    "name": "Angular (v4...)"
+  },
+  "REACT": {
+    "link": "",
+    "name": "React.js"
+  },
+  "NODE": {
+    "link": "",
+    "name": "Node.js"
+  },
+  "EX": {
+    "link": "",
+    "name": "Express.js"
+  },
+  "REDUX": {
+    "link": "",
+    "name": "Redux"
+  },
+  "JQUERY": {
+    "link": "",
+    "name": "jQuery"
+  },
+  "MONGO": {
+    "link": "",
+    "name": "MongoDB"
+  },
+  "WP": {
+    "link": "",
+    "name": "Wordpress"
+  },
+  "FIRESTORE": {
+    "link": "",
+    "name": "Google FireStore"
+  },
+  "SASS": {
+    "link": "",
+    "name": "Sass"
+  },
+  "GULP": {
+    "link": "",
+    "name": "Gulp"
+  },
+  "GIT": {
+    "link": "",
+    "name": "Git"
+  },
+  "REGEX": {
+    "link": "",
+    "name": "Regular expressions"
+  },
+  "FIREBASE": {
+    "link": "",
+    "name": "Google Firebase"
+  },
+  "GMAPS": {
+    "link": "",
+    "name": "Google maps API"
+  },
+  "YOUTUBE": {
+    "link": "",
+    "name": "Youtube API"
+  },
+  "CANVAS": {
+    "link": "",
+    "name": "HTML5 Canvas"
+  },
+  "GEXT": {
+    "link": "",
+    "name": "Google Chrome Extensions"
+  },
+  "JEST": {
+    "link": "",
+    "name": "Jest.js"
+  },
+  "AWSP": {
+    "link": "",
+    "name": "AWS Pipelines"
+  },
+  "BOX": {
+    "link": "",
+    "name": "Boxever"
+  },
+  "NR": {
+    "link": "",
+    "name": "Newrelic"
+  },
+  "STORY": {
+    "link": "",
+    "name": "Storybook"
+  }
+}

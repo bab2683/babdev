@@ -1,0 +1,16 @@
+{
+  "TITLE": "Esperienze lavorative",
+  "RY": {
+    "DESC": "Some RY stuff"
+  },
+  "NTT": {
+    "DESC": "Some NTT stuff",
+    "TASKS": {
+      "NG": "Development of frontend interfaces with Angular V5",
+      "TUTORING": "Tutoring junior developers",
+      "REACT": "Development of frontend interfaces with React.js",
+      "THIRD": "Development of integration plugins for third-party services",
+      "RESEARCH": "Research and development aimed at upgrading software solutions"
+    }
+  }
+}

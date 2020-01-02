@@ -1,7 +1,8 @@
 {
   "PAGES": {
     "HOME": "Home",
-    "CONTACTS": "Contacts"
+    "CONTACTS": "Contacts",
+    "EXPERIENCE": "Experience"
   },
   "TIME": {
     "YEAR": {
@@ -15,7 +16,10 @@
     "DAY": {
       "SINGLE": "day",
       "MULTIPLE": "days"
-    }
+    },
+    "PRESENT": "Present"
   },
-  "COPIED_TO_CLIPBOARD": "Copied to cliboard"
+  "COPIED_TO_CLIPBOARD": "Copied to cliboard",
+  "OTHERS": "Others",
+  "TECHNOLOGIES": "Technologies"
 }
