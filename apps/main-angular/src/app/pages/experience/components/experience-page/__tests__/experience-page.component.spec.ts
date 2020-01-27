@@ -4,14 +4,19 @@ import { RequestService } from '@babdev/request';
 import { RequestServiceMock } from '@babdev/request-testing';
 import { TranslateService } from '@babdev/translate';
 import { TranslatePipeMock, TranslateServiceMock } from '@babdev/translate-testing';
+import { Store } from '@ngrx/store';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
 
-import { ExperiencePageComponent } from './experience-page.component';
+import { AppState, GLOBAL_FEATURE } from '@store';
+
+import { ExperiencePageComponent } from '../experience-page.component';
 
 describe('ExperiencePageComponent', () => {
   let component: ExperiencePageComponent;
   let fixture: ComponentFixture<ExperiencePageComponent>;
   let reqService: any;
+  let store: MockStore<AppState>;
 
   beforeEach(() => {
     reqService = new RequestServiceMock();
@@ -26,7 +31,8 @@ describe('ExperiencePageComponent', () => {
         {
           provide: RequestService,
           useValue: reqService
-        }
+        },
+        provideMockStore({ initialState: { [GLOBAL_FEATURE]: { isMobile: false } } })
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
@@ -36,6 +42,8 @@ describe('ExperiencePageComponent', () => {
     fixture = TestBed.createComponent(ExperiencePageComponent);
     component = fixture.componentInstance;
     reqService = TestBed.get(RequestService);
+    store = TestBed.get<Store<AppState>>(Store);
+    store.overrideSelector('getIsMobileState', true);
   });
 
   it('should create', () => {

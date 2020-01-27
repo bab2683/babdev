@@ -9,6 +9,7 @@
       "@env/*": ["apps/main-angular/src/environments/*"],
       "@models": ["apps/main-angular/src/models/index.ts"],
       "@store": ["apps/main-angular/src/app/store/index.ts"],
+      "@utils": ["apps/main-angular/src/utils/index.ts"],
 
       "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
       "@babdev/sidebar": ["libs/sidebar/src/index.ts"],

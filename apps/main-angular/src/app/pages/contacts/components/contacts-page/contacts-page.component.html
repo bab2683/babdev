@@ -1,8 +1,9 @@
-<babdev-page-with-bg [bgPath]="bgPath" [bgPositionY]="bgPositionY">
-  <h1>
-    {{ 'contacts.TITLE' | translate | async }}
-  </h1>
-
+<babdev-page-with-bg
+  [bgPath]="bgPath"
+  [bgPositionY]="bgPositionY"
+  [isMobile]="isMobile$ | async"
+  [title]="'contacts.TITLE' | translate | async"
+>
   <ul class="contact-links">
     <li
       class="contact-links__item contact-links__item--{{ link.id }}"

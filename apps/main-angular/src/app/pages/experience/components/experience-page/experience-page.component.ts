@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { RequestService } from '@babdev/request';
 import { DictionaryLoader, TranslateService } from '@babdev/translate';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 import { averageDaysPerMonth, daysFromMS } from '@constants';
 import { CV, Duration, Technologies } from '@models';
+import { AppState, getIsMobileState } from '@store';
+import { parseCVDates } from '@utils';
 
 @Component({
   selector: 'babdev-experience-page',
@@ -15,12 +18,17 @@ import { CV, Duration, Technologies } from '@models';
 })
 export class ExperiencePageComponent implements OnInit {
   public CV$: Observable<CV>;
+  public isMobile$: Observable<boolean>;
   public technologies: Technologies;
 
   public bgPath: string = 'bg/experience';
   private dictionary: DictionaryLoader = { location: '/pages/experience/', name: 'experience' };
 
-  constructor(private translateService: TranslateService, private req: RequestService) {}
+  constructor(
+    private translateService: TranslateService,
+    private req: RequestService,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit() {
     this.translateService.loadDictionary(this.dictionary);
@@ -36,39 +44,11 @@ export class ExperiencePageComponent implements OnInit {
         url: 'assets/data/cv.json'
       })
       .pipe(
+        take(1),
         map(({ data }) => data),
-        map<CV, CV>(result => {
-          result.sections.experiences.items.forEach(exp => {
-            exp.dates.start = new Date(exp.dates.start);
-            if (exp.dates.end) {
-              exp.current = false;
-              exp.dates.end = new Date(exp.dates.end);
-            } else {
-              exp.current = true;
-              exp.dates.end = new Date();
-            }
-            exp.duration = this.calculateDuration(exp.dates.start, exp.dates.end);
-          });
-          return result;
-        })
+        map<CV, CV>(parseCVDates)
       );
-  }
 
-  private calculateDuration(start: Date, end: Date): Duration {
-    const days: number = Math.floor((end.getTime() - start.getTime()) / daysFromMS);
-
-    if (days > 365) {
-      const years: number = Math.floor(days / 365);
-
-      return {
-        months: Math.floor((days - years * 365) / averageDaysPerMonth),
-        years
-      };
-    } else {
-      return {
-        months: Math.floor(days / averageDaysPerMonth),
-        years: null
-      };
-    }
+    this.isMobile$ = this.store.pipe(select(getIsMobileState));
   }
 }

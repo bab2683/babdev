@@ -13,8 +13,24 @@ exports[`PageWithBgComponent should match snapshot 1`] = `
   positionY={[Function String]}
 >
   <div
-    class="content"
-  /><div
+    class="page-with-bg"
+  >
+    <div
+      class="title-container"
+      ng-reflect-klass="title-container"
+      ng-reflect-ng-class="[object Object]"
+    >
+      
+      <h1
+        class="title-container__title"
+      >
+          
+      </h1>
+    </div>
+    <div
+      class="content"
+    />
+  </div><div
     class="bg"
     ng-reflect-ng-style="[object Object]"
     style="background-image: url(/assets/my_image_path.jpg); background-position-x: center; background-position-y: 0%;"
@@ -35,8 +51,24 @@ exports[`PageWithBgComponent should match snapshot 2`] = `
   positionY={[Function String]}
 >
   <div
-    class="content"
-  /><div
+    class="page-with-bg"
+  >
+    <div
+      class="title-container"
+      ng-reflect-klass="title-container"
+      ng-reflect-ng-class="[object Object]"
+    >
+      
+      <h1
+        class="title-container__title"
+      >
+          
+      </h1>
+    </div>
+    <div
+      class="content"
+    />
+  </div><div
     class="bg"
     ng-reflect-ng-style="[object Object]"
     style="background-image: url(/assets/my_image_path.jpg); background-position-x: 10%; background-position-y: top;"
@@ -56,7 +88,23 @@ exports[`PageWithBgComponent should match snapshot 3`] = `
   positionY={[Function String]}
 >
   <div
-    class="content"
-  />
+    class="page-with-bg"
+  >
+    <div
+      class="title-container title-container--mobile"
+      ng-reflect-klass="title-container"
+      ng-reflect-ng-class="[object Object]"
+    >
+      
+      <h1
+        class="title-container__title"
+      >
+          
+      </h1>
+    </div>
+    <div
+      class="content"
+    />
+  </div>
 </babdev-page-with-bg>
 `;
