@@ -1,13 +1,13 @@
-#Main (Angular version)
+# Main (Angular version)
 
 Personal website that will include all the other projects
 
-##TODOs
+## TODOs
 
-###Pages
+### Pages
 
 - Home
-- Experience
+- ~~Experience~~
 - Skills
 - Sandbox
   - **Sub pages**
@@ -28,22 +28,21 @@ Personal website that will include all the other projects
   - **Libs**
     - code renderer (to be used in _Blog_ as well)
 
-###Animation
+### Animation
 
 - Color change (expanding animation)
 
-###Components
+### Components
 
 - Language change
 - footer
 - CV generator
 
-###General
+### General
 
 - favicon
 - logo
 - e2e
 - automated publication
 - git flow
-- translate pipe params
 - remove translate from layout module

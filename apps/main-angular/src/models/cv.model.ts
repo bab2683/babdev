@@ -26,8 +26,8 @@ export interface ExperienceItem {
   company: string;
   current?: boolean;
   dates: {
-    end: Date;
-    start: Date;
+    end: Date | string;
+    start: Date | string;
   };
   description: string;
   duration?: Duration;

@@ -6,6 +6,7 @@ exports[`AppComponent should match the snapshot 1`] = `
   isMobile$={[Function Store]}
   renderer={[Function DebugRenderer2]}
   sidebar={[Function ElementRef]}
+  sidebarMode={[Function String]}
   store={[Function MockStore]}
   title={[Function String]}
   translateService={[Function TranslateServiceMock]}

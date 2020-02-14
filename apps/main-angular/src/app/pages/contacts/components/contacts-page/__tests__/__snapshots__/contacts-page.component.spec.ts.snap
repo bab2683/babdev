@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactsPageComponent should match snapshot 1`] = `
+<babdev-contacts-page
+  actions={[Function Object]}
+  bgPath={[Function String]}
+  bgPositionY={[Function String]}
+  dictionary={[Function Object]}
+  isMobile$={[Function Store]}
+  itemType={[Function Object]}
+  links={[Function Array]}
+  store={[Function MockStore]}
+  translateService={[Function TranslateServiceMock]}
+>
+  <babdev-page-with-bg
+    title="contacts.TITLE"
+  >
+    <ul
+      class="contact-links"
+    >
+      
+      <li
+        class="contact-links__item contact-links__item--ln"
+        ng-reflect-ng-switch="url"
+      >
+        
+        <fa-icon
+          class="contact-links__icon"
+        />
+        <div
+          class="contact-links__text-container"
+        >
+          <span
+            babdevclickable=""
+            class="contact-links__text"
+          >
+            linkedin.com/in/bab2683-braulio-barahona/
+          </span>
+        </div>
+      </li>
+      <li
+        class="contact-links__item contact-links__item--gh"
+        ng-reflect-ng-switch="url"
+      >
+        
+        <fa-icon
+          class="contact-links__icon"
+        />
+        <div
+          class="contact-links__text-container"
+        >
+          <span
+            babdevclickable=""
+            class="contact-links__text"
+          >
+            github.com/bab2683
+          </span>
+        </div>
+      </li>
+      <li
+        class="contact-links__item contact-links__item--fb"
+        ng-reflect-ng-switch="url"
+      >
+        
+        <fa-icon
+          class="contact-links__icon"
+        />
+        <div
+          class="contact-links__text-container"
+        >
+          <span
+            babdevclickable=""
+            class="contact-links__text"
+          >
+            facebook.com/bab2683
+          </span>
+        </div>
+      </li>
+      <li
+        class="contact-links__item contact-links__item--gm"
+        ng-reflect-ng-switch="mail"
+      >
+        
+        <fa-icon
+          class="contact-links__icon"
+        />
+        <div
+          class="contact-links__text-container"
+        >
+          <span
+            babdevclickable=""
+            class="contact-links__text"
+          >
+            barahona.braulio@gmail.com
+          </span>
+        </div>
+      </li>
+      <li
+        class="contact-links__item contact-links__item--sk"
+        ng-reflect-ng-switch="text"
+      >
+        
+        <fa-icon
+          class="contact-links__icon"
+        />
+        <div
+          class="contact-links__text-container"
+        >
+          <span
+            babdevclickable=""
+            class="contact-links__text"
+          >
+            bab2683
+          </span>
+        </div>
+      </li>
+    </ul>
+  </babdev-page-with-bg>
+</babdev-contacts-page>
+`;

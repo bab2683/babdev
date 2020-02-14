@@ -1,7 +1,8 @@
-<babdev-page-with-bg [bgPath]="bgPath">
-  <h1>
-    {{ 'experience.TITLE' | translate | async }}
-  </h1>
+<babdev-page-with-bg
+  [bgPath]="bgPath"
+  [isMobile]="isMobile$ | async"
+  [title]="'experience.TITLE' | translate | async"
+>
   <div class="experience" *ngIf="CV$ | async as CV">
     <babdev-card class="card" *ngFor="let exp of CV.sections.experiences.items">
       <h2>

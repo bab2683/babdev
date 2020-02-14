@@ -17,7 +17,13 @@
   </div>
 </babdev-sidebar> -->
 
-<babdev-sidebar #sidebar [openedAtInit]="!isMobile" [withTouch]="isMobile">
+<babdev-sidebar
+  #sidebar
+  [mode]="sidebarMode"
+  [openedAtInit]="!isMobile"
+  [withOverlay]="isMobile"
+  [withTouch]="isMobile"
+>
   <ng-container sidebarContent>
     <babdev-page-list></babdev-page-list>
   </ng-container>

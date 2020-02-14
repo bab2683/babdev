@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent, SidebarStatus } from '@babdev/sidebar';
+import { SidebarComponent, SidebarMode, SidebarStatus } from '@babdev/sidebar';
 import { TranslateService } from '@babdev/translate';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 
   public isMobile$: Observable<boolean>;
   public isMobile: boolean;
+  public sidebarMode: SidebarMode;
 
   title = 'main-angular';
 
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
 
     this.isMobile$.pipe(take(1)).subscribe(isMobile => {
       this.isMobile = isMobile;
+      this.sidebarMode = isMobile ? SidebarMode.OVER : SidebarMode.SIDE;
       if (!isMobile) {
         this.renderer.addClass(document.body, 'isDesktop');
       }

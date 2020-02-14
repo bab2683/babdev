@@ -14,6 +14,7 @@ export class PageWithBgComponent implements OnInit {
   @Input() public bgPositionX: BackGroundPositionXEnum | number = BackGroundPositionXEnum.CENTER;
   @Input() public bgPositionY: BackGroundPositionYEnum | number = 0;
   @Input() public format: string = 'jpg';
+  @Input() public title: string;
 
   public path: string;
   public positionX: BackGroundPositionXEnum | string;

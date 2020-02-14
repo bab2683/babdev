@@ -1,9 +1,5 @@
 @import "~@styleguide_funcional";
 
-.experience {
-  margin-top: px-to-rem(20);
-}
-
 .card {
   & + & {
     margin-top: px-to-rem(10);
