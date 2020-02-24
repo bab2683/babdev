@@ -8,8 +8,6 @@ exports[`ExperiencePageComponent should match snapshot 1`] = `
   store={[Function MockStore]}
   translateService={[Function TranslateServiceMock]}
 >
-  <babdev-page-with-bg>
-    
-  </babdev-page-with-bg>
+  
 </babdev-experience-page>
 `;

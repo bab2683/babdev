@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkOrTextComponent should match snapshot 1`] = `
+<babdev-link-or-text
+  key={[Function String]}
+  source={[Function Object]}
+>
+  <a
+    class="link-effect-1"
+    href="https://angular.io/"
+    target="_blank"
+  >
+    
+    
+     angular
+  
+  </a>
+</babdev-link-or-text>
+`;
+
+exports[`LinkOrTextComponent should match snapshot 2`] = `
+<babdev-link-or-text
+  key={[Function String]}
+  source={[Function Object]}
+>
+  
+</babdev-link-or-text>
+`;
+
+exports[`LinkOrTextComponent should match snapshot 3`] = `
+<babdev-link-or-text
+  key={[Function String]}
+  source={[Function Object]}
+>
+  
+</babdev-link-or-text>
+`;

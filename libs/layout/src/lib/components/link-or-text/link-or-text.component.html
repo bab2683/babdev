@@ -1,0 +1,17 @@
+<a
+  class="link-effect-1"
+  target="_blank"
+  [href]="source[key].link"
+  *ngIf="source && source[key] && source[key].link; else simpleText"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+  {{ source[key].name }}
+</a>
+<ng-template #simpleText>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+  {{ source[key].name }}
+</ng-template>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

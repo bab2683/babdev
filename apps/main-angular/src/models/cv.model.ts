@@ -1,3 +1,5 @@
+import { Technologies } from '@babdev/layout';
+
 import { Duration } from './time.model';
 
 export interface CV {
@@ -19,7 +21,7 @@ export interface CV {
 
 export interface SkillSection {
   title: string;
-  items: string[] | Array<{ name: string; url: string }>;
+  items: string[] | Technologies;
 }
 
 export interface ExperienceItem {

@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 import { TranslatePipeMock } from '@babdev/translate-testing';
 
-import { TooltipStatus } from '../../../enum';
+import { TooltipStatus } from '../../../enums';
 import { TooltipComponent } from '../tooltip.component';
 
 @Component({

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Technologies } from '@babdev/layout';
 import { RequestService } from '@babdev/request';
 import { DictionaryLoader, TranslateService } from '@babdev/translate';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
-import { averageDaysPerMonth, daysFromMS } from '@constants';
-import { CV, Duration, Technologies } from '@models';
+import { CV } from '@models';
 import { AppState, getIsMobileState } from '@store';
 import { parseCVDates } from '@utils';
 
