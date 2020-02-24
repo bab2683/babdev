@@ -1,26 +1,41 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardComponent } from './card.component';
+import { CardComponent } from '../card.component';
 
 describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<CardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CardComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should match snapshot', () => {
+    component.withHover = true;
+
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
+  });
+
+  it('should match snapshot', () => {
+    component.withHover = false;
+
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
   });
 });

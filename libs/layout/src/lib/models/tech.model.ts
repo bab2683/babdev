@@ -1,7 +1,7 @@
 export interface Technology {
-  icon?: string;
   link: string;
   name: string;
+  iconType: 'fas' | 'fab';
 }
 
 export interface Technologies {

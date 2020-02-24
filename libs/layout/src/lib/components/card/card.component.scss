@@ -1,4 +1,14 @@
+@import "~@angular/material/theming";
+
 :host {
   display: block;
   position: relative;
+
+  &.with-hover {
+    @include mat-elevation-transition;
+
+    &:hover {
+      @include mat-elevation(8);
+    }
+  }
 }

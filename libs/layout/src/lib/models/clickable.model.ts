@@ -1,4 +1,4 @@
-import { ClickableActions } from '../enum';
+import { ClickableActions } from '../enums';
 
 export interface ClickableOptionModel {
   [name: string]: string;

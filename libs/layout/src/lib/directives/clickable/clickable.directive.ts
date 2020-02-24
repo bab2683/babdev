@@ -13,7 +13,7 @@ import {
   ButtonHyperlinkComponent,
   ButtonMailComponent
 } from '../../components';
-import { ClickableActions } from '../../enum';
+import { ClickableActions } from '../../enums';
 import { ClickableActionFormat } from '../../models';
 import { DynamicComponentService } from '../../services';
 

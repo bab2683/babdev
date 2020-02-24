@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackGroundPositionXEnum, BackGroundPositionYEnum } from '../../../enum';
+import { BackGroundPositionXEnum, BackGroundPositionYEnum } from '../../../enums';
 import { PageWithBgComponent } from '../page-with-bg.component';
 
 describe('PageWithBgComponent', () => {

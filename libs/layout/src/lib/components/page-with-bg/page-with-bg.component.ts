@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { BackGroundPositionXEnum, BackGroundPositionYEnum } from '../../enum';
+import { BackGroundPositionXEnum, BackGroundPositionYEnum } from '../../enums';
 
 @Component({
   selector: 'babdev-page-with-bg',

@@ -17,9 +17,9 @@
           "description": "experience.RY.DESC",
           "tasks": [],
           "technologies": [
-            "Javascript",
-            "HTML 5",
-            "CSS3",
+            "JS",
+            "HTML",
+            "CSS",
             "SASS",
             "NG",
             "REDUX",
@@ -47,17 +47,7 @@
             "experience.NTT.TASKS.THIRD",
             "experience.NTT.TASKS.RESEARCH"
           ],
-          "technologies": [
-            "Javascript",
-            "HTML 5",
-            "CSS3",
-            "SASS",
-            "NG",
-            "NODE",
-            "REACT",
-            "REDUX",
-            "GIT"
-          ]
+          "technologies": ["JS", "HTML", "CSS", "SASS", "NG", "NODE", "REACT", "REDUX", "GIT"]
         },
         {
           "title": "Full-stack Developer",
@@ -69,9 +59,9 @@
           "description": "experience.RY.DESC",
           "tasks": [],
           "technologies": [
-            "Javascript",
-            "HTML 5",
-            "CSS3",
+            "JS",
+            "HTML",
+            "CSS",
             "SASS",
             "NG",
             "FIREBASE",
@@ -92,7 +82,7 @@
           },
           "description": "experience.RY.DESC",
           "tasks": [],
-          "technologies": ["Javascript", "HTML 5", "CSS3", "JQUERY", "GULP", "YOUTUBE", "GEXT"]
+          "technologies": ["JS", "HTML", "CSS", "JQUERY", "GULP", "YOUTUBE", "GEXT"]
         },
         {
           "title": "Web Developer",
@@ -103,7 +93,7 @@
           },
           "description": "experience.RY.DESC",
           "tasks": [],
-          "technologies": ["HTML 5", "CSS3", "PHP", "SQL", "Javascript", "JQUERY", "WP"]
+          "technologies": ["HTML", "CSS", "PHP", "SQL", "JS", "JQUERY", "WP"]
         }
       ]
     },
@@ -112,46 +102,23 @@
       "items": [
         {
           "title": "skills.SECTIONS.LANGUAGES",
-          "items": ["html", "css", "javascript", "php"]
+          "items": ["HTML", "CSS", "JS", "PHP"]
         },
         {
           "title": "skills.SECTIONS.FRAMEWORKS-LIBRARIES",
-          "items": [
-            { "name": "Angular(v8)", "url": "" },
-            { "name": "React.js", "url": "" },
-            { "name": "Node.js", "url": "" },
-            { "name": "Express.js", "url": "" },
-            { "name": "Redux", "url": "" },
-            { "name": "jQuery", "url": "" }
-          ]
+          "items": ["NG", "REACT", "REDUX", "NODE", "EX", "JQUERY"]
         },
         {
           "title": "skills.SECTIONS.DB",
-          "items": [
-            { "name": "MongoDB", "url": "" },
-            { "name": "SQL", "url": "" },
-            { "name": "Google FireStore", "url": "" }
-          ]
+          "items": ["MONGO", "SQL", "FIRESTORE"]
         },
         {
           "title": "skills.SECTIONS.TOOLS",
-          "items": [
-            { "name": "Sass", "url": "" },
-            { "name": "Gulp", "url": "" },
-            { "name": "Typescript", "url": "" }
-          ]
+          "items": ["SASS", "GULP", "TYPE"]
         },
         {
           "title": "common.OTHERS",
-          "items": [
-            { "name": "Git", "url": "" },
-            { "name": "Regular expressions", "url": "" },
-            { "name": "Google Firebase", "url": "" },
-            { "name": "Google maps API", "url": "" },
-            { "name": "Youtube API", "url": "" },
-            { "name": "HTML5 Canvas", "url": "" },
-            { "name": "Google Chrome Extensions", "url": "" }
-          ]
+          "items": ["GIT", "REGEX", "FIREBASE", "GMAPS", "YOUTUBE", "CANVAS", "GEXT"]
         }
       ]
     }

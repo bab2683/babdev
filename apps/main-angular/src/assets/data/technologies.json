@@ -1,94 +1,142 @@
 {
-  "NG": {
+  "JS": {
     "link": "",
-    "name": "Angular (v4...)"
+    "name": "Javascript"
+  },
+  "HTML": {
+    "link": "",
+    "name": "HTML 5"
+  },
+  "CSS": {
+    "link": "",
+    "name": "CSS 3"
+  },
+  "PHP": {
+    "link": "",
+    "name": "PHP"
+  },
+  "SQL": {
+    "link": "",
+    "name": "SQL"
+  },
+  "NG": {
+    "link": "https://angular.io/",
+    "name": "Angular (v4...)",
+    "iconType": "fab"
+  },
+  "TYPE": {
+    "link": "",
+    "name": "Typescript",
+    "iconType": ""
   },
   "REACT": {
     "link": "",
-    "name": "React.js"
+    "name": "React.js",
+    "iconType": "fab"
   },
   "NODE": {
     "link": "",
-    "name": "Node.js"
+    "name": "Node.js",
+    "iconType": "fab"
   },
   "EX": {
     "link": "",
-    "name": "Express.js"
+    "name": "Express.js",
+    "iconType": ""
   },
   "REDUX": {
     "link": "",
-    "name": "Redux"
+    "name": "Redux",
+    "iconType": ""
   },
   "JQUERY": {
     "link": "",
-    "name": "jQuery"
+    "name": "jQuery",
+    "iconType": ""
   },
   "MONGO": {
     "link": "",
-    "name": "MongoDB"
+    "name": "MongoDB",
+    "iconType": ""
   },
   "WP": {
     "link": "",
-    "name": "Wordpress"
+    "name": "Wordpress",
+    "iconType": "fab"
   },
   "FIRESTORE": {
     "link": "",
-    "name": "Google FireStore"
+    "name": "Google FireStore",
+    "iconType": ""
   },
   "SASS": {
     "link": "",
-    "name": "Sass"
+    "name": "Sass",
+    "iconType": "fab"
   },
   "GULP": {
     "link": "",
-    "name": "Gulp"
+    "name": "Gulp",
+    "iconType": "fab"
   },
   "GIT": {
     "link": "",
-    "name": "Git"
+    "name": "Git",
+    "iconType": "fab"
   },
   "REGEX": {
     "link": "",
-    "name": "Regular expressions"
+    "name": "Regular expressions",
+    "iconType": ""
   },
   "FIREBASE": {
     "link": "",
-    "name": "Google Firebase"
+    "name": "Google Firebase",
+    "iconType": ""
   },
   "GMAPS": {
     "link": "",
-    "name": "Google maps API"
+    "name": "Google maps API",
+    "iconType": "fas"
   },
   "YOUTUBE": {
     "link": "",
-    "name": "Youtube API"
+    "name": "Youtube API",
+    "iconType": "fab"
   },
   "CANVAS": {
     "link": "",
-    "name": "HTML5 Canvas"
+    "name": "HTML5 Canvas",
+    "iconType": ""
   },
   "GEXT": {
     "link": "",
-    "name": "Google Chrome Extensions"
+    "name": "Google Chrome Extensions",
+    "iconType": ""
   },
   "JEST": {
     "link": "",
-    "name": "Jest.js"
+    "name": "Jest.js",
+    "iconType": ""
   },
   "AWSP": {
     "link": "",
-    "name": "AWS Pipelines"
+    "name": "AWS Pipelines",
+    "iconType": "fab"
   },
   "BOX": {
     "link": "",
-    "name": "Boxever"
+    "name": "Boxever",
+    "iconType": ""
   },
   "NR": {
     "link": "",
-    "name": "Newrelic"
+    "name": "Newrelic",
+    "iconType": ""
   },
   "STORY": {
     "link": "",
-    "name": "Storybook"
+    "name": "Storybook",
+    "iconType": ""
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 
-import { TooltipStatus } from '../../enum';
+import { TooltipStatus } from '../../enums';
 
 @Component({
   selector: 'babdev-tooltip',

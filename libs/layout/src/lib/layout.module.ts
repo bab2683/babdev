@@ -10,6 +10,7 @@ import {
   ButtonHyperlinkComponent,
   ButtonMailComponent,
   CardComponent,
+  LinkOrTextComponent,
   PageWithBgComponent,
   TooltipComponent
 } from './components';
@@ -23,6 +24,7 @@ import { ClickableDirective, CopyDirective } from './directives';
     CardComponent,
     ClickableDirective,
     CopyDirective,
+    LinkOrTextComponent,
     PageWithBgComponent,
     TooltipComponent
   ],
@@ -32,7 +34,13 @@ import { ClickableDirective, CopyDirective } from './directives';
     ButtonMailComponent,
     TooltipComponent
   ],
-  exports: [CardComponent, ClickableDirective, CopyDirective, PageWithBgComponent],
+  exports: [
+    CardComponent,
+    ClickableDirective,
+    CopyDirective,
+    LinkOrTextComponent,
+    PageWithBgComponent
+  ],
   imports: [CommonModule, FontAwesomeModule, MatCardModule, MatTooltipModule, TranslateModule]
 })
 export class LayoutModule {}
