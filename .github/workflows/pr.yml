@@ -2,8 +2,6 @@ name: PR on master
 
 on:
   pull_request:
-    branches:
-    - master
     types: [opened, reopened, synchronize]
 
 jobs:
