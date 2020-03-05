@@ -1,4 +1,4 @@
-name: PR on master
+name: Pull request check
 
 on:
   pull_request:
