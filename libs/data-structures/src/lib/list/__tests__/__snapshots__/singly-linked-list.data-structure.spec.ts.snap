@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SinglyLinkedList set should return second node 1`] = `
+SinglyLinkedList {
+  "head": Node {
+    "next": Node {
+      "next": Node {
+        "next": null,
+        "val": 52,
+      },
+      "val": 13,
+    },
+    "val": 42,
+  },
+  "length": 3,
+  "tail": Node {
+    "next": null,
+    "val": 52,
+  },
+}
+`;
+
+exports[`SinglyLinkedList set should return second node 2`] = `
+SinglyLinkedList {
+  "head": Node {
+    "next": Node {
+      "next": Node {
+        "next": null,
+        "val": 52,
+      },
+      "val": "test",
+    },
+    "val": 42,
+  },
+  "length": 3,
+  "tail": Node {
+    "next": null,
+    "val": 52,
+  },
+}
+`;

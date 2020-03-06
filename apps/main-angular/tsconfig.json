@@ -10,7 +10,6 @@
       "@models": ["apps/main-angular/src/models/index.ts"],
       "@store": ["apps/main-angular/src/app/store/index.ts"],
       "@utils": ["apps/main-angular/src/utils/index.ts"],
-
       "@babdev/styleguide": ["libs/styleguide/src/index.ts"],
       "@babdev/sidebar": ["libs/sidebar/src/index.ts"],
       "@babdev/sidebar-testing": ["libs/sidebar/src/testing/index.ts"],
@@ -21,7 +20,8 @@
       "@babdev/request-testing": ["libs/request/src/testing/index.ts"],
       "@babdev/testing": ["libs/testing/src/index.ts"],
       "@babdev/layout": ["libs/layout/src/index.ts"],
-      "@babdev/layout-testing": ["libs/layout/src/testing/index.ts"]
+      "@babdev/layout-testing": ["libs/layout/src/testing/index.ts"],
+      "@babdev/data-structures": ["libs/data-structures/src/index.ts"]
     }
   },
   "include": ["**/*.ts"]

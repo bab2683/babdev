@@ -26,7 +26,8 @@
       "@babdev/request-testing": ["libs/request/src/testing/index.ts"],
       "@babdev/testing": ["libs/testing/src/index.ts"],
       "@babdev/layout": ["libs/layout/src/index.ts"],
-      "@babdev/layout-testing": ["libs/layout/src/testing/index.ts"]
+      "@babdev/layout-testing": ["libs/layout/src/testing/index.ts"],
+      "@babdev/data-structures": ["libs/data-structures/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

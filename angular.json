@@ -401,6 +401,31 @@
           "styleext": "scss"
         }
       }
+    },
+    "data-structures": {
+      "root": "libs/data-structures",
+      "sourceRoot": "libs/data-structures/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-structures/tsconfig.lib.json",
+              "libs/data-structures/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-structures/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-structures/jest.config.js",
+            "tsConfig": "libs/data-structures/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {
