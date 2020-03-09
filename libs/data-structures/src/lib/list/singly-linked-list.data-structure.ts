@@ -12,7 +12,7 @@ export class SinglyLinkedList {
   }
 
   /* Adds new node at the end of the list */
-  push(val: any): SinglyLinkedList {
+  public push(val: any): SinglyLinkedList {
     const node: Node = new Node(val);
     if (!this.head) {
       this.head = node;
@@ -26,7 +26,7 @@ export class SinglyLinkedList {
   }
 
   /* Removes last node from list */
-  pop(): Node {
+  public pop(): Node {
     if (!this.tail) {
       return;
     }
@@ -47,7 +47,7 @@ export class SinglyLinkedList {
   }
 
   /* Assigns new head to second node */
-  shift(): Node {
+  public shift(): Node {
     if (!this.head) {
       return;
     }
@@ -61,7 +61,7 @@ export class SinglyLinkedList {
   }
 
   /* Adds new node as head */
-  unshift(val: any): SinglyLinkedList {
+  public unshift(val: any): SinglyLinkedList {
     const newHead: Node = new Node(val);
     if (!this.head) {
       this.head = newHead;
@@ -75,7 +75,7 @@ export class SinglyLinkedList {
   }
 
   /* Retrieves node by it's position */
-  get(index: number): Node {
+  public get(index: number): Node {
     if (index < 0 || index >= this.length) {
       return null;
     }
@@ -83,16 +83,34 @@ export class SinglyLinkedList {
   }
 
   /* Sets new value to node given an index */
-  set(val: any, index: number): boolean {
+  public set(val: any, index: number): boolean {
     const selectedNode: Node = this.get(index);
-    if (!selectedNode) {
-      return false;
+    if (selectedNode) {
+      selectedNode.val = val;
+      return true;
     }
-    selectedNode.val = val;
+    return false;
+  }
+
+  /* Adds new node in a given position */
+  public insert(index: number, val: any): boolean {
+    if (index < 0 || index > this.length) {
+      return false;
+    } else if (index === this.length) {
+      this.push(val);
+    } else if (index === 0) {
+      this.unshift(val);
+    } else {
+      const newNode: Node = new Node(val);
+      const previousNode: Node = this.get(index - 1);
+      newNode.next = previousNode.next;
+      previousNode.next = newNode;
+      this.length++;
+    }
     return true;
   }
 
-  returnNodeAtIndex(index: number): Node {
+  private returnNodeAtIndex(index: number): Node {
     let counter: number = 0;
     let currentNode: Node = this.head;
     while (counter !== index) {

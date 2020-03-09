@@ -183,4 +183,51 @@ describe('SinglyLinkedList', () => {
       expect(list).toMatchSnapshot();
     });
   });
+
+  describe('insert', () => {
+    beforeEach(() => {
+      list = new SinglyLinkedList();
+      list.push(42);
+      list.push(13);
+      list.push(52);
+    });
+
+    it('should return false', () => {
+      const result: boolean = list.insert(-2, 'bla');
+
+      expect(result).toEqual(false);
+    });
+
+    it('should use the push method', () => {
+      jest.spyOn(list, 'push');
+
+      const result: boolean = list.insert(3, 34);
+
+      expect(result).toEqual(true);
+      expect(list.push).toHaveBeenCalledWith(34);
+    });
+
+    it('should use the unshift method', () => {
+      jest.spyOn(list, 'unshift');
+
+      const result: boolean = list.insert(0, 69);
+
+      expect(result).toEqual(true);
+      expect(list.unshift).toHaveBeenCalledWith(69);
+    });
+
+    it('should insert new node in second position', () => {
+      expect(list).toMatchSnapshot();
+
+      const result: boolean = list.insert(2, 34);
+
+      expect(result).toEqual(true);
+      expect(list).toMatchSnapshot();
+
+      const secondNode: Node = list.get(2);
+
+      expect(secondNode.val).toEqual(34);
+      expect(secondNode.next.val).toEqual(52);
+    });
+  });
 });

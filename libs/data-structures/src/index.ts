@@ -1,1 +1,1 @@
-export * from './lib/data-structures';
+export * from './lib/public_api';

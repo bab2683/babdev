@@ -5,6 +5,7 @@ module.exports = {
     '!./src/**/*.animations.ts',
     '!./src/**/*.config.ts',
     '!./src/**/*.constants.ts',
+    '!./src/**/public_api.ts',
     '!./src/**/*.enum.ts',
     '!./src/**/*.map.ts',
     '!./src/**/*.mock.ts',
