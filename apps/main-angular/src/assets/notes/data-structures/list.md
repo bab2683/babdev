@@ -31,18 +31,37 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
-  push(val) {
-    const node = new Node(val);
+
+  /* Adds new node at the end of the list */
+  push(val): SinglyLinkedList {
+    const node: Node = new Node(val);
 
     if (!this.head) {
       this.head = node;
       this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
     }
 
-    this.tail = node;
-    this.head.next = this.tail;
-	
-	this.length += 1;
+    this.length++;
+
+    return this;
+  }
+
+  /* Removes last node from list */
+  pop(): Node {
+    if (!this.tail) return;
+
+    let temp: Node = this.head;
+    while (temp.next !== this.tail) {
+      temp = temp.next;
+    }
+    const currentTail = this.tail;
+    this.tail = temp;
+    this.tail.next = null;
+
+    return currentTail;
   }
 }
 ```

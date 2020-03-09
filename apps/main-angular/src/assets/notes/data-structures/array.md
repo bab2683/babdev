@@ -14,12 +14,14 @@ Each item stored in an array is called an **element**. Each location of an _elem
 | Search    |     O(n)     |    O(n)    |
 
 ## Advantages
+
 - Reading an element is simple and efficitient. This is because the elemnt can be instantly read using its index.
 - Array is the foundation of other data structures (LinkedList, Stack, Queue, etc).
 - All elements can be accessed using a single name and an index, which is readable, user-friendly.
 
 ## Disadvantages
-- Elements of an array are stored in consecutive memory locations, so insertions and deletions are time consuming. 
+
+- Elements of an array are stored in consecutive memory locations, so insertions and deletions are time consuming.
 
 ## Common operations:
 
@@ -33,12 +35,6 @@ const mySecondArray = myArray.map(val => val * 2); // [4, 8]
 
 // Reduce: returns whatever you want starting from an Array
 const myArray = [2, 4];
-const atLeastOneHigherThan3 = myArray.reduce(
-  (result, currentItem) => currentItem > 3,
-  false
-); // true
-const atLeastOneHigherThan5 = myArray.reduce(
-  (result, currentItem) => currentItem > 5,
-  false
-); // false
+const atLeastOneHigherThan3 = myArray.reduce((result, currentItem) => currentItem > 3, false); // true
+const atLeastOneHigherThan5 = myArray.reduce((result, currentItem) => currentItem > 5, false); // false
 ```
