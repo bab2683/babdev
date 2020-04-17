@@ -43,6 +43,26 @@ SinglyLinkedList {
 }
 `;
 
+exports[`SinglyLinkedList reverse should reverse the list 1`] = `
+SinglyLinkedList {
+  "head": Node {
+    "next": Node {
+      "next": Node {
+        "next": null,
+        "val": 42,
+      },
+      "val": 13,
+    },
+    "val": 52,
+  },
+  "length": 3,
+  "tail": Node {
+    "next": null,
+    "val": 42,
+  },
+}
+`;
+
 exports[`SinglyLinkedList set should return second node 1`] = `
 SinglyLinkedList {
   "head": Node {

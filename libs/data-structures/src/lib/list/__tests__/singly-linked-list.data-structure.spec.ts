@@ -230,4 +230,59 @@ describe('SinglyLinkedList', () => {
       expect(secondNode.next.val).toEqual(52);
     });
   });
+
+  describe('remove', () => {
+    beforeEach(() => {
+      list = new SinglyLinkedList();
+      list.push(42);
+      list.push(13);
+      list.push(52);
+    });
+
+    it('should return undefined', () => {
+      const result: boolean = list.remove(-2);
+
+      expect(result).toEqual(undefined);
+    });
+
+    it('should use the pop method', () => {
+      jest.spyOn(list, 'pop');
+
+      const result: boolean = list.remove(3);
+
+      expect(result).toEqual(52);
+      expect(list.pop).toHaveBeenCalled();
+    });
+
+    it('should use the shift method', () => {
+      jest.spyOn(list, 'shift');
+
+      const result: boolean = list.remove(0);
+
+      expect(result).toEqual(42);
+      expect(list.shift).toHaveBeenCalledWith();
+    });
+
+    it('should remove second item', () => {
+      const result: any = list.remove(1);
+
+      expect(result).toEqual(13);
+      expect(list.length).toEqual(2);
+    });
+  });
+
+  describe('reverse', () => {
+    beforeEach(() => {
+      list = new SinglyLinkedList();
+      list.push(42);
+      list.push(13);
+      list.push(52);
+    });
+
+    it('should reverse the list', () => {
+      const result = list.reverse();
+
+      expect(result).toMatchSnapshot();
+    });
+  });
 });

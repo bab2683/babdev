@@ -110,6 +110,41 @@ export class SinglyLinkedList {
     return true;
   }
 
+  /* Remove node at index */
+  public remove(index: number): any {
+    if (index < 0 || index > this.length) {
+      return undefined;
+    } else if (index === this.length) {
+      return this.pop().val;
+    } else if (index === 0) {
+      return this.shift().val;
+    } else {
+      const node = this.get(index - 1);
+      const tempVal = node.next.val;
+      node.next = node.next.next;
+      this.length--;
+      return tempVal;
+    }
+  }
+
+  public reverse(): SinglyLinkedList {
+    let currentNode: Node = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+
+    let nextNode: Node;
+    let prevNode: Node = null;
+
+    while (currentNode) {
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    return this;
+  }
+
   private returnNodeAtIndex(index: number): Node {
     let counter: number = 0;
     let currentNode: Node = this.head;
