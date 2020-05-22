@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
   @Input() public initialPosition: SidebarPosition = SidebarPosition.LEFT;
   @Input() public touchTolerance: number = 100;
   @Output() public currentStatus: EventEmitter<SidebarStatus> = new EventEmitter();
-  @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
   public sidebarStatus = SidebarStatus;
   public sidebarClasses$: Observable<string[]>;

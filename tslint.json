@@ -26,7 +26,13 @@
     "import-blacklist": [true, "rxjs/Rx"],
     "interface-name": [false],
     "interface-over-type-literal": true,
-    "max-line-length": [true, { "limit": 100, "ignore-pattern": "\\* .+" }],
+    "max-line-length": [
+      true,
+      {
+        "limit": 100,
+        "ignore-pattern": "\\* .+"
+      }
+    ],
     "member-access": false,
     "member-ordering": [
       true,
@@ -47,7 +53,6 @@
     "no-host-metadata-property": true,
     "no-input-rename": true,
     "no-inputs-metadata-property": true,
-
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-output-native": true,
@@ -63,7 +68,6 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
-
     "nx-enforce-module-boundaries": [
       true,
       {
@@ -73,7 +77,8 @@
             "sourceTag": "*",
             "onlyDependOnLibsWithTags": ["*"]
           }
-        ]
+        ],
+        "enforceBuildableLibDependency": true
       }
     ],
     "object-literal-sort-keys": false,

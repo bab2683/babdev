@@ -12,7 +12,7 @@ import { TranslateService } from './translate.service';
   imports: [CommonModule]
 })
 export class TranslateModule {
-  static forRoot(config: TranslateConfig): ModuleWithProviders {
+  static forRoot(config: TranslateConfig): ModuleWithProviders<TranslateModule> {
     return {
       ngModule: TranslateModule,
       providers: [

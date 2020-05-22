@@ -9,7 +9,8 @@
   },
   "projects": {
     "main-angular-e2e": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["main-angular"]
     },
     "main-angular": {
       "tags": []
@@ -18,7 +19,8 @@
       "tags": []
     },
     "main-react-e2e": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["main-react"]
     },
     "styleguide": {
       "tags": []
@@ -43,6 +45,14 @@
     },
     "data-structures": {
       "tags": []
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   }
 }

@@ -93,7 +93,8 @@
           "options": {
             "jestConfig": "apps/main-angular/jest.config.js",
             "tsConfig": "apps/main-angular/tsconfig.spec.json",
-            "setupFile": "apps/main-angular/src/test-setup.ts"
+            "setupFile": "apps/main-angular/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       }
@@ -142,7 +143,8 @@
             "assets": ["apps/main-react/src/favicon.ico", "apps/main-react/src/assets"],
             "styles": ["apps/main-react/src/styles.scss"],
             "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/babel"
+            "webpackConfig": "@nrwl/react/plugins/webpack",
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -191,7 +193,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/main-react/jest.config.js",
-            "tsConfig": "apps/main-react/tsconfig.spec.json"
+            "tsConfig": "apps/main-react/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -241,7 +244,8 @@
           "options": {
             "jestConfig": "libs/styleguide/jest.config.js",
             "tsConfig": "libs/styleguide/tsconfig.spec.json",
-            "setupFile": "libs/styleguide/src/test-setup.ts"
+            "setupFile": "libs/styleguide/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       }
@@ -264,7 +268,8 @@
           "options": {
             "jestConfig": "libs/sidebar/jest.config.js",
             "tsConfig": "libs/sidebar/tsconfig.spec.json",
-            "setupFile": "libs/sidebar/src/test-setup.ts"
+            "setupFile": "libs/sidebar/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -291,7 +296,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
-            "tsConfig": "libs/utils/tsconfig.spec.json"
+            "tsConfig": "libs/utils/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -314,7 +320,8 @@
           "options": {
             "jestConfig": "libs/translate/jest.config.js",
             "tsConfig": "libs/translate/tsconfig.spec.json",
-            "setupFile": "libs/translate/src/test-setup.ts"
+            "setupFile": "libs/translate/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -342,7 +349,8 @@
           "options": {
             "jestConfig": "libs/request/jest.config.js",
             "tsConfig": "libs/request/tsconfig.spec.json",
-            "setupFile": "libs/request/src/test-setup.ts"
+            "setupFile": "libs/request/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -369,7 +377,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/testing/jest.config.js",
-            "tsConfig": "libs/testing/tsconfig.spec.json"
+            "tsConfig": "libs/testing/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -392,7 +401,8 @@
           "options": {
             "jestConfig": "libs/layout/jest.config.js",
             "tsConfig": "libs/layout/tsconfig.spec.json",
-            "setupFile": "libs/layout/src/test-setup.ts"
+            "setupFile": "libs/layout/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -422,7 +432,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/data-structures/jest.config.js",
-            "tsConfig": "libs/data-structures/tsconfig.spec.json"
+            "tsConfig": "libs/data-structures/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }

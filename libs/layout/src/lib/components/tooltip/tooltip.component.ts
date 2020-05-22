@@ -10,7 +10,7 @@ import { TooltipStatus } from '../../enums';
 })
 export class TooltipComponent {
   @Input() public key: string;
-  @ViewChild('tooltip', { static: false }) public tooltip: MatTooltip;
+  @ViewChild('tooltip') public tooltip: MatTooltip;
 
   public status: TooltipStatus = TooltipStatus.CLOSED;
 
