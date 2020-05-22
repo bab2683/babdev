@@ -1,2 +1,5 @@
-export * from './list/node.data-structure';
-export * from './list/singly-linked-list.data-structure';
+export * from './graphs';
+export * from './list';
+export * from './queue';
+export * from './stack';
+export * from './tree';

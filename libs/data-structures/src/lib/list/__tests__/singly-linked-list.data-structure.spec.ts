@@ -1,4 +1,3 @@
-import { Node } from '../node.data-structure';
 import { SinglyLinkedList } from '../singly-linked-list.data-structure';
 
 describe('SinglyLinkedList', () => {
@@ -51,7 +50,7 @@ describe('SinglyLinkedList', () => {
 
       expect(list.length).toEqual(3);
 
-      const result: Node = list.pop();
+      const result = list.pop();
 
       expect(list.length).toEqual(2);
       expect(result.val).toEqual(52);
@@ -62,7 +61,7 @@ describe('SinglyLinkedList', () => {
     it('should reset head and tail when popping last node', () => {
       list.push(45);
 
-      const result: Node = list.pop();
+      const result = list.pop();
 
       expect(result.val).toEqual(45);
       expect(list.head).toEqual(null);
@@ -83,7 +82,7 @@ describe('SinglyLinkedList', () => {
       list.push(42);
       list.push(13);
 
-      const result: Node = list.shift();
+      const result = list.shift();
 
       expect(list.length).toEqual(1);
       expect(result.val).toEqual(42);
@@ -93,7 +92,7 @@ describe('SinglyLinkedList', () => {
     it('should reset head and tail when shifting last node', () => {
       list.push(2);
 
-      const result: Node = list.shift();
+      const result = list.shift();
 
       expect(list.length).toEqual(0);
       expect(result.val).toEqual(2);
@@ -136,19 +135,19 @@ describe('SinglyLinkedList', () => {
     });
 
     it('should return null if index is less than 0', () => {
-      const result: Node = list.get(-2);
+      const result = list.get(-2);
 
       expect(result).toEqual(null);
     });
 
     it('should return null if index is equal or higher than the length of the list', () => {
-      const result: Node = list.get(4);
+      const result = list.get(4);
 
       expect(result).toEqual(null);
     });
 
     it('should return second node', () => {
-      const result: Node = list.get(1);
+      const result = list.get(1);
 
       expect(result.val).toEqual(13);
     });
@@ -224,7 +223,7 @@ describe('SinglyLinkedList', () => {
       expect(result).toEqual(true);
       expect(list).toMatchSnapshot();
 
-      const secondNode: Node = list.get(2);
+      const secondNode = list.get(2);
 
       expect(secondNode.val).toEqual(34);
       expect(secondNode.next.val).toEqual(52);

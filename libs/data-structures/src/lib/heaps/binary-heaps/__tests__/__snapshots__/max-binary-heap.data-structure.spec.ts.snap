@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaxBinaryHeap extractMax should return 35 and place the new max as 24 1`] = `
+Array [
+  24,
+  19,
+  20,
+  15,
+  1,
+]
+`;
+
+exports[`MaxBinaryHeap extractMax should return 41 and place the new max as 39 1`] = `
+Array [
+  39,
+  27,
+  33,
+  18,
+  12,
+]
+`;
+
+exports[`MaxBinaryHeap extractMax should return 87 and place the new max as 84 1`] = `
+Array [
+  84,
+  24,
+  35,
+  15,
+  23,
+  1,
+]
+`;
+
+exports[`MaxBinaryHeap extractMax should return 87 and place the new max as 84 2`] = `
+Array [
+  24,
+  21,
+  20,
+  19,
+  1,
+  15,
+  13,
+]
+`;
+
+exports[`MaxBinaryHeap insert should insert 55 and place it as first element 1`] = `
+Array [
+  55,
+  39,
+  41,
+  18,
+  27,
+  12,
+  33,
+]
+`;

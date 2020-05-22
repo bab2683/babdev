@@ -1,4 +1,12 @@
-import { Node } from './node.data-structure';
+class Node {
+  val: any;
+  next: Node;
+
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
 
 export class SinglyLinkedList {
   head: Node;
