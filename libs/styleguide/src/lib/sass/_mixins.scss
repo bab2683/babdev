@@ -1,3 +1,15 @@
 @mixin transition($name, $duration: $TRANSITION_DURATION, $timing: $TRANSITION_TIMING) {
   transition: repeat-values(create-dynamic-list($name, #{$duration}ms #{$timing}));
 }
+
+@mixin under-max-width {
+  @media screen and (max-width: $content-max-width + 25) {
+    padding: 0 calc-spacing(2);
+  }
+}
+
+@mixin max-content-width {
+  max-width: $content-max-width;
+
+  @include under-max-width;
+}

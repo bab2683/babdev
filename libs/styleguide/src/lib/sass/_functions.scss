@@ -21,3 +21,11 @@
 
   @return $result;
 }
+
+@function calc-spacing($multiplier: 1) {
+  @return px-to-rem($base-spacing * $multiplier);
+}
+
+@function calc-fz($multiplier: 1) {
+  @return px-to-rem($base-font-size * $multiplier);
+}
