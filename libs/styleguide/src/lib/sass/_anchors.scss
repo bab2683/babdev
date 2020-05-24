@@ -26,14 +26,14 @@
 
   .link-effect-1:hover::before,
   //.link-effect-1:focus::before
- {
+  {
     opacity: 1;
     transform: translate(px-to-rem(-10), 0);
   }
 
   .link-effect-1:hover::after,
   //.link-effect-1:focus::after
- {
+  {
     opacity: 1;
     transform: translate(0, 0);
   }

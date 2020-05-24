@@ -13,3 +13,27 @@
 
   @include under-max-width;
 }
+
+@mixin is-mobile($is-host: false) {
+  @if ($is-host) {
+    .is-mobile & {
+      @content;
+    }
+  } @else {
+    :host-context(.is-mobile) & {
+      @content;
+    }
+  }
+}
+
+@mixin is-desktop($is-host: false) {
+  @if ($is-host) {
+    .is-desktop & {
+      @content;
+    }
+  } @else {
+    :host-context(.is-desktop) & {
+      @content;
+    }
+  }
+}
