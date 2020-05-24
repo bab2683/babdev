@@ -7,6 +7,7 @@ import { SidebarModule } from '@babdev/sidebar';
 import { TranslateModule } from '@babdev/translate';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -36,7 +37,8 @@ import { routes } from './pages/app.routes';
       }
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot(AppEffects)
+    EffectsModule.forRoot(AppEffects),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

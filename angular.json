@@ -27,6 +27,9 @@
             "customWebpackConfig": {},
             "assets": ["apps/main-angular/src/favicon.ico", "apps/main-angular/src/assets"],
             "styles": ["apps/main-angular/src/styles/main.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/main-angular/src/styles"]
+            },
             "scripts": []
           },
           "configurations": {

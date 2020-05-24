@@ -1,9 +1,5 @@
 {
-  "plugins": [
-    "stylelint-order",
-    "stylelint-selector-bem-pattern",
-    "stylelint-prettier"
-  ],
+  "plugins": ["stylelint-order", "stylelint-selector-bem-pattern", "stylelint-prettier"],
   "extends": ["stylelint-config-prettier"],
   "rules": {
     "prettier/prettier": true,
@@ -101,17 +97,13 @@
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-block-semicolon-space-after": "always-single-line",
     "declaration-block-semicolon-space-before": "never",
-    "declaration-block-trailing-semicolon": "always",
     "block-closing-brace-empty-line-before": "never",
     "block-closing-brace-newline-after": [
       "always-multi-line",
       {
-        "ignoreAtRules": [
-          "else",
-          "if"
-        ]
+        "ignoreAtRules": ["else", "if"]
       }
-      ],
+    ],
     "block-closing-brace-newline-before": "always",
     "block-closing-brace-space-after": "always-single-line",
     "selector-attribute-brackets-space-inside": "never",
@@ -140,17 +132,9 @@
     "at-rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ],
-        "ignoreAtRules": [
-          "else",
-          "/include/",
-          "/import/"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["else", "/include/", "/import/"]
       }
     ],
     "at-rule-name-case": "lower",
@@ -160,9 +144,7 @@
     "comment-empty-line-before": [
       "always",
       {
-        "ignore": [
-          "stylelint-commands"
-        ]
+        "ignore": ["stylelint-commands"]
       }
     ],
     "comment-whitespace-inside": "always",
@@ -171,9 +153,6 @@
     "no-eol-whitespace": true,
     "no-missing-end-of-source-newline": true,
     "order/properties-alphabetical-order": true,
-    "order/order": [
-      "custom-properties",
-      "declarations"
-    ]
+    "order/order": ["custom-properties", "declarations"]
   }
 }
