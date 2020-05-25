@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Pages } from '@constants';
+import { PageNames } from '@enums';
+import { Page } from '@models';
 
 @Component({
   selector: 'babdev-page-list',
@@ -8,5 +10,10 @@ import { Pages } from '@constants';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent {
-  pages = Pages;
+  pages: Page[] = Object.keys(Pages).reduce((result, current) => {
+    if (current !== PageNames.HOME) {
+      result.push(Pages[current]);
+    }
+    return result;
+  }, []);
 }

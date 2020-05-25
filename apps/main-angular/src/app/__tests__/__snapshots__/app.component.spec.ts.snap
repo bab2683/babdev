@@ -3,7 +3,6 @@
 exports[`AppComponent should match the snapshot 1`] = `
 <babdev-root
   actions$={[Function Actions]}
-  animationOngoing="false"
   document={[Function Document]}
   isMobile="false"
   isMobile$={[Function Store]}
@@ -38,7 +37,7 @@ exports[`AppComponent should match the snapshot 1`] = `
           >
             
             <div
-              class="page__nav ng-trigger ng-trigger-menuAnimation ng-tns-c1-0 ng-star-inserted"
+              class="page__nav ng-tns-c1-0 ng-trigger ng-trigger-menuAnimation ng-star-inserted"
               style="left:40%;top:40%;transform:translate(-50%, -50%);0:left;1:top;2:transform;"
             >
               <babdev-page-list
@@ -46,7 +45,8 @@ exports[`AppComponent should match the snapshot 1`] = `
               />
             </div>
             <div
-              class="page__router page__router--visible"
+              class="page__router ng-trigger ng-trigger-routerAnimation ng-animating"
+              style=""
             >
               <router-outlet
                 class="ng-tns-c1-0"

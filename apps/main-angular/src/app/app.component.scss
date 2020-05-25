@@ -16,18 +16,12 @@
   }
 
   &__router {
-    opacity: 0;
     overflow: hidden;
     position: relative;
     width: 100%;
 
     @include is-desktop {
       margin-left: 300px;
-    }
-
-    &--visible {
-      opacity: 1;
-      transition: opacity 700ms ease-in;
     }
   }
 

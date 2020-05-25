@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { Actions, ofType } from '@ngrx/effects';
 import { routerRequestAction } from '@ngrx/router-store';
 import { select, Store } from '@ngrx/store';
@@ -10,7 +11,7 @@ import { SidebarComponent, SidebarMode } from '@babdev/sidebar';
 import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
 
-import { menuAnimation } from '@animations';
+import { menuAnimation, routerAnimation } from '@animations';
 import { MenuAnimationEnum } from '@enums';
 import { AppState, getIsMobileState, isHome } from '@store';
 
@@ -18,13 +19,12 @@ import { AppState, getIsMobileState, isHome } from '@store';
   selector: 'babdev-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [menuAnimation]
+  animations: [menuAnimation, routerAnimation]
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidebar', { static: false }) sidebar: SidebarComponent;
 
   public isMobile: boolean;
-  public animationOngoing: boolean = false;
   public sidebarMode: SidebarMode;
   public showNav: boolean;
 
@@ -76,7 +76,9 @@ export class AppComponent implements OnInit {
       .subscribe();
   }
 
-  public animationChanged(ongoing: boolean): void {
-    this.animationOngoing = ongoing;
+  public prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet && outlet.activatedRouteData && outlet.activatedRouteData['name']
+    );
   }
 }
