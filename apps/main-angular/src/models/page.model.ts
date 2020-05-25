@@ -1,4 +1,8 @@
 export interface Page {
-  key: string;
-  url: string;
+  bgPath?: string;
+  moduleName: string;
+  name: string;
+  path: string;
+  titleKey: string;
+  translationLocation: string;
 }

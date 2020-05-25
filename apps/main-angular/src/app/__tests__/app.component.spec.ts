@@ -120,4 +120,14 @@ describe('AppComponent', () => {
       expect(component.sidebar.close).toHaveBeenCalled();
     }));
   });
+
+  describe('prepareRoute', () => {
+    it('should return route data', () => {
+      const result = component.prepareRoute({
+        activatedRouteData: { name: 'contacts' }
+      } as any);
+
+      expect(result).toEqual('contacts');
+    });
+  });
 });

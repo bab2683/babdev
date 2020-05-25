@@ -18,7 +18,12 @@
 </babdev-sidebar> -->
 
 <ng-container *ngIf="{ menuAnimation: menuAnimation$ | async } as data">
-  <babdev-sidebar #sidebar [mode]="sidebarMode" [withOverlay]="isMobile" [withTouch]="isMobile">
+  <babdev-sidebar
+    #sidebar
+    [mode]="sidebarMode"
+    [withOverlay]="isMobile"
+    [withTouch]="isMobile"
+  >
     <ng-container sidebarContent>
       <babdev-page-list *ngIf="isMobile"></babdev-page-list>
     </ng-container>
@@ -29,12 +34,10 @@
           class="page__nav"
           *ngIf="showNav"
           [@menuAnimation]="data.menuAnimation"
-          (@menuAnimation.start)="animationChanged(true)"
-          (@menuAnimation.done)="animationChanged(false)"
         >
           <babdev-page-list class="page__nav__list"></babdev-page-list>
         </div>
-        <div class="page__router" [ngClass]="{ 'page__router--visible': !animationOngoing }">
+        <div class="page__router" [@routerAnimation]="prepareRoute(outlet)">
           <router-outlet #outlet="outlet"></router-outlet>
           <!-- main content here common library test
         <br />
