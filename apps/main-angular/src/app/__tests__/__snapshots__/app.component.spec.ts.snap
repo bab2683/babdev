@@ -2,44 +2,60 @@
 
 exports[`AppComponent should match the snapshot 1`] = `
 <babdev-root
+  actions$={[Function Actions]}
+  animationOngoing="false"
+  document={[Function Document]}
   isMobile="false"
   isMobile$={[Function Store]}
+  menuAnimation$={[Function Observable]}
   renderer={[Function DebugRenderer2]}
-  sidebar={[Function ElementRef]}
+  showNav={[Function Boolean]}
+  sidebar={[Function SidebarComponent]}
   sidebarMode={[Function String]}
   store={[Function MockStore]}
   title={[Function String]}
   translateService={[Function TranslateServiceMock]}
 >
   <babdev-sidebar
-    class="ng-tns-c1-0"
+    class="ng-tns-c1-0 ng-star-inserted"
   >
-    
-    <babdev-page-list
-      class="ng-tns-c1-0"
-    />
-    <div
-      class="page"
-      pagecontent=""
-    >
-      <main
-        class="page__content"
-      >
+    <mat-sidenav-container>
+      <mat-sidenav>
         <div
-          class="page__router ng-trigger ng-trigger-routerAnimations ng-animating"
-          style=""
+          class="babdev-sidebar"
         >
-          <router-outlet
-            class="ng-tns-c1-0"
-          />
+          
+          
         </div>
-      </main>
-      <footer
-        class="ng-tns-c1-0"
-      >
-         footer 
-      </footer>
-    </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div
+          class="page ng-tns-c1-0"
+          pagecontent=""
+        >
+          <main
+            class="page__content"
+          >
+            
+            <div
+              class="page__nav ng-trigger ng-trigger-menuAnimation ng-tns-c1-0 ng-star-inserted"
+              style="left:40%;top:40%;transform:translate(-50%, -50%);0:left;1:top;2:transform;"
+            >
+              <babdev-page-list
+                class="page__nav__list"
+              />
+            </div>
+            <div
+              class="page__router page__router--visible"
+            >
+              <router-outlet
+                class="ng-tns-c1-0"
+              />
+            </div>
+          </main>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </babdev-sidebar>
 </babdev-root>
 `;

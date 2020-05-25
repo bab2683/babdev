@@ -1,13 +1,26 @@
-import { ActionReducer, createReducer, on } from '@ngrx/store';
+import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
 import { GlobalActions } from './global.actions';
 import { GlobalState } from './global.state';
 
 const initialState: GlobalState = {
+  isHomePage: null,
   isMobile: false
 };
 
-export const globalReducer: ActionReducer<GlobalState> = createReducer(
+const reducer: ActionReducer<GlobalState> = createReducer(
   initialState,
-  on(GlobalActions.setIsMobile, (state, { isMobile }) => ({ ...state, isMobile }))
+  on(GlobalActions.setInitialState, (state, { isHomePage, isMobile }) => ({
+    ...state,
+    isHomePage,
+    isMobile
+  })),
+  on(GlobalActions.setIsHomePage, (state, { isHomePage }) => ({
+    ...state,
+    isHomePage
+  }))
 );
+
+export function globalReducer(state: GlobalState | undefined, action: Action) {
+  return reducer(state, action);
+}

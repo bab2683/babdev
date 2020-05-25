@@ -1,4 +1,3 @@
-import { ClickableActions } from '@babdev/layout';
 import {
   faFacebookSquare,
   faGithub,
@@ -6,6 +5,8 @@ import {
   faLinkedin,
   faSkype
 } from '@fortawesome/free-brands-svg-icons';
+
+import { ClickableActions } from '@babdev/layout';
 
 import { ContactLinkIdEnum, ContactLinkTypeEnum } from '@enums';
 import { ContactsLink } from '@models';

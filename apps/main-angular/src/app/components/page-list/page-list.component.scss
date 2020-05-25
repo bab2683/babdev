@@ -1,6 +1,17 @@
 @import "~@styleguide_funcional";
 
 .page-list {
+  &__home {
+    font-size: calc-fz(3);
+    @include is-desktop {
+      font-size: calc-fz(4);
+    }
+  }
+
+  &__list {
+    margin-top: calc-spacing(2);
+  }
+
   &__item {
     & + & {
       margin-top: px-to-rem(10);

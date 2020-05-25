@@ -1,9 +1,8 @@
 import { CV } from '@models';
-
 import { calculateDuration } from './date.utils';
 
 export function parseCVDates(cv: CV): CV {
-  cv.sections.experiences.items.forEach(exp => {
+  cv.sections.experiences.items.forEach((exp) => {
     exp.dates.start = new Date(exp.dates.start);
     if (exp.dates.end) {
       exp.current = false;

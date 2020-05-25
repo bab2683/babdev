@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { DynamicComponentServiceMock } from '@babdev/layout-testing';
 
 import { ClickableActions } from '../../enums';
 import { DynamicComponentService } from '../../services';
-
 import { ClickableDirective } from './clickable.directive';
 
 describe('ClickableDirective', () => {

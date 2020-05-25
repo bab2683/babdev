@@ -1,15 +1,28 @@
 import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { Renderer2, Type } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick
+} from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateService } from '@babdev/translate';
-import { TranslatePipeMock, TranslateServiceMock } from '@babdev/translate-testing';
-import { Store } from '@ngrx/store';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { routerRequestAction } from '@ngrx/router-store';
+import { Action, Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { BehaviorSubject } from 'rxjs';
+
+import { SidebarComponent } from '@babdev/sidebar';
+import { DeviceClasses } from '@babdev/styleguide';
+import { TranslateService } from '@babdev/translate';
+import {
+  TranslatePipeMock,
+  TranslateServiceMock
+} from '@babdev/translate-testing';
 
 import { AppState, MockedAppStore } from '@store';
-
 import { AppComponent } from '../app.component';
 
 class MockRenderer {
@@ -20,24 +33,22 @@ describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let store: MockStore<AppState>;
-  const initialState: AppState = MockedAppStore;
   let renderer: Renderer2;
-
-  // beforeEach(() => {
-  //   renderer = new MockRenderer();
-  // });
+  const actions$: BehaviorSubject<Action> = new BehaviorSubject({ type: '' });
+  const initialState: AppState = MockedAppStore;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, NoopAnimationsModule],
-      declarations: [AppComponent, TranslatePipeMock],
+      declarations: [AppComponent, SidebarComponent, TranslatePipeMock],
       providers: [
         {
           provide: TranslateService,
           useClass: TranslateServiceMock
         },
         provideMockStore({ initialState }),
-        Renderer2
+        Renderer2,
+        provideMockActions(() => actions$)
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
@@ -46,8 +57,10 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
-    store = TestBed.get<Store<AppState>>(Store);
-    renderer = fixture.componentRef.injector.get<Renderer2>(Renderer2 as Type<Renderer2>);
+    store = TestBed.inject<Store<AppState>>(Store) as any;
+    renderer = fixture.componentRef.injector.get<Renderer2>(
+      Renderer2 as Type<Renderer2>
+    );
 
     jest.spyOn(renderer, 'addClass');
   });
@@ -65,19 +78,46 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('main-angular');
   });
 
-  it('should assing the global class', () => {
-    store.setState({ global: { isMobile: false } });
+  it('should assign the global class', () => {
+    store.setState({
+      global: { isHomePage: true, isMobile: false },
+      router: {} as any
+    });
     component.ngOnInit();
 
     expect(component.isMobile).toEqual(false);
-    expect(renderer.addClass).toHaveBeenCalled();
+    expect(renderer.addClass).toHaveBeenCalledWith(
+      expect.any(HTMLBodyElement),
+      DeviceClasses.desktop
+    );
   });
 
-  it('should not assing the global class', () => {
-    store.setState({ global: { isMobile: true } });
+  it('should not assign the global class', () => {
+    store.setState({
+      global: { isHomePage: true, isMobile: true },
+      router: {} as any
+    });
     component.ngOnInit();
 
     expect(component.isMobile).toEqual(true);
-    expect(renderer.addClass).not.toHaveBeenCalled();
+    expect(renderer.addClass).toHaveBeenCalledWith(
+      expect.any(HTMLBodyElement),
+      DeviceClasses.mobile
+    );
+  });
+
+  describe('onInit', () => {
+    it('should listen for router request and close sidebar', fakeAsync(() => {
+      fixture.detectChanges();
+      component.ngOnInit();
+      expect(component.sidebar).toBeDefined();
+      jest.spyOn(component.sidebar, 'close');
+
+      actions$.next(routerRequestAction({ payload: {} as any }));
+
+      tick(1);
+
+      expect(component.sidebar.close).toHaveBeenCalled();
+    }));
   });
 });

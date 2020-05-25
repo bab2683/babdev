@@ -17,8 +17,6 @@ exports[`PageWithBgComponent should match snapshot 1`] = `
   >
     <div
       class="title-container"
-      ng-reflect-klass="title-container"
-      ng-reflect-ng-class="[object Object]"
     >
       
       <h1
@@ -32,7 +30,6 @@ exports[`PageWithBgComponent should match snapshot 1`] = `
     />
   </div><div
     class="bg"
-    ng-reflect-ng-style="[object Object]"
     style="background-image: url(/assets/my_image_path.jpg); background-position-x: center; background-position-y: 0%;"
   />
 </babdev-page-with-bg>
@@ -55,8 +52,6 @@ exports[`PageWithBgComponent should match snapshot 2`] = `
   >
     <div
       class="title-container"
-      ng-reflect-klass="title-container"
-      ng-reflect-ng-class="[object Object]"
     >
       
       <h1
@@ -70,7 +65,6 @@ exports[`PageWithBgComponent should match snapshot 2`] = `
     />
   </div><div
     class="bg"
-    ng-reflect-ng-style="[object Object]"
     style="background-image: url(/assets/my_image_path.jpg); background-position-x: 10%; background-position-y: top;"
   />
 </babdev-page-with-bg>
@@ -92,8 +86,6 @@ exports[`PageWithBgComponent should match snapshot 3`] = `
   >
     <div
       class="title-container title-container--mobile"
-      ng-reflect-klass="title-container"
-      ng-reflect-ng-class="[object Object]"
     >
       
       <h1

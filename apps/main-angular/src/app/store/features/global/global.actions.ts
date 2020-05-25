@@ -1,15 +1,24 @@
 import { createAction, props } from '@ngrx/store';
 
 export enum GlobalActionTypes {
-  INIT = '[Global] init',
-  SET_IS_MOBILE = '[Global] set is mobile'
+  INIT = '[Global] set initial state',
+  SET_IS_HOMEPAGE = '[Global] set is homepage'
 }
 
 const init = createAction(GlobalActionTypes.INIT);
 
-const setIsMobile = createAction(GlobalActionTypes.SET_IS_MOBILE, props<{ isMobile: boolean }>());
+const setIsHomePage = createAction(
+  GlobalActionTypes.SET_IS_HOMEPAGE,
+  props<{ isHomePage: boolean }>()
+);
+
+const setInitialState = createAction(
+  GlobalActionTypes.INIT,
+  props<{ isMobile: boolean; isHomePage: boolean }>()
+);
 
 export const GlobalActions = {
   init,
-  setIsMobile
+  setInitialState,
+  setIsHomePage
 };

@@ -1,53 +1,82 @@
-import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { SidebarComponent, SidebarMode, SidebarStatus } from '@babdev/sidebar';
-import { TranslateService } from '@babdev/translate';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Actions, ofType } from '@ngrx/effects';
+import { routerRequestAction } from '@ngrx/router-store';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { map, take, tap } from 'rxjs/operators';
 
-import { AppState, getIsMobileState } from '@store';
+import { SidebarComponent, SidebarMode } from '@babdev/sidebar';
+import { DeviceClasses } from '@babdev/styleguide';
+import { TranslateService } from '@babdev/translate';
 
-import { fade } from './pages/route.animations';
+import { menuAnimation } from '@animations';
+import { MenuAnimationEnum } from '@enums';
+import { AppState, getIsMobileState, isHome } from '@store';
 
 @Component({
   selector: 'babdev-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [fade]
+  animations: [menuAnimation]
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidebar', { static: true }) sidebar: SidebarComponent;
+  @ViewChild('sidebar', { static: false }) sidebar: SidebarComponent;
+
+  public isMobile: boolean;
+  public animationOngoing: boolean = false;
+  public sidebarMode: SidebarMode;
+  public showNav: boolean;
 
   public isMobile$: Observable<boolean>;
-  public isMobile: boolean;
-  public sidebarMode: SidebarMode;
+  public menuAnimation$: Observable<MenuAnimationEnum>;
 
   title = 'main-angular';
 
   constructor(
     public translateService: TranslateService,
     public renderer: Renderer2,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    @Inject(DOCUMENT) private document: Document,
+    private actions$: Actions
   ) {}
 
   public ngOnInit(): void {
-    this.isMobile$ = this.store.pipe(select(getIsMobileState));
+    this.isMobile$ = this.store.pipe(select(getIsMobileState)).pipe(take(1));
 
-    this.isMobile$.pipe(take(1)).subscribe(isMobile => {
+    this.isMobile$.subscribe((isMobile) => {
       this.isMobile = isMobile;
       this.sidebarMode = isMobile ? SidebarMode.OVER : SidebarMode.SIDE;
-      if (!isMobile) {
-        this.renderer.addClass(document.body, 'isDesktop');
-      }
+      this.renderer.addClass(
+        this.document.body,
+        isMobile ? DeviceClasses.mobile : DeviceClasses.desktop
+      );
     });
+
+    this.menuAnimation$ = combineLatest([
+      this.isMobile$,
+      this.store.pipe(select(isHome))
+    ]).pipe(
+      tap(([isMobile, isHomePage]) => (this.showNav = !isMobile || isHomePage)),
+      map(([isMobile, isHomePage]) =>
+        isMobile
+          ? MenuAnimationEnum.None
+          : isHomePage
+          ? MenuAnimationEnum.Base
+          : MenuAnimationEnum.Translated
+      )
+    );
+
+    // Close sidebar on router navigation
+    this.actions$
+      .pipe(
+        ofType(routerRequestAction),
+        tap(() => this.sidebar && this.sidebar.close())
+      )
+      .subscribe();
   }
 
-  public prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['name'];
+  public animationChanged(ongoing: boolean): void {
+    this.animationOngoing = ongoing;
   }
-
-  // sidebarStatus(status: SidebarStatus) {
-  //   console.log('sidebar status', status);
-  // }
 }

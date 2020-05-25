@@ -10,6 +10,6 @@
   --baddev-content-padding: #{px-to-rem(10)};
 }
 
-body.isDesktop {
+body.is-desktop {
   @include link-effect-1;
 }

@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TranslateModule } from '@babdev/translate';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { TranslateModule } from '@babdev/translate';
 
 import {
   ButtonCopyComponent,
@@ -41,6 +42,12 @@ import { ClickableDirective, CopyDirective } from './directives';
     LinkOrTextComponent,
     PageWithBgComponent
   ],
-  imports: [CommonModule, FontAwesomeModule, MatCardModule, MatTooltipModule, TranslateModule]
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    MatCardModule,
+    MatTooltipModule,
+    TranslateModule
+  ]
 })
 export class LayoutModule {}

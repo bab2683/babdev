@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+
 import { TranslatePipeMock } from '@babdev/translate-testing';
 
 import { TooltipStatus } from '../../../enums';
@@ -22,7 +23,11 @@ describe('TooltipComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TooltipComponent, MatTooltipStubComponent, TranslatePipeMock],
+      declarations: [
+        TooltipComponent,
+        MatTooltipStubComponent,
+        TranslatePipeMock
+      ],
       imports: [MatTooltipModule]
     }).compileComponents();
   }));
@@ -84,7 +89,10 @@ describe('TooltipComponent', () => {
       component.show(timerDuration);
       expect(tooltipShowSpy).toHaveBeenCalled();
       expect(setTimeout).toHaveBeenCalledTimes(1);
-      expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), timerDuration);
+      expect(setTimeout).toHaveBeenLastCalledWith(
+        expect.any(Function),
+        timerDuration
+      );
       jest.advanceTimersByTime(timerDuration + 1);
       expect(tooltipHideSpy).toHaveBeenCalled();
     });

@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { HTMLElementMock } from '@babdev/testing';
 
 import { ButtonCopyComponent } from '../button-copy.component';
@@ -20,7 +21,9 @@ describe('ButtonCopyComponent', () => {
     fixture = TestBed.createComponent(ButtonCopyComponent);
     component = fixture.componentInstance;
 
-    component.button = TestBed.createComponent<any>(HTMLElementMock).componentInstance;
+    component.button = TestBed.createComponent<any>(
+      HTMLElementMock
+    ).componentInstance;
 
     blurSpy = jest.spyOn(component.button.nativeElement, 'blur');
   });

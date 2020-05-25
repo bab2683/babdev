@@ -1,6 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { BehaviorSubject, combineLatest, fromEvent, Observable, of } from 'rxjs';
+import {
+  BehaviorSubject,
+  combineLatest,
+  fromEvent,
+  Observable,
+  of
+} from 'rxjs';
 import { debounceTime, filter, map, switchMap, tap } from 'rxjs/operators';
 
 import { SidebarMode, SidebarPosition, SidebarStatus } from './sidebar.enum';
@@ -18,7 +31,9 @@ export class SidebarComponent implements OnInit {
   @Input() public withTouch: boolean = true;
   @Input() public initialPosition: SidebarPosition = SidebarPosition.LEFT;
   @Input() public touchTolerance: number = 100;
-  @Output() public currentStatus: EventEmitter<SidebarStatus> = new EventEmitter();
+  @Output() public currentStatus: EventEmitter<
+    SidebarStatus
+  > = new EventEmitter();
   @ViewChild('sidenav') sidenav: MatSidenav;
 
   public sidebarStatus = SidebarStatus;
@@ -28,7 +43,9 @@ export class SidebarComponent implements OnInit {
   private position: SidebarPosition;
   private status: SidebarStatus;
   private moving: boolean = false;
-  private stateSubject: BehaviorSubject<SidebarStatus> = new BehaviorSubject(null);
+  private stateSubject: BehaviorSubject<SidebarStatus> = new BehaviorSubject(
+    null
+  );
 
   constructor() {
     this.state$ = this.stateSubject.asObservable();
@@ -60,7 +77,10 @@ export class SidebarComponent implements OnInit {
   }
 
   private attachTouchEvents(): void {
-    combineLatest(this.touchEventListener('touchstart'), this.touchEventListener('touchmove'))
+    combineLatest([
+      this.touchEventListener('touchstart'),
+      this.touchEventListener('touchmove')
+    ])
       .pipe(
         debounceTime(50),
         tap(([start, end]) => {
@@ -79,13 +99,14 @@ export class SidebarComponent implements OnInit {
   private touchEventListener(event: string): Observable<Touch> {
     return fromEvent<TouchEvent>(document, event).pipe(
       filter(() => !this.moving),
-      map(ev => ev.touches[0])
+      map((ev) => ev.touches[0])
     );
   }
 
   private updateState(status: SidebarStatus): void {
     this.status = status;
-    this.moving = status === SidebarStatus.CLOSING || status === SidebarStatus.OPENING;
+    this.moving =
+      status === SidebarStatus.CLOSING || status === SidebarStatus.OPENING;
     this.currentStatus.emit(status);
     this.stateSubject.next(status);
   }
