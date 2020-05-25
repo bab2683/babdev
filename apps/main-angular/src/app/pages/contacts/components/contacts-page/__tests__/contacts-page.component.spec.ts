@@ -1,12 +1,15 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateService } from '@babdev/translate';
-import { TranslatePipeMock, TranslateServiceMock } from '@babdev/translate-testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-import { AppState, GLOBAL_FEATURE } from '@store';
+import { TranslateService } from '@babdev/translate';
+import {
+  TranslatePipeMock,
+  TranslateServiceMock
+} from '@babdev/translate-testing';
 
+import { AppState, GLOBAL_FEATURE } from '@store';
 import { ContactsPageComponent } from '../contacts-page.component';
 
 describe('ContactsPageComponent', () => {
@@ -22,7 +25,9 @@ describe('ContactsPageComponent', () => {
           provide: TranslateService,
           useClass: TranslateServiceMock
         },
-        provideMockStore({ initialState: { [GLOBAL_FEATURE]: { isMobile: false } } })
+        provideMockStore({
+          initialState: { [GLOBAL_FEATURE]: { isMobile: false } }
+        })
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
@@ -31,7 +36,7 @@ describe('ContactsPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ContactsPageComponent);
     component = fixture.componentInstance;
-    store = TestBed.get<Store<AppState>>(Store);
+    store = TestBed.inject<Store<AppState>>(Store) as any;
     fixture.detectChanges();
   });
 

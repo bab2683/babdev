@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DictionaryLoader, TranslateService } from '@babdev/translate';
 
 @Component({

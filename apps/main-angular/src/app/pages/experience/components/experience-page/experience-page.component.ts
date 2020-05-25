@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Technologies } from '@babdev/layout';
-import { RequestService } from '@babdev/request';
-import { DictionaryLoader, TranslateService } from '@babdev/translate';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+
+import { Technologies } from '@babdev/layout';
+import { RequestService } from '@babdev/request';
+import { DictionaryLoader, TranslateService } from '@babdev/translate';
 
 import { CV } from '@models';
 import { AppState, getIsMobileState } from '@store';
@@ -21,7 +22,10 @@ export class ExperiencePageComponent implements OnInit {
   public technologies: Technologies;
 
   public bgPath: string = 'bg/experience';
-  private dictionary: DictionaryLoader = { location: '/pages/experience/', name: 'experience' };
+  private dictionary: DictionaryLoader = {
+    location: '/pages/experience/',
+    name: 'experience'
+  };
 
   constructor(
     private translateService: TranslateService,

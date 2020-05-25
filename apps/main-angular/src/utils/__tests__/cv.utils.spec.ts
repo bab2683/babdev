@@ -1,5 +1,4 @@
 import { CV } from '@models';
-
 import { parseCVDates } from '../cv.utils';
 
 describe('cv utils', () => {
@@ -20,7 +19,10 @@ describe('cv utils', () => {
         }
       } as CV);
 
-      expect(result.sections.experiences.items[0].duration).toEqual({ months: 9, years: null });
+      expect(result.sections.experiences.items[0].duration).toEqual({
+        months: 9,
+        years: null
+      });
     });
   });
 });

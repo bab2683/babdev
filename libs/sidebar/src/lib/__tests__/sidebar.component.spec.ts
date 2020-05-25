@@ -1,8 +1,7 @@
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import * as rxjs from 'rxjs';
-
 import { MatSidenav } from '@angular/material/sidenav';
+import * as rxjs from 'rxjs';
 
 import { SidebarComponent } from '../sidebar.component';
 import { SidebarStatus } from '../sidebar.enum';

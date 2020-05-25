@@ -1,10 +1,18 @@
 {
-  "extends": ["rxjs-tslint-rules", "tslint:recommended", "tslint-config-prettier"],
+  "extends": [
+    "rxjs-tslint-rules",
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
   "linterOptions": {
     "exclude": ["**/polyfills.ts"]
   },
-  "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint", "node_modules/codelyzer"],
+  "rulesDirectory": [
+    "node_modules/@nrwl/workspace/src/tslint",
+    "node_modules/codelyzer"
+  ],
   "rules": {
+    "array-type": [true, "array-simple"],
     "arrow-return-shorthand": true,
     "ban-types": {
       "options": [
@@ -26,6 +34,7 @@
     "import-blacklist": [true, "rxjs/Rx"],
     "interface-name": [false],
     "interface-over-type-literal": true,
+    "max-classes-per-file": false,
     "max-line-length": [
       true,
       {
@@ -37,7 +46,12 @@
     "member-ordering": [
       true,
       {
-        "order": ["static-field", "instance-field", "static-method", "instance-method"]
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
       }
     ],
     "no-arg": true,
@@ -66,7 +80,6 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "nx-enforce-module-boundaries": [
       true,
@@ -91,13 +104,18 @@
         "groups": [
           {
             "name": "Core and third-party imports",
-            "match": "^(@angular|@babdev|rxjs|@?ng-?[a-zA-Z]+|(?:\\w+-?)*$)",
-            "order": 10
+            "match": "^(@angular|@fortawesome|rxjs|@?ng-?[a-zA-Z]+|(?:\\w+-?)*$)|(react)",
+            "order": 1
+          },
+          {
+            "name": "Monorepo libraries",
+            "match": "^(@babdev)",
+            "order": 2
           },
           {
             "name": "Local imports",
-            "match": "^(\\.|\\.\\.)",
-            "order": 20
+            "match": "^(@animations|@constants|@enums|@env|@models|@store|@utils|\\.|\\.\\.)",
+            "order": 3
           }
         ]
       }

@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import {
   ComponentFactoryResolverMock,
   HTMLElementMock,
@@ -27,7 +26,10 @@ describe('DynamicComponentService', () => {
       const fakeEl: HTMLElementMock = new HTMLElementMock();
       viewRefMock.setReturnComponent(fakeEl);
 
-      const result: any = service.addComponentToRef(HTMLElementMock, viewRefMock as any);
+      const result: any = service.addComponentToRef(
+        HTMLElementMock,
+        viewRefMock as any
+      );
       expect(result.instance).toEqual(fakeEl);
     });
 
@@ -35,9 +37,13 @@ describe('DynamicComponentService', () => {
       const fakeEl: HTMLElementMock = new HTMLElementMock();
       viewRefMock.setReturnComponent(fakeEl);
 
-      const result: any = service.addComponentToRef(HTMLElementMock, viewRefMock as any, {
-        test: true
-      });
+      const result: any = service.addComponentToRef(
+        HTMLElementMock,
+        viewRefMock as any,
+        {
+          test: true
+        }
+      );
 
       expect(result.instance).toHaveProperty('test');
     });
@@ -46,9 +52,14 @@ describe('DynamicComponentService', () => {
       const fakeEl: HTMLElementMock = new HTMLElementMock();
       viewRefMock.setReturnComponent(fakeEl);
 
-      const result: any = service.addComponentToRef(HTMLElementMock, viewRefMock as any, null, {
-        componentFactoryResolver: factoryMock
-      } as any);
+      const result: any = service.addComponentToRef(
+        HTMLElementMock,
+        viewRefMock as any,
+        null,
+        {
+          componentFactoryResolver: factoryMock
+        } as any
+      );
       expect(result.instance).toEqual(fakeEl);
     });
   });
