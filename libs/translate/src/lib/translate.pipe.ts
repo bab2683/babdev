@@ -7,11 +7,11 @@ import { TranslateService } from './translate.service';
   name: 'translate'
 })
 export class TranslatePipe implements PipeTransform {
-  subscription: Subscription;
+  public subscription: Subscription;
 
   constructor(private service: TranslateService) {}
 
-  transform(key: string): any {
+  public transform(key: string): any {
     const exploded: string[] = key.split('.');
 
     return this.service.getKey(exploded);

@@ -26,7 +26,7 @@ import { AppState, MockedAppStore } from '@store';
 import { AppComponent } from '../app.component';
 
 class MockRenderer {
-  addClass: jest.Mock = jest.fn();
+  public addClass: jest.Mock = jest.fn();
 }
 
 describe('AppComponent', () => {

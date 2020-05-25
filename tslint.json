@@ -42,7 +42,7 @@
         "ignore-pattern": "\\* .+"
       }
     ],
-    "member-access": false,
+    "member-access": [true, "check-parameter-property"],
     "member-ordering": [
       true,
       {
@@ -126,6 +126,7 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "triple-equals": [true, "allow-null-check"],
+    "typedef": [true, "call-signature", "property-declaration"],
     "unified-signatures": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,

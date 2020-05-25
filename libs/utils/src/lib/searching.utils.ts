@@ -12,7 +12,7 @@ export function existIn(key: string | number, item: any[] | any): boolean {
     return false;
   }
 }
-export function path(keys: Array<string | number>, obj: any) {
+export function path(keys: Array<string | number>, obj: any): any {
   let i: number;
   const j: number = Array.isArray(keys) ? keys.length : 0;
   let newObject = { ...obj };
@@ -26,7 +26,11 @@ export function path(keys: Array<string | number>, obj: any) {
   }
   return newObject;
 }
-export function pathOr(defaultValue: any, keys: Array<string | number>, obj: any) {
+export function pathOr(
+  defaultValue: any,
+  keys: Array<string | number>,
+  obj: any
+): any {
   const pathResult = path(keys, obj);
   return pathResult !== null ? pathResult : defaultValue;
 }

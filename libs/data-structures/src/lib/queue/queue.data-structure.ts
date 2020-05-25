@@ -1,13 +1,13 @@
 import { SinglyLinkedList } from '../list/singly-linked-list.data-structure';
 
 export class Queue {
-  list: SinglyLinkedList;
+  private list: SinglyLinkedList;
 
   constructor() {
     this.list = new SinglyLinkedList();
   }
 
-  public enqueue(val: any) {
+  public enqueue(val: any): void {
     this.list.push(val);
   }
 

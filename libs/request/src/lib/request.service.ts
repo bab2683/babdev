@@ -9,7 +9,7 @@ import { Parser, RequestData, RequestResponse } from './request.model';
   providedIn: 'root'
 })
 export class RequestService {
-  cache: { [url: string]: any } = {};
+  private cache: { [url: string]: any } = {};
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,10 @@ export class RequestService {
   }
 
   public post<T>(req: RequestData): Observable<RequestResponse<T>> {
-    return this.commonRequestHandling(this.http.post<T>(req.url, req.body), req);
+    return this.commonRequestHandling(
+      this.http.post<T>(req.url, req.body),
+      req
+    );
   }
 
   public put<T>(req: RequestData): Observable<RequestResponse<T>> {
@@ -36,14 +39,17 @@ export class RequestService {
     return reqData.cache && this.cache[reqData.url]
       ? of({ data: this.cache[reqData.url] })
       : req.pipe(
-          map<any, RequestResponse<T>>(result => ({
+          map<any, RequestResponse<T>>((result) => ({
             data: this.requestResultParser<T>(result, reqData)
           })),
           catchError(this.handleResponseError)
         );
   }
 
-  private requestResultParser<T>(result: T, { cache, parser, tester, url }: RequestData): T | null {
+  private requestResultParser<T>(
+    result: T,
+    { cache, parser, tester, url }: RequestData
+  ): T | null {
     if (tester) {
       return tester(result) ? this.parseResult<T>(parser, result) : null;
     }
@@ -60,7 +66,12 @@ export class RequestService {
     return parser ? parser(result) : result;
   }
 
-  private handleResponseError<T>(err: HttpErrorResponse): Observable<RequestResponse<T>> {
-    return of({ data: null, err: { error: err.error.code, status: err.status } });
+  private handleResponseError<T>(
+    err: HttpErrorResponse
+  ): Observable<RequestResponse<T>> {
+    return of({
+      data: null,
+      err: { error: err.error.code, status: err.status }
+    });
   }
 }

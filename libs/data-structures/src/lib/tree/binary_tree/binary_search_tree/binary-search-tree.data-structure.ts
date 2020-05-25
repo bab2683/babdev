@@ -1,9 +1,9 @@
 import { Queue } from '../../../queue';
 
 class Node {
-  val: any;
-  left: any;
-  right: any;
+  public val: any;
+  public left: any;
+  public right: any;
 
   constructor(value: any) {
     this.val = value;
@@ -13,13 +13,13 @@ class Node {
 }
 
 export class BinarySearchTree {
-  root: Node;
+  public root: Node;
 
   constructor() {
     this.root = null;
   }
 
-  public insert(val: any) {
+  public insert(val: any): BinarySearchTree {
     const newNode: Node = new Node(val);
     if (!this.root) {
       this.root = newNode;
@@ -45,7 +45,7 @@ export class BinarySearchTree {
     }
   }
 
-  public find(val: any) {
+  public find(val: any): Node | boolean {
     if (!this.root) {
       return false;
     }
@@ -68,7 +68,7 @@ export class BinarySearchTree {
     }
   }
 
-  public breadthFirstSearch() {
+  public breadthFirstSearch(): any[] {
     const queue: Queue = new Queue();
     queue.enqueue(this.root);
 
@@ -89,10 +89,10 @@ export class BinarySearchTree {
     return list;
   }
 
-  public depthFirstSearchPreOrder() {
+  public depthFirstSearchPreOrder(): any[] {
     const arr = [];
 
-    function traverse(node) {
+    function traverse(node): void {
       arr.push(node.val);
 
       if (node.left) {
@@ -108,10 +108,10 @@ export class BinarySearchTree {
     return arr;
   }
 
-  public depthFirstSearchPostOrder() {
+  public depthFirstSearchPostOrder(): any[] {
     const arr = [];
 
-    function traverse(node) {
+    function traverse(node): void {
       if (node.left) {
         traverse(node.left);
       }
@@ -126,10 +126,10 @@ export class BinarySearchTree {
     return arr;
   }
 
-  public depthFirstSearchInOrder() {
+  public depthFirstSearchInOrder(): any[] {
     const arr = [];
 
-    function traverse(node) {
+    function traverse(node): void {
       if (node.left) {
         traverse(node.left);
       }

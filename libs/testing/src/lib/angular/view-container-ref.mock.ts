@@ -1,11 +1,11 @@
 export class ViewContainerRefMock {
-  returnEl: any;
+  public returnEl: any;
 
-  createComponent: jest.Mock = jest.fn().mockImplementation(() => ({
+  public createComponent: jest.Mock = jest.fn().mockImplementation(() => ({
     instance: this.returnEl
   }));
 
-  setReturnComponent(component: any) {
+  public setReturnComponent(component: any): void {
     this.returnEl = component;
   }
 }

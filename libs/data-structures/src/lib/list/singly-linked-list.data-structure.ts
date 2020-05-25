@@ -1,6 +1,6 @@
 class Node {
-  val: any;
-  next: Node;
+  public val: any;
+  public next: Node;
 
   constructor(val) {
     this.val = val;
@@ -9,9 +9,9 @@ class Node {
 }
 
 export class SinglyLinkedList {
-  head: Node;
-  tail: Node;
-  length: number;
+  public head: Node;
+  public tail: Node;
+  public length: number;
 
   constructor() {
     this.head = null;

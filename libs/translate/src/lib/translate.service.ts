@@ -60,12 +60,12 @@ export class TranslateService {
     );
   }
 
-  public changeActiveLanguage(language: string) {
+  public changeActiveLanguage(language: string): void {
     this.activeLanguage = language;
     this.checkDictionaries(language);
   }
 
-  public loadDictionary({ location, name }: DictionaryLoader) {
+  public loadDictionary({ location, name }: DictionaryLoader): void {
     if (!this.dictionaries[name]) {
       this.dictionaries[name] = this.updateDictionaries();
     }

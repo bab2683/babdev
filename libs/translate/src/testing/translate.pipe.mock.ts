@@ -5,7 +5,7 @@ import { of } from 'rxjs';
   name: 'translate'
 })
 export class TranslatePipeMock implements PipeTransform {
-  transform(key: string): any {
+  public transform(key: string): any {
     return of(key);
   }
 }

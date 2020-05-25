@@ -1,10 +1,10 @@
 export class MaxBinaryHeap {
-  values: any[];
+  public values: any[];
   constructor(data: any[] = []) {
     this.values = data;
   }
 
-  insert(value: any) {
+  public insert(value: any): void {
     this.values.push(value);
     const length = this.values.length;
 
@@ -24,7 +24,7 @@ export class MaxBinaryHeap {
     }
   }
 
-  extractMax() {
+  public extractMax(): any {
     const max = this.values[0];
     this.values[0] = this.values[this.values.length - 1];
     this.values.pop();

@@ -4,7 +4,7 @@ import { DictionaryLoader } from '../translate.model';
 import { TranslateService } from '../translate.service';
 
 class MockRequestService {
-  get: any = jest.fn().mockReturnValue(of({ TEST: 'test' }));
+  public get: any = jest.fn().mockReturnValue(of({ TEST: 'test' }));
 }
 
 const initialDictionary: DictionaryLoader = { location: '', name: 'test' };
@@ -59,7 +59,7 @@ describe('TranslateService', () => {
       it('should return the key', () => {
         const result = service.getKey(['test', 'TEST']);
 
-        result.subscribe(key => {
+        result.subscribe((key) => {
           expect(key).toBe('test');
         });
       });
@@ -67,7 +67,7 @@ describe('TranslateService', () => {
       it('should return null', () => {
         const result = service.getKey(['test', 'TEST2']);
 
-        result.subscribe(key => {
+        result.subscribe((key) => {
           expect(key).toBe(null);
         });
       });
@@ -77,7 +77,9 @@ describe('TranslateService', () => {
       it('should load other languages files', () => {
         const newLanguage: string = 'it';
         const expectedTranslationKey: string = 'test in italiano';
-        mockService.get.mockReturnValueOnce(of({ TEST: expectedTranslationKey }));
+        mockService.get.mockReturnValueOnce(
+          of({ TEST: expectedTranslationKey })
+        );
 
         service.changeActiveLanguage(newLanguage);
 
@@ -104,7 +106,10 @@ describe('TranslateService', () => {
   });
 
   describe('check with multiple initial dictionaries', () => {
-    const secondDictionary: DictionaryLoader = { location: '/main/', name: 'main' };
+    const secondDictionary: DictionaryLoader = {
+      location: '/main/',
+      name: 'main'
+    };
 
     beforeEach(() => {
       mockService = new MockRequestService();
@@ -127,7 +132,11 @@ describe('TranslateService', () => {
             url: `${initialDictionary.name}_${defaultLanguage}.${filesExtension}`
           }
         ],
-        [{ url: `/main/${secondDictionary.name}_${defaultLanguage}.${filesExtension}` }]
+        [
+          {
+            url: `/main/${secondDictionary.name}_${defaultLanguage}.${filesExtension}`
+          }
+        ]
       ];
 
       expect(service).toBeTruthy();

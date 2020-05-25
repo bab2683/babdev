@@ -26,7 +26,8 @@ import { DynamicComponentService } from '../../services';
 export class ClickableDirective implements OnInit {
   @Input() public clickableActions: ClickableActionFormat[] = [];
 
-  @ViewChild('test', { read: ViewContainerRef, static: true }) test: ViewContainerRef;
+  @ViewChild('test', { read: ViewContainerRef, static: true })
+  public test: ViewContainerRef;
 
   constructor(
     private dynamicComponentService: DynamicComponentService,
@@ -35,7 +36,7 @@ export class ClickableDirective implements OnInit {
 
   public ngOnInit(): void {
     if (this.clickableActions.length) {
-      this.clickableActions.forEach(action => {
+      this.clickableActions.forEach((action) => {
         this.addComponent(action);
       });
     }
@@ -58,6 +59,11 @@ export class ClickableDirective implements OnInit {
         break;
     }
 
-    this.dynamicComponentService.addComponentToRef(componentType, this.test, data, this.moduleRef);
+    this.dynamicComponentService.addComponentToRef(
+      componentType,
+      this.test,
+      data,
+      this.moduleRef
+    );
   }
 }

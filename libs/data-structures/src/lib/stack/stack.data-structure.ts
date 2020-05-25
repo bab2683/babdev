@@ -7,7 +7,7 @@ export class Stack {
     this.list = new SinglyLinkedList();
   }
 
-  public add(val: any) {
+  public add(val: any): void {
     this.list.unshift(val);
   }
 

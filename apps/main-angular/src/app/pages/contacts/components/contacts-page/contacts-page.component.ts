@@ -34,7 +34,7 @@ export class ContactsPageComponent implements OnInit {
     private store: Store<AppState>
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.translateService.loadDictionary(this.dictionary);
     this.isMobile$ = this.store.pipe(select(getIsMobileState));
   }

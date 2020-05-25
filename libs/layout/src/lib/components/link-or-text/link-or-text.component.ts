@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./link-or-text.component.scss']
 })
 export class LinkOrTextComponent {
-  @Input() key: string;
-  @Input() source: { [key: string]: { link: string; name: string } };
+  @Input() public key: string;
+  @Input() public source: { [key: string]: { link: string; name: string } };
 }

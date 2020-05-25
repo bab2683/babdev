@@ -1,6 +1,6 @@
 export class RequestServiceMock {
-  get: jest.Mock<any> = jest.fn();
-  post: jest.Mock<any> = jest.fn();
-  put: jest.Mock<any> = jest.fn();
-  delete: jest.Mock<any> = jest.fn();
+  public get: jest.Mock<any> = jest.fn();
+  public post: jest.Mock<any> = jest.fn();
+  public put: jest.Mock<any> = jest.fn();
+  public delete: jest.Mock<any> = jest.fn();
 }

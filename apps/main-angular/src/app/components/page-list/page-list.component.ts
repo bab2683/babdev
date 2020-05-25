@@ -10,7 +10,7 @@ import { Page } from '@models';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent {
-  pages: Page[] = Object.keys(Pages).reduce((result, current) => {
+  public pages: Page[] = Object.keys(Pages).reduce((result, current) => {
     if (current !== PageNames.HOME) {
       result.push(Pages[current]);
     }

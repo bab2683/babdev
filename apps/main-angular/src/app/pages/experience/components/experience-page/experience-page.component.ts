@@ -33,7 +33,7 @@ export class ExperiencePageComponent implements OnInit {
     private store: Store<AppState>
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.translateService.loadDictionary(this.dictionary);
 
     this.req

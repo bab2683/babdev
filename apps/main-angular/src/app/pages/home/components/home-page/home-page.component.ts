@@ -8,11 +8,14 @@ import { DictionaryLoader, TranslateService } from '@babdev/translate';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  dictionary: DictionaryLoader = { location: '/pages/home/', name: 'home' };
+  private dictionary: DictionaryLoader = {
+    location: '/pages/home/',
+    name: 'home'
+  };
 
   constructor(private translateService: TranslateService) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.translateService.loadDictionary(this.dictionary);
   }
 }

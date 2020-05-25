@@ -1,5 +1,5 @@
 export class TranslateServiceMock {
-  getKey: jest.Mock<any> = jest.fn();
-  changeActiveLanguage: jest.Mock<any> = jest.fn();
-  loadDictionary: jest.Mock<any> = jest.fn();
+  public getKey: jest.Mock<any> = jest.fn();
+  public changeActiveLanguage: jest.Mock<any> = jest.fn();
+  public loadDictionary: jest.Mock<any> = jest.fn();
 }

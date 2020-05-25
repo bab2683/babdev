@@ -22,7 +22,7 @@ import { AppState, getIsMobileState, isHome } from '@store';
   animations: [menuAnimation, routerAnimation]
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidebar', { static: false }) sidebar: SidebarComponent;
+  @ViewChild('sidebar', { static: false }) public sidebar: SidebarComponent;
 
   public isMobile: boolean;
   public sidebarMode: SidebarMode;
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   public isMobile$: Observable<boolean>;
   public menuAnimation$: Observable<MenuAnimationEnum>;
 
-  title = 'main-angular';
+  public title = 'main-angular';
 
   constructor(
     public translateService: TranslateService,

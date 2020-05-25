@@ -5,10 +5,10 @@ import { Parser, Tester } from '../request.model';
 import { RequestService } from '../request.service';
 
 class HttpClientMock {
-  get = jest.fn().mockReturnValue(of(null));
-  post = jest.fn().mockReturnValue(of(null));
-  put = jest.fn().mockReturnValue(of(null));
-  delete = jest.fn().mockReturnValue(of(null));
+  public get = jest.fn().mockReturnValue(of(null));
+  public post = jest.fn().mockReturnValue(of(null));
+  public put = jest.fn().mockReturnValue(of(null));
+  public delete = jest.fn().mockReturnValue(of(null));
 }
 
 describe('RequestService', () => {
@@ -34,7 +34,7 @@ describe('RequestService', () => {
 
     it('should parse the response', () => {
       httpMock.get.mockReturnValueOnce(of([1, 2, 3]));
-      const parser: Parser = value => value * 2;
+      const parser: Parser = (value) => value * 2;
 
       service.get({ url: testUrl, parser }).subscribe(({ data }) => {
         expect(data).toEqual([2, 4, 6]);
@@ -43,7 +43,7 @@ describe('RequestService', () => {
 
     it('should return null when condition fails', () => {
       httpMock.get.mockReturnValueOnce(of(3));
-      const tester: Tester = value => value % 2 === 0;
+      const tester: Tester = (value) => value % 2 === 0;
 
       service.get({ url: testUrl, tester }).subscribe(({ data }) => {
         expect(data).toEqual(null);
@@ -52,7 +52,7 @@ describe('RequestService', () => {
 
     it('should return the value when condition passes', () => {
       httpMock.get.mockReturnValueOnce(of(2));
-      const tester: Tester = value => value % 2 === 0;
+      const tester: Tester = (value) => value % 2 === 0;
 
       service.get({ url: testUrl, tester }).subscribe(({ data }) => {
         expect(data).toEqual(2);

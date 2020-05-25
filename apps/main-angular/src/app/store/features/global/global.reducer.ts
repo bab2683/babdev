@@ -21,6 +21,9 @@ const reducer: ActionReducer<GlobalState> = createReducer(
   }))
 );
 
-export function globalReducer(state: GlobalState | undefined, action: Action) {
+export function globalReducer(
+  state: GlobalState | undefined,
+  action: Action
+): GlobalState {
   return reducer(state, action);
 }

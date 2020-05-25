@@ -1,3 +1,3 @@
 export class ComponentFactoryResolverMock {
-  resolveComponentFactory: jest.Mock = jest.fn();
+  public resolveComponentFactory: jest.Mock = jest.fn();
 }
