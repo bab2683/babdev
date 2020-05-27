@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
   @Output() public currentStatus: EventEmitter<
     SidebarStatus
   > = new EventEmitter();
-  @ViewChild('sidenav') private sidenav: MatSidenav;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
 
   public sidebarStatus = SidebarStatus;
   public sidebarClasses$: Observable<string[]>;

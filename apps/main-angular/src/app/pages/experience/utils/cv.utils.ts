@@ -1,5 +1,5 @@
 import { CV } from '@models';
-import { calculateDuration } from './date.utils';
+import { calculateDuration } from '@utils';
 
 export function parseCVDates(cv: CV): CV {
   cv.sections.experiences.items.forEach((exp) => {

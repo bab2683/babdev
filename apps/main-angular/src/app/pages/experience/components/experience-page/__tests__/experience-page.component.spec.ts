@@ -6,11 +6,7 @@ import { of } from 'rxjs';
 
 import { RequestService } from '@babdev/request';
 import { RequestServiceMock } from '@babdev/request-testing';
-import { TranslateService } from '@babdev/translate';
-import {
-  TranslatePipeMock,
-  TranslateServiceMock
-} from '@babdev/translate-testing';
+import { TranslatePipeMock } from '@babdev/translate-testing';
 
 import { AppState, GLOBAL_FEATURE } from '@store';
 import { ExperiencePageComponent } from '../experience-page.component';
@@ -27,10 +23,6 @@ describe('ExperiencePageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ExperiencePageComponent, TranslatePipeMock],
       providers: [
-        {
-          provide: TranslateService,
-          useClass: TranslateServiceMock
-        },
         {
           provide: RequestService,
           useValue: reqService

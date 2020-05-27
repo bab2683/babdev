@@ -3,7 +3,6 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { BackGroundPositionYEnum, ClickableActions } from '@babdev/layout';
-import { DictionaryLoader, TranslateService } from '@babdev/translate';
 
 import { ContactLinks } from '@constants';
 import { ContactLinkTypeEnum } from '@enums';
@@ -24,18 +23,9 @@ export class ContactsPageComponent implements OnInit {
   public bgPath: string = 'bg/contacts';
   public bgPositionY: BackGroundPositionYEnum = BackGroundPositionYEnum.BOTTOM;
 
-  private dictionary: DictionaryLoader = {
-    location: '/pages/contacts/',
-    name: 'contacts'
-  };
-
-  constructor(
-    private translateService: TranslateService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   public ngOnInit(): void {
-    this.translateService.loadDictionary(this.dictionary);
     this.isMobile$ = this.store.pipe(select(getIsMobileState));
   }
 }

@@ -3,11 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-import { TranslateService } from '@babdev/translate';
-import {
-  TranslatePipeMock,
-  TranslateServiceMock
-} from '@babdev/translate-testing';
+import { TranslatePipeMock } from '@babdev/translate-testing';
 
 import { AppState, GLOBAL_FEATURE } from '@store';
 import { ContactsPageComponent } from '../contacts-page.component';
@@ -21,10 +17,6 @@ describe('ContactsPageComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ContactsPageComponent, TranslatePipeMock],
       providers: [
-        {
-          provide: TranslateService,
-          useClass: TranslateServiceMock
-        },
         provideMockStore({
           initialState: { [GLOBAL_FEATURE]: { isMobile: false } }
         })

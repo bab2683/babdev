@@ -10,10 +10,7 @@ import { Page } from '@models';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent {
-  public pages: Page[] = Object.keys(Pages).reduce((result, current) => {
-    if (current !== PageNames.HOME) {
-      result.push(Pages[current]);
-    }
-    return result;
-  }, []);
+  public pages: Page[] = Pages.filter(
+    ({ data: { name } }) => name !== PageNames.HOME
+  );
 }

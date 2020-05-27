@@ -13,7 +13,7 @@ import { TranslateService } from '@babdev/translate';
 
 import { menuAnimation, routerAnimation } from '@animations';
 import { MenuAnimationEnum } from '@enums';
-import { AppState, getIsMobileState, isHome } from '@store';
+import { AppState, getIsMobileState, isHome, selectRouteData } from '@store';
 
 @Component({
   selector: 'babdev-root',
@@ -34,14 +34,21 @@ export class AppComponent implements OnInit {
   public title = 'main-angular';
 
   constructor(
-    public translateService: TranslateService,
     public renderer: Renderer2,
+    private translateService: TranslateService,
     private store: Store<AppState>,
     @Inject(DOCUMENT) private document: Document,
     private actions$: Actions
   ) {}
 
   public ngOnInit(): void {
+    this.store
+      .pipe(select(selectRouteData))
+      .subscribe(
+        ({ dictionary } = {}) =>
+          dictionary && this.translateService.loadDictionary(dictionary)
+      );
+
     this.isMobile$ = this.store.pipe(select(getIsMobileState)).pipe(take(1));
 
     this.isMobile$.subscribe((isMobile) => {
@@ -76,7 +83,7 @@ export class AppComponent implements OnInit {
       .subscribe();
   }
 
-  public prepareRoute(outlet: RouterOutlet) {
+  public prepareRoute(outlet: RouterOutlet): any {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData['name']
     );

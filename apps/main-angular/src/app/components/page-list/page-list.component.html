@@ -2,8 +2,8 @@
   <a class="page-list__home" routerLink="/">Braulio</a>
   <ul class="page-list__list">
     <li class="page-list__item" *ngFor="let page of pages">
-      <a class="page-list__link link-effect-1" [routerLink]="page.name">{{
-        page.titleKey | translate | async
+      <a class="page-list__link link-effect-1" [routerLink]="page.data.name">{{
+        page.data.titleKey | translate | async
       }}</a>
     </li>
   </ul>
