@@ -5,11 +5,10 @@ import { map, take } from 'rxjs/operators';
 
 import { Technologies } from '@babdev/layout';
 import { RequestService } from '@babdev/request';
-import { DictionaryLoader, TranslateService } from '@babdev/translate';
 
 import { CV } from '@models';
 import { AppState, getIsMobileState } from '@store';
-import { parseCVDates } from '@utils';
+import { parseCVDates } from '../../utils';
 
 @Component({
   selector: 'babdev-experience-page',
@@ -22,20 +21,10 @@ export class ExperiencePageComponent implements OnInit {
   public technologies: Technologies;
 
   public bgPath: string = 'bg/experience';
-  private dictionary: DictionaryLoader = {
-    location: '/pages/experience/',
-    name: 'experience'
-  };
 
-  constructor(
-    private translateService: TranslateService,
-    private req: RequestService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private req: RequestService, private store: Store<AppState>) {}
 
   public ngOnInit(): void {
-    this.translateService.loadDictionary(this.dictionary);
-
     this.req
       .get<Technologies>({ cache: true, url: 'assets/data/technologies.json' })
       .pipe(take(1))

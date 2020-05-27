@@ -5,12 +5,10 @@ exports[`ContactsPageComponent should match snapshot 1`] = `
   actions={[Function Object]}
   bgPath={[Function String]}
   bgPositionY={[Function String]}
-  dictionary={[Function Object]}
   isMobile$={[Function Store]}
   itemType={[Function Object]}
   links={[Function Array]}
   store={[Function MockStore]}
-  translateService={[Function TranslateServiceMock]}
 >
   <babdev-page-with-bg
     title="contacts.TITLE"

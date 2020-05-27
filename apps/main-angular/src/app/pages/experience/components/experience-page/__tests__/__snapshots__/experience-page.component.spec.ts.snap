@@ -3,10 +3,8 @@
 exports[`ExperiencePageComponent should match snapshot 1`] = `
 <babdev-experience-page
   bgPath={[Function String]}
-  dictionary={[Function Object]}
   req={[Function RequestServiceMock]}
   store={[Function MockStore]}
-  translateService={[Function TranslateServiceMock]}
 >
   
 </babdev-experience-page>

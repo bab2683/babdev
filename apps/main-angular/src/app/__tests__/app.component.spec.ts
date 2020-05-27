@@ -17,30 +17,31 @@ import { BehaviorSubject } from 'rxjs';
 import { SidebarComponent } from '@babdev/sidebar';
 import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
+import { TranslateServiceMock } from '@babdev/translate-testing';
+
+import { MenuAnimationEnum } from '@enums';
 import {
-  TranslatePipeMock,
-  TranslateServiceMock
-} from '@babdev/translate-testing';
-
-import { AppState, MockedAppStore } from '@store';
+  AppState,
+  getIsMobileState,
+  isHome,
+  MockedAppStore,
+  selectRouteData
+} from '@store';
 import { AppComponent } from '../app.component';
-
-class MockRenderer {
-  public addClass: jest.Mock = jest.fn();
-}
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let store: MockStore<AppState>;
   let renderer: Renderer2;
+  let translationService: TranslateService;
   const actions$: BehaviorSubject<Action> = new BehaviorSubject({ type: '' });
   const initialState: AppState = MockedAppStore;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, NoopAnimationsModule],
-      declarations: [AppComponent, SidebarComponent, TranslatePipeMock],
+      declarations: [AppComponent, SidebarComponent],
       providers: [
         {
           provide: TranslateService,
@@ -61,6 +62,7 @@ describe('AppComponent', () => {
     renderer = fixture.componentRef.injector.get<Renderer2>(
       Renderer2 as Type<Renderer2>
     );
+    translationService = TestBed.inject(TranslateService);
 
     jest.spyOn(renderer, 'addClass');
   });
@@ -119,6 +121,88 @@ describe('AppComponent', () => {
 
       expect(component.sidebar.close).toHaveBeenCalled();
     }));
+
+    it('should not call the translation service if not necessary', () => {
+      fixture.detectChanges();
+      component.ngOnInit();
+      store.overrideSelector(
+        selectRouteData as any,
+        {
+          name: ''
+        } as any
+      );
+      store.refreshState();
+      fixture.detectChanges();
+      expect(translationService.loadDictionary).not.toHaveBeenCalled();
+    });
+
+    it('should automatically add the dictionary for the page', () => {
+      fixture.detectChanges();
+      component.ngOnInit();
+      const dictionary = { location: '/pages/contacts/', name: 'contacts' };
+      store.overrideSelector(
+        selectRouteData as any,
+        {
+          dictionary
+        } as any
+      );
+      store.refreshState();
+      fixture.detectChanges();
+      expect(translationService.loadDictionary).toHaveBeenCalledWith(
+        dictionary
+      );
+    });
+  });
+
+  describe('menu animations', () => {
+    let isMobileSelector: any;
+    let isHomeSelector: any;
+
+    beforeEach(() => {
+      component.ngOnInit();
+
+      isMobileSelector = store.overrideSelector(getIsMobileState, false);
+      isHomeSelector = store.overrideSelector(isHome, false);
+      store.refreshState();
+    });
+
+    test('mobile false, not homepage', () => {
+      component.menuAnimation$.subscribe((animation) => {
+        expect(component.showNav).toEqual(true);
+        expect(animation).toEqual(MenuAnimationEnum.Translated);
+      });
+    });
+
+    test('mobile false, homepage', () => {
+      isHomeSelector.setResult(true);
+      store.refreshState();
+
+      component.menuAnimation$.subscribe((animation) => {
+        expect(component.showNav).toEqual(true);
+        expect(animation).toEqual(MenuAnimationEnum.Base);
+      });
+    });
+
+    test('mobile true, not homepage', () => {
+      isMobileSelector.setResult(true);
+      store.refreshState();
+
+      component.menuAnimation$.subscribe((animation) => {
+        expect(component.showNav).toEqual(false);
+        expect(animation).toEqual(MenuAnimationEnum.None);
+      });
+    });
+
+    test('mobile true, homepage', () => {
+      isMobileSelector.setResult(true);
+      isHomeSelector.setResult(true);
+      store.refreshState();
+
+      component.menuAnimation$.subscribe((animation) => {
+        expect(component.showNav).toEqual(true);
+        expect(animation).toEqual(MenuAnimationEnum.None);
+      });
+    });
   });
 
   describe('prepareRoute', () => {

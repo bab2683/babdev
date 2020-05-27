@@ -1,8 +1,12 @@
+import { DictionaryLoader } from '@babdev/translate';
+
 export interface Page {
-  bgPath?: string;
+  data: {
+    bgPath?: string;
+    dictionary: DictionaryLoader;
+    name: string;
+    titleKey: string;
+  };
   moduleName: string;
-  name: string;
   path: string;
-  titleKey: string;
-  translationLocation: string;
 }

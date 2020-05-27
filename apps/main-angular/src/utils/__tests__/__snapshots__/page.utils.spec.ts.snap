@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page utils generatePageModel should match snapshot for homepage 1`] = `
+Object {
+  "data": Object {
+    "dictionary": Object {
+      "location": "/pages/home/",
+      "name": "home",
+    },
+    "name": "home",
+    "titleKey": "common.PAGES.HOME",
+  },
+  "moduleName": "HomeModule",
+  "path": "",
+}
+`;
+
+exports[`Page utils generatePageModel should match snapshot for landing page 1`] = `
+Object {
+  "data": Object {
+    "bgPath": "bg/experience",
+    "dictionary": Object {
+      "location": "/pages/experience/",
+      "name": "experience",
+    },
+    "name": "experience",
+    "titleKey": "common.PAGES.EXPERIENCE",
+  },
+  "moduleName": "ExperienceModule",
+  "path": "experience",
+}
+`;
