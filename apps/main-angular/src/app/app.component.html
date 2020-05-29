@@ -19,18 +19,24 @@
         class="page__header"
         *ngIf="showNav"
         [pageData]="data.pageData"
-        [@menuAnimation]="getMenuAnimationState(isHomePage$ | async)"
+        [navigationId]="navigationId$ | async"
+        [@menuAnimation]="menuAnimation"
       ></babdev-header>
 
       <div
         class="page__nav"
         *ngIf="showNav"
-        [@headerAnimation]="data.headerAnimation"
+        [@floatingHeaderAnimation]="data.headerAnimation"
       >
         <babdev-page-list class="page__nav__list"></babdev-page-list>
       </div>
       <main class="page__content">
-        <div class="page__router" [@routerAnimation]="prepareRoute(outlet)">
+        <div
+          class="page__router"
+          [@routerAnimation]="prepareRoute(outlet)"
+          (@routerAnimation.start)="changeMenuAnimationState($event)"
+          (@routerAnimation.done)="changeMenuAnimationState($event)"
+        >
           <router-outlet #outlet="outlet"></router-outlet>
           <!-- main content here common library test
         <br />

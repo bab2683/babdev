@@ -1,12 +1,17 @@
 @import "~@styleguide_funcional";
 
 .header {
+  position: relative;
+
   &__bg {
-    height: 7vh;
+    display: block;
+    height: px-to-rem(68);
   }
 
   &__list {
     display: block;
     padding-left: calc-spacing(2);
+    position: absolute;
+    top: 0;
   }
 }

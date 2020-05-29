@@ -13,6 +13,7 @@ module.exports = {
     '!./src/**/*.module.ts',
     '!./src/**/*.routes.ts',
     '!./src/**/*.actions.ts',
+    '!./src/**/*.selectors.ts',
     '!./src/**/*.state.ts',
     '!./src/**/*.store.ts',
     '!./src/**/index.ts',

@@ -1,3 +1,4 @@
+import { AnimationEvent } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -11,13 +12,23 @@ import { SidebarComponent, SidebarMode } from '@babdev/sidebar';
 import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
 
-import { headerAnimation, menuAnimation, routerAnimation } from '@animations';
-import { HeaderAnimationEnum, MenuAnimationEnum } from '@enums';
+import {
+  floatingHeaderAnimation,
+  menuAnimation,
+  routerAnimation
+} from '@animations';
+import { HeaderAnimationEnum, MenuAnimationEnum, PageNames } from '@enums';
 import { PageData } from '@models';
-import { AppState, getIsMobileState, getRouteData, isHome } from '@store';
+import {
+  AppState,
+  getIsMobileState,
+  getNavigationId,
+  getRouteData,
+  isHome
+} from '@store';
 
 @Component({
-  animations: [headerAnimation, menuAnimation, routerAnimation],
+  animations: [floatingHeaderAnimation, menuAnimation, routerAnimation],
   selector: 'babdev-root',
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html'
@@ -28,11 +39,13 @@ export class AppComponent implements OnInit {
   public isMobile: boolean;
   public sidebarMode: SidebarMode;
   public showNav: boolean;
+  public menuAnimation: MenuAnimationEnum = MenuAnimationEnum.Closed;
 
   public isMobile$: Observable<boolean>;
   public isHomePage$: Observable<boolean>;
   public headerAnimation$: Observable<HeaderAnimationEnum>;
   public pageData$: Observable<PageData>;
+  public navigationId$: Observable<number>;
 
   public title = 'main-angular';
 
@@ -80,6 +93,8 @@ export class AppComponent implements OnInit {
       )
     );
 
+    this.navigationId$ = this.store.pipe(select(getNavigationId));
+
     // Close sidebar on router navigation
     this.actions$
       .pipe(
@@ -95,7 +110,23 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public getMenuAnimationState(isHomePage: boolean): MenuAnimationEnum {
-    return isHomePage ? MenuAnimationEnum.Closed : MenuAnimationEnum.Open;
+  public changeMenuAnimationState({
+    fromState,
+    phaseName,
+    toState
+  }: AnimationEvent): void {
+    if (toState !== null) {
+      if (phaseName === 'start') {
+        if (toState === PageNames.HOME) {
+          this.menuAnimation = MenuAnimationEnum.Closed;
+        } else if (fromState === PageNames.HOME) {
+          this.menuAnimation = MenuAnimationEnum.Transit;
+        }
+      } else {
+        if (toState !== PageNames.HOME) {
+          this.menuAnimation = MenuAnimationEnum.Open;
+        }
+      }
+    }
   }
 }

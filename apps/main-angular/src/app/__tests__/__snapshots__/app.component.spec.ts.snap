@@ -8,6 +8,8 @@ exports[`AppComponent should match the snapshot 1`] = `
   isHomePage$={[Function Store]}
   isMobile="false"
   isMobile$={[Function Store]}
+  menuAnimation={[Function String]}
+  navigationId$={[Function Store]}
   pageData$={[Function Store]}
   renderer={[Function DebugRenderer2]}
   showNav={[Function Boolean]}
@@ -37,11 +39,11 @@ exports[`AppComponent should match the snapshot 1`] = `
           
           <babdev-header
             class="page__header ng-tns-c1-0 ng-trigger ng-trigger-menuAnimation ng-star-inserted"
-            style="transform:translateY(-100%);0:transform;"
+            style="opacity:0;0:opacity;"
           />
           
           <div
-            class="page__nav ng-tns-c1-0 ng-trigger ng-trigger-headerAnimation ng-star-inserted"
+            class="page__nav ng-tns-c1-0 ng-trigger ng-trigger-floatingHeaderAnimation ng-star-inserted"
             style="left:40%;top:40%;transform:translate(-50%, -50%);0:left;1:top;2:transform;"
           >
             <babdev-page-list

@@ -19,7 +19,7 @@ import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
 import { TranslateServiceMock } from '@babdev/translate-testing';
 
-import { HeaderAnimationEnum, MenuAnimationEnum } from '@enums';
+import { HeaderAnimationEnum, MenuAnimationEnum, PageNames } from '@enums';
 import {
   AppState,
   getIsMobileState,
@@ -215,17 +215,66 @@ describe('AppComponent', () => {
     });
   });
 
-  describe('getMenuAnimationState', () => {
-    it('should return MenuAnimationEnum.Closed if on Homepage', () => {
-      const result = component.getMenuAnimationState(true);
-
-      expect(result).toEqual(MenuAnimationEnum.Closed);
+  describe('changeMenuAnimationState', () => {
+    beforeEach(() => {
+      component.menuAnimation = MenuAnimationEnum.Closed;
     });
 
-    it('should return MenuAnimationEnum.Closed if on landing pages', () => {
-      const result = component.getMenuAnimationState(false);
+    it('should not change menuAnimation if toState is null', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'start',
+        toState: null
+      } as any);
 
-      expect(result).toEqual(MenuAnimationEnum.Open);
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Closed);
+    });
+
+    it('should change menuAnimation to MenuAnimationEnum.Closed', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'start',
+        toState: PageNames.HOME
+      } as any);
+
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Closed);
+    });
+
+    it('should change menuAnimation to MenuAnimationEnum.Open', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'done',
+        toState: PageNames.CONTACTS
+      } as any);
+
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Open);
+    });
+
+    it('should change menuAnimation to MenuAnimationEnum.Transit', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'start',
+        fromState: PageNames.HOME,
+        toState: PageNames.CONTACTS
+      } as any);
+
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Transit);
+    });
+
+    it('should not change menuAnimation if navigating from LP to LP', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'start',
+        fromState: PageNames.EXPERIENCE,
+        toState: PageNames.CONTACTS
+      } as any);
+
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Closed);
+    });
+
+    it('should not change menuAnimation if navigating to home', () => {
+      component.changeMenuAnimationState({
+        phaseName: 'done',
+        fromState: PageNames.EXPERIENCE,
+        toState: PageNames.HOME
+      } as any);
+
+      expect(component.menuAnimation).toEqual(MenuAnimationEnum.Closed);
     });
   });
 });
