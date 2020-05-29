@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 
-import { HorizontalContentAlignmentEnum } from '@babdev/layout';
-
+import { headerBgAnimation } from '@animations';
 import { PageData } from '@models';
 
 @Component({
+  animations: [headerBgAnimation],
   selector: 'babdev-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
   @Input() public isHome: boolean;
   @Input() public pageData: PageData;
-  public alignment = HorizontalContentAlignmentEnum;
+  @Input() public navigationId: number;
 }

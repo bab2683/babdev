@@ -1,17 +1,19 @@
 import {
   animate,
   AnimationTriggerMetadata,
+  keyframes,
+  query,
   state,
   style,
   transition,
   trigger
 } from '@angular/animations';
 
-import { MENU_TRANSLATION_TIMING } from '@constants';
+import { FADE_IN_HEADER, MENU_TRANSLATION_TIMING } from '@constants';
 import { HeaderAnimationEnum } from '@enums';
 
-export const headerAnimation: AnimationTriggerMetadata = trigger(
-  'headerAnimation',
+export const floatingHeaderAnimation: AnimationTriggerMetadata = trigger(
+  'floatingHeaderAnimation',
   [
     state(
       HeaderAnimationEnum.Base,
@@ -35,3 +37,22 @@ export const headerAnimation: AnimationTriggerMetadata = trigger(
     )
   ]
 );
+
+export const headerBgAnimation = trigger('headerBgAnimation', [
+  transition(':increment', [
+    query(
+      '.header__bg',
+      [
+        animate(
+          FADE_IN_HEADER,
+          keyframes([
+            style({ opacity: 0, offset: 0 }),
+            style({ opacity: 0, offset: 0.95 }),
+            style({ opacity: 1, offset: 1 })
+          ])
+        )
+      ],
+      { optional: true }
+    )
+  ])
+]);

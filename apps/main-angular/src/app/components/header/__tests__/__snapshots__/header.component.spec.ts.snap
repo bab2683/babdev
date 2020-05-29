@@ -2,14 +2,17 @@
 
 exports[`HeaderComponent should match snapshot 1`] = `
 <babdev-header
-  alignment={[Function Object]}
   isHome={[Function Boolean]}
   pageData={[Function Object]}
 >
   <header
-    class="header"
+    class="header ng-trigger ng-trigger-headerBgAnimation"
+    style=""
   >
     
+    <babdev-page-list
+      class="header__list"
+    />
   </header>
 </babdev-header>
 `;

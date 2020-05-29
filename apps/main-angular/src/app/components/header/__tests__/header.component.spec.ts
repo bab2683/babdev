@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from '../header.component';
 
@@ -9,6 +10,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [NoopAnimationsModule],
       declarations: [HeaderComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();

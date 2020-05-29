@@ -6,5 +6,6 @@ export enum HeaderAnimationEnum {
 
 export enum MenuAnimationEnum {
   Closed = 'Closed',
-  Open = 'Open'
+  Open = 'Open',
+  Transit = 'Transit'
 }

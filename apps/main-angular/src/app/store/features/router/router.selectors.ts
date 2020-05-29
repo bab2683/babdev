@@ -23,3 +23,7 @@ export const getRouteData = createSelector(
   selectRouteData,
   (data = {}) => data as PageData
 );
+
+export const getNavigationId = createSelector(getRouterState, (routerState) =>
+  routerState ? routerState.navigationId : 0
+);
