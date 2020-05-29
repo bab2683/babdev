@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@babdev/translate';
 
 import {
+  BgComponent,
   ButtonCopyComponent,
   ButtonHyperlinkComponent,
   ButtonMailComponent,
@@ -19,6 +20,7 @@ import { ClickableDirective, CopyDirective } from './directives';
 
 @NgModule({
   declarations: [
+    BgComponent,
     ButtonCopyComponent,
     ButtonHyperlinkComponent,
     ButtonMailComponent,
@@ -36,6 +38,7 @@ import { ClickableDirective, CopyDirective } from './directives';
     TooltipComponent
   ],
   exports: [
+    BgComponent,
     CardComponent,
     ClickableDirective,
     CopyDirective,

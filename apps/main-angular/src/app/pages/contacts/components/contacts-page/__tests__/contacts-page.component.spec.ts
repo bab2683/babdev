@@ -5,7 +5,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { TranslatePipeMock } from '@babdev/translate-testing';
 
-import { AppState, GLOBAL_FEATURE } from '@store';
+import { AppState, GLOBAL_FEATURE, ROUTER_FEATURE } from '@store';
 import { ContactsPageComponent } from '../contacts-page.component';
 
 describe('ContactsPageComponent', () => {
@@ -18,7 +18,10 @@ describe('ContactsPageComponent', () => {
       declarations: [ContactsPageComponent, TranslatePipeMock],
       providers: [
         provideMockStore({
-          initialState: { [GLOBAL_FEATURE]: { isMobile: false } }
+          initialState: {
+            [GLOBAL_FEATURE]: { isMobile: false },
+            [ROUTER_FEATURE]: {}
+          }
         })
       ],
       schemas: [NO_ERRORS_SCHEMA]

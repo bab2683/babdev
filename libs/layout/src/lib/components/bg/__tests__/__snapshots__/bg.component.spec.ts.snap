@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BgComponent should not load the background 1`] = `
+<babdev-bg
+  horizontalContentAlignment={[Function String]}
+>
+  <div
+    class="bg"
+    style="background-image: url(undefined); justify-content: flex-end;"
+  >
+    <div
+      class="bg__content"
+    />
+  </div>
+</babdev-bg>
+`;
+
+exports[`BgComponent should put the background 1`] = `
+<babdev-bg
+  data={[Function Object]}
+  horizontalContentAlignment={[Function String]}
+  path={[Function String]}
+  positionX={[Function String]}
+  positionY={[Function String]}
+>
+  <div
+    class="bg"
+    style="background-image: url(/assets/contacts.jpg); justify-content: center; background-position-x: 50%; background-position-y: bottom;"
+  >
+    <div
+      class="bg__content"
+    />
+  </div>
+</babdev-bg>
+`;
+
+exports[`BgComponent should use the default values the background 1`] = `
+<babdev-bg
+  data={[Function Object]}
+  horizontalContentAlignment={[Function String]}
+  path={[Function String]}
+  positionX={[Function String]}
+  positionY={[Function String]}
+>
+  <div
+    class="bg"
+    style="background-image: url(/assets/contacts.jpg); justify-content: center; background-position-x: center; background-position-y: 0%;"
+  >
+    <div
+      class="bg__content"
+    />
+  </div>
+</babdev-bg>
+`;

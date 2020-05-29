@@ -1,21 +1,28 @@
-<babdev-page-with-bg
-  [bgPath]="bgPath"
-  [bgPositionY]="bgPositionY"
-  [isMobile]="isMobile$ | async"
-  [title]="'contacts.TITLE' | translate | async"
->
-  <ul class="contact-links">
-    <li
-      class="contact-links__item contact-links__item--{{ link.id }}"
-      *ngFor="let link of links"
-      [ngSwitch]="link.type"
-    >
-      <fa-icon class="contact-links__icon" *ngIf="link.icon" [icon]="link.icon"></fa-icon>
-      <div class="contact-links__text-container">
-        <span class="contact-links__text" babdevClickable [clickableActions]="link.actions">{{
-          link.text
-        }}</span>
-      </div>
-    </li>
-  </ul>
-</babdev-page-with-bg>
+<ng-container *ngIf="pageData$ | async as pageData">
+  <babdev-page-with-bg
+    [bgData]="pageData && pageData.bgData"
+    [title]="'contacts.TITLE' | translate | async"
+  >
+    <ul class="contact-links">
+      <li
+        class="contact-links__item contact-links__item--{{ link.id }}"
+        *ngFor="let link of links"
+        [ngSwitch]="link.type"
+      >
+        <fa-icon
+          class="contact-links__icon"
+          *ngIf="link.icon"
+          [icon]="link.icon"
+        ></fa-icon>
+        <div class="contact-links__text-container">
+          <span
+            class="contact-links__text"
+            babdevClickable
+            [clickableActions]="link.actions"
+            >{{ link.text }}</span
+          >
+        </div>
+      </li>
+    </ul>
+  </babdev-page-with-bg>
+</ng-container>

@@ -1,6 +1,7 @@
 import { getSelectors, RouterReducerState } from '@ngrx/router-store';
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
+import { PageData } from '@models';
 import { RouterState, ROUTER_FEATURE } from './router.state';
 
 export const getRouterState = createFeatureSelector<
@@ -17,3 +18,8 @@ export const {
   selectRouteData, // select the current route data
   selectUrl // select the current url
 } = getSelectors(getRouterState);
+
+export const getRouteData = createSelector(
+  selectRouteData,
+  (data = {}) => data as PageData
+);

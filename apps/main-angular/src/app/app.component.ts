@@ -11,15 +11,16 @@ import { SidebarComponent, SidebarMode } from '@babdev/sidebar';
 import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
 
-import { menuAnimation, routerAnimation } from '@animations';
-import { MenuAnimationEnum } from '@enums';
-import { AppState, getIsMobileState, isHome, selectRouteData } from '@store';
+import { headerAnimation, menuAnimation, routerAnimation } from '@animations';
+import { HeaderAnimationEnum, MenuAnimationEnum } from '@enums';
+import { PageData } from '@models';
+import { AppState, getIsMobileState, getRouteData, isHome } from '@store';
 
 @Component({
+  animations: [headerAnimation, menuAnimation, routerAnimation],
   selector: 'babdev-root',
-  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [menuAnimation, routerAnimation]
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidebar', { static: false }) public sidebar: SidebarComponent;
@@ -29,7 +30,9 @@ export class AppComponent implements OnInit {
   public showNav: boolean;
 
   public isMobile$: Observable<boolean>;
-  public menuAnimation$: Observable<MenuAnimationEnum>;
+  public isHomePage$: Observable<boolean>;
+  public headerAnimation$: Observable<HeaderAnimationEnum>;
+  public pageData$: Observable<PageData>;
 
   public title = 'main-angular';
 
@@ -42,12 +45,13 @@ export class AppComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.store
-      .pipe(select(selectRouteData))
-      .subscribe(
-        ({ dictionary } = {}) =>
+    this.pageData$ = this.store.pipe(
+      select(getRouteData),
+      tap(
+        ({ dictionary }) =>
           dictionary && this.translateService.loadDictionary(dictionary)
-      );
+      )
+    );
 
     this.isMobile$ = this.store.pipe(select(getIsMobileState)).pipe(take(1));
 
@@ -60,17 +64,19 @@ export class AppComponent implements OnInit {
       );
     });
 
-    this.menuAnimation$ = combineLatest([
+    this.isHomePage$ = this.store.pipe(select(isHome));
+
+    this.headerAnimation$ = combineLatest([
       this.isMobile$,
-      this.store.pipe(select(isHome))
+      this.isHomePage$
     ]).pipe(
       tap(([isMobile, isHomePage]) => (this.showNav = !isMobile || isHomePage)),
       map(([isMobile, isHomePage]) =>
         isMobile
-          ? MenuAnimationEnum.None
+          ? HeaderAnimationEnum.None
           : isHomePage
-          ? MenuAnimationEnum.Base
-          : MenuAnimationEnum.Translated
+          ? HeaderAnimationEnum.Base
+          : HeaderAnimationEnum.Translated
       )
     );
 
@@ -87,5 +93,9 @@ export class AppComponent implements OnInit {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData['name']
     );
+  }
+
+  public getMenuAnimationState(isHomePage: boolean): MenuAnimationEnum {
+    return isHomePage ? MenuAnimationEnum.Closed : MenuAnimationEnum.Open;
   }
 }

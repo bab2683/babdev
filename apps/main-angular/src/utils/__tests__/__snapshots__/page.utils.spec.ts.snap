@@ -18,7 +18,10 @@ Object {
 exports[`Page utils generatePageModel should match snapshot for landing page 1`] = `
 Object {
   "data": Object {
-    "bgPath": "bg/experience",
+    "bgData": Object {
+      "path": "/assets/bg/experience.jpg",
+      "positionY": 200,
+    },
     "dictionary": Object {
       "location": "/pages/experience/",
       "name": "experience",

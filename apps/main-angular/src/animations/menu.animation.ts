@@ -14,24 +14,19 @@ export const menuAnimation: AnimationTriggerMetadata = trigger(
   'menuAnimation',
   [
     state(
-      MenuAnimationEnum.Base,
+      MenuAnimationEnum.Closed,
       style({
-        left: '40%',
-        top: '40%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translateY(-100%)'
       })
     ),
     state(
-      MenuAnimationEnum.Translated,
+      MenuAnimationEnum.Open,
       style({
-        left: '1vw',
-        top: '1vh',
-        transform: 'translate(0%, 0%)'
+        transform: 'translateY(0)'
       })
     ),
-    transition(
-      `${MenuAnimationEnum.Base} <=> ${MenuAnimationEnum.Translated}`,
-      [animate(MENU_TRANSLATION_TIMING)]
-    )
+    transition(`${MenuAnimationEnum.Closed} <=> ${MenuAnimationEnum.Open}`, [
+      animate(MENU_TRANSLATION_TIMING)
+    ])
   ]
 );

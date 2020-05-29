@@ -1,17 +1,19 @@
+import { BgModel } from '@babdev/layout';
+
 import { Page } from '@models';
 import { capitalize } from './string.utils';
 
 export const generatePageModel = ({
-  name,
-  hasBg,
-  isHome
+  bgData,
+  isHome,
+  name
 }: {
-  name: string;
-  hasBg: boolean;
+  bgData?: BgModel;
   isHome: boolean;
+  name: string;
 }): Page => ({
   data: {
-    ...(hasBg ? { bgPath: `bg/${name}` } : {}),
+    ...(bgData ? { bgData } : {}),
     dictionary: {
       location: `/pages/${name}/`,
       name

@@ -1,11 +1,11 @@
 <ng-container
   *ngIf="{
-    isMobile: isMobile$ | async
+    isMobile: isMobile$ | async,
+    pageData: pageData$ | async
   } as data"
 >
   <babdev-page-with-bg
-    [bgPath]="bgPath"
-    [isMobile]="data.isMobile"
+    [bgData]="data.pageData && data.pageData.bgData"
     [title]="'experience.TITLE' | translate | async"
   >
     <div class="experience" *ngIf="CV$ | async as CV">
@@ -31,7 +31,10 @@
             exp.duration.years
               ? exp.duration.years +
                 ' ' +
-                ((exp.duration.years > 1 ? 'common.TIME.YEAR.MULTIPLE' : 'common.TIME.YEAR.SINGLE')
+                ((exp.duration.years > 1
+                  ? 'common.TIME.YEAR.MULTIPLE'
+                  : 'common.TIME.YEAR.SINGLE'
+                )
                   | translate
                   | async) +
                 ' '
@@ -42,7 +45,8 @@
                 ' ' +
                 ((exp.duration.months > 1
                   ? 'common.TIME.MONTH.MULTIPLE'
-                  : 'common.TIME.MONTH.SINGLE')
+                  : 'common.TIME.MONTH.SINGLE'
+                )
                   | translate
                   | async)
               : ''
@@ -63,7 +67,10 @@
             </p>
             <ul>
               <li *ngFor="let tech of exp.technologies">
-                <babdev-link-or-text [key]="tech" [source]="technologies"></babdev-link-or-text>
+                <babdev-link-or-text
+                  [key]="tech"
+                  [source]="technologies"
+                ></babdev-link-or-text>
               </li>
             </ul>
           </div>

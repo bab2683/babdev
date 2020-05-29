@@ -1,0 +1,10 @@
+<header class="header">
+  <babdev-bg
+    class="header__bg"
+    *ngIf="pageData && pageData.bgData"
+    [data]="pageData.bgData"
+    [horizontalContentAlignment]="alignment.left"
+  >
+    <babdev-page-list [open]="true" class="header__list"></babdev-page-list>
+  </babdev-bg>
+</header>

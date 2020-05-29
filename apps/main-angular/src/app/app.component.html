@@ -1,23 +1,9 @@
-<!-- <babdev-sidebar #sidebar (currentStatus)="sidebarStatus($event)" [openedAtInit]="true">
-  <ng-container sidebarContent>
-    sidebar content here
-  </ng-container>
-
-  <div class="page" pageContent>
-    <header>
-      header
-    </header>
-    <main class="page__content">
-      main content here
-      <router-outlet></router-outlet>
-    </main>
-    <footer>
-      footer
-    </footer>
-  </div>
-</babdev-sidebar> -->
-
-<ng-container *ngIf="{ menuAnimation: menuAnimation$ | async } as data">
+<ng-container
+  *ngIf="{
+    headerAnimation: headerAnimation$ | async,
+    pageData: pageData$ | async
+  } as data"
+>
   <babdev-sidebar
     #sidebar
     [mode]="sidebarMode"
@@ -29,14 +15,21 @@
     </ng-container>
 
     <div class="page" pageContent>
+      <babdev-header
+        class="page__header"
+        *ngIf="showNav"
+        [pageData]="data.pageData"
+        [@menuAnimation]="getMenuAnimationState(isHomePage$ | async)"
+      ></babdev-header>
+
+      <div
+        class="page__nav"
+        *ngIf="showNav"
+        [@headerAnimation]="data.headerAnimation"
+      >
+        <babdev-page-list class="page__nav__list"></babdev-page-list>
+      </div>
       <main class="page__content">
-        <div
-          class="page__nav"
-          *ngIf="showNav"
-          [@menuAnimation]="data.menuAnimation"
-        >
-          <babdev-page-list class="page__nav__list"></babdev-page-list>
-        </div>
         <div class="page__router" [@routerAnimation]="prepareRoute(outlet)">
           <router-outlet #outlet="outlet"></router-outlet>
           <!-- main content here common library test

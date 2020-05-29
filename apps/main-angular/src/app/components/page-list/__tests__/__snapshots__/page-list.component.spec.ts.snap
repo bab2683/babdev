@@ -2,10 +2,52 @@
 
 exports[`PageListComponent should match snapshot 1`] = `
 <babdev-page-list
+  open="false"
   pages={[Function Array]}
 >
   <section
     class="page-list"
+  >
+    <a
+      class="page-list__home"
+      routerlink="/"
+    >
+      Braulio
+    </a>
+    <ul
+      class="page-list__list"
+    >
+      
+      <li
+        class="page-list__item"
+      >
+        <a
+          class="page-list__link link-effect-1"
+        >
+          common.PAGES.CONTACTS
+        </a>
+      </li>
+      <li
+        class="page-list__item"
+      >
+        <a
+          class="page-list__link link-effect-1"
+        >
+          common.PAGES.EXPERIENCE
+        </a>
+      </li>
+    </ul>
+  </section>
+</babdev-page-list>
+`;
+
+exports[`PageListComponent should match snapshot 2`] = `
+<babdev-page-list
+  open={[Function Boolean]}
+  pages={[Function Array]}
+>
+  <section
+    class="page-list page-list--open"
   >
     <a
       class="page-list__home"

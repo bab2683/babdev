@@ -1,0 +1,13 @@
+<div
+  class="bg"
+  [ngStyle]="{
+    'background-image': 'url(' + path + ')',
+    'background-position-x': positionX,
+    'background-position-y': positionY,
+    'justify-content': horizontalContentAlignment
+  }"
+>
+  <div class="bg__content">
+    <ng-content></ng-content>
+  </div>
+</div>

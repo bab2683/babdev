@@ -32,4 +32,11 @@ describe('PageListComponent', () => {
   it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
   });
+
+  it('should match snapshot', () => {
+    component.open = true;
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
+  });
 });

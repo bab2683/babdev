@@ -8,6 +8,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { LayoutModule } from '@babdev/layout';
 import { RequestModule } from '@babdev/request';
 import { SidebarModule } from '@babdev/sidebar';
 import { TranslateModule } from '@babdev/translate';
@@ -16,15 +17,16 @@ import { translateConfig } from '@constants';
 import { environment } from '@env/environment';
 import { AppEffects, metaReducers, reducers } from '@store';
 import { AppComponent } from './app.component';
-import { PageListComponent } from './components/page-list/page-list.component';
+import { HeaderComponent, PageListComponent } from './components';
 import { routes } from './pages/app.routes';
 
 @NgModule({
-  declarations: [AppComponent, PageListComponent],
+  declarations: [AppComponent, HeaderComponent, PageListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    LayoutModule,
     RequestModule,
     RouterModule.forRoot(routes),
     SidebarModule,

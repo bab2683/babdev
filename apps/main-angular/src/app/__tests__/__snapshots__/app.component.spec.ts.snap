@@ -4,9 +4,11 @@ exports[`AppComponent should match the snapshot 1`] = `
 <babdev-root
   actions$={[Function Actions]}
   document={[Function Document]}
+  headerAnimation$={[Function Observable]}
+  isHomePage$={[Function Store]}
   isMobile="false"
   isMobile$={[Function Store]}
-  menuAnimation$={[Function Observable]}
+  pageData$={[Function Store]}
   renderer={[Function DebugRenderer2]}
   showNav={[Function Boolean]}
   sidebar={[Function SidebarComponent]}
@@ -32,18 +34,23 @@ exports[`AppComponent should match the snapshot 1`] = `
           class="page ng-tns-c1-0"
           pagecontent=""
         >
+          
+          <babdev-header
+            class="page__header ng-tns-c1-0 ng-trigger ng-trigger-menuAnimation ng-star-inserted"
+            style="transform:translateY(-100%);0:transform;"
+          />
+          
+          <div
+            class="page__nav ng-tns-c1-0 ng-trigger ng-trigger-headerAnimation ng-star-inserted"
+            style="left:40%;top:40%;transform:translate(-50%, -50%);0:left;1:top;2:transform;"
+          >
+            <babdev-page-list
+              class="page__nav__list"
+            />
+          </div>
           <main
             class="page__content"
           >
-            
-            <div
-              class="page__nav ng-tns-c1-0 ng-trigger ng-trigger-menuAnimation ng-star-inserted"
-              style="left:40%;top:40%;transform:translate(-50%, -50%);0:left;1:top;2:transform;"
-            >
-              <babdev-page-list
-                class="page__nav__list"
-              />
-            </div>
             <div
               class="page__router ng-trigger ng-trigger-routerAnimation ng-animating"
               style=""
