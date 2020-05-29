@@ -1,3 +1,4 @@
+export * from './bg/bg.component';
 export * from './button-copy/button-copy.component';
 export * from './button-hyperlink/button-hyperlink.component';
 export * from './button-mail/button-mail.component';

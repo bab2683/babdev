@@ -1,12 +1,15 @@
+import { BgModel } from '@babdev/layout';
 import { DictionaryLoader } from '@babdev/translate';
 
+export interface PageData {
+  bg?: BgModel;
+  dictionary: DictionaryLoader;
+  name: string;
+  titleKey: string;
+}
+
 export interface Page {
-  data: {
-    bgPath?: string;
-    dictionary: DictionaryLoader;
-    name: string;
-    titleKey: string;
-  };
+  data: PageData;
   moduleName: string;
   path: string;
 }

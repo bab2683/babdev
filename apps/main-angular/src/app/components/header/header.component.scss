@@ -1,0 +1,12 @@
+@import "~@styleguide_funcional";
+
+.header {
+  &__bg {
+    height: 7vh;
+  }
+
+  &__list {
+    display: block;
+    padding-left: calc-spacing(2);
+  }
+}

@@ -19,13 +19,13 @@ import { DeviceClasses } from '@babdev/styleguide';
 import { TranslateService } from '@babdev/translate';
 import { TranslateServiceMock } from '@babdev/translate-testing';
 
-import { MenuAnimationEnum } from '@enums';
+import { HeaderAnimationEnum, MenuAnimationEnum } from '@enums';
 import {
   AppState,
   getIsMobileState,
+  getRouteData,
   isHome,
-  MockedAppStore,
-  selectRouteData
+  MockedAppStore
 } from '@store';
 import { AppComponent } from '../app.component';
 
@@ -126,7 +126,7 @@ describe('AppComponent', () => {
       fixture.detectChanges();
       component.ngOnInit();
       store.overrideSelector(
-        selectRouteData as any,
+        getRouteData as any,
         {
           name: ''
         } as any
@@ -141,7 +141,7 @@ describe('AppComponent', () => {
       component.ngOnInit();
       const dictionary = { location: '/pages/contacts/', name: 'contacts' };
       store.overrideSelector(
-        selectRouteData as any,
+        getRouteData as any,
         {
           dictionary
         } as any
@@ -152,55 +152,55 @@ describe('AppComponent', () => {
         dictionary
       );
     });
-  });
 
-  describe('menu animations', () => {
-    let isMobileSelector: any;
-    let isHomeSelector: any;
+    describe('menu animations', () => {
+      let isMobileSelector: any;
+      let isHomeSelector: any;
 
-    beforeEach(() => {
-      component.ngOnInit();
+      beforeEach(() => {
+        component.ngOnInit();
 
-      isMobileSelector = store.overrideSelector(getIsMobileState, false);
-      isHomeSelector = store.overrideSelector(isHome, false);
-      store.refreshState();
-    });
-
-    test('mobile false, not homepage', () => {
-      component.menuAnimation$.subscribe((animation) => {
-        expect(component.showNav).toEqual(true);
-        expect(animation).toEqual(MenuAnimationEnum.Translated);
+        isMobileSelector = store.overrideSelector(getIsMobileState, false);
+        isHomeSelector = store.overrideSelector(isHome, false);
+        store.refreshState();
       });
-    });
 
-    test('mobile false, homepage', () => {
-      isHomeSelector.setResult(true);
-      store.refreshState();
-
-      component.menuAnimation$.subscribe((animation) => {
-        expect(component.showNav).toEqual(true);
-        expect(animation).toEqual(MenuAnimationEnum.Base);
+      test('mobile false, not homepage', () => {
+        component.headerAnimation$.subscribe((animation) => {
+          expect(component.showNav).toEqual(true);
+          expect(animation).toEqual(HeaderAnimationEnum.Translated);
+        });
       });
-    });
 
-    test('mobile true, not homepage', () => {
-      isMobileSelector.setResult(true);
-      store.refreshState();
+      test('mobile false, homepage', () => {
+        isHomeSelector.setResult(true);
+        store.refreshState();
 
-      component.menuAnimation$.subscribe((animation) => {
-        expect(component.showNav).toEqual(false);
-        expect(animation).toEqual(MenuAnimationEnum.None);
+        component.headerAnimation$.subscribe((animation) => {
+          expect(component.showNav).toEqual(true);
+          expect(animation).toEqual(HeaderAnimationEnum.Base);
+        });
       });
-    });
 
-    test('mobile true, homepage', () => {
-      isMobileSelector.setResult(true);
-      isHomeSelector.setResult(true);
-      store.refreshState();
+      test('mobile true, not homepage', () => {
+        isMobileSelector.setResult(true);
+        store.refreshState();
 
-      component.menuAnimation$.subscribe((animation) => {
-        expect(component.showNav).toEqual(true);
-        expect(animation).toEqual(MenuAnimationEnum.None);
+        component.headerAnimation$.subscribe((animation) => {
+          expect(component.showNav).toEqual(false);
+          expect(animation).toEqual(HeaderAnimationEnum.None);
+        });
+      });
+
+      test('mobile true, homepage', () => {
+        isMobileSelector.setResult(true);
+        isHomeSelector.setResult(true);
+        store.refreshState();
+
+        component.headerAnimation$.subscribe((animation) => {
+          expect(component.showNav).toEqual(true);
+          expect(animation).toEqual(HeaderAnimationEnum.None);
+        });
       });
     });
   });
@@ -212,6 +212,20 @@ describe('AppComponent', () => {
       } as any);
 
       expect(result).toEqual('contacts');
+    });
+  });
+
+  describe('getMenuAnimationState', () => {
+    it('should return MenuAnimationEnum.Closed if on Homepage', () => {
+      const result = component.getMenuAnimationState(true);
+
+      expect(result).toEqual(MenuAnimationEnum.Closed);
+    });
+
+    it('should return MenuAnimationEnum.Closed if on landing pages', () => {
+      const result = component.getMenuAnimationState(false);
+
+      expect(result).toEqual(MenuAnimationEnum.Open);
     });
   });
 });

@@ -4,18 +4,22 @@ import { generatePageModel } from '@utils';
 
 export const Pages: Page[] = [
   {
-    name: PageNames.CONTACTS,
-    hasBg: true,
-    isHome: false
+    bgData: {
+      path: `/assets/bg/${PageNames.CONTACTS}.jpg`,
+      positionY: 200
+    },
+    isHome: false,
+    name: PageNames.CONTACTS
   },
   {
-    name: PageNames.EXPERIENCE,
-    hasBg: true,
-    isHome: false
+    bgData: {
+      path: `/assets/bg/${PageNames.EXPERIENCE}.jpg`
+    },
+    isHome: false,
+    name: PageNames.EXPERIENCE
   },
   {
-    name: PageNames.HOME,
-    hasBg: false,
-    isHome: true
+    isHome: true,
+    name: PageNames.HOME
   }
 ].map((page) => generatePageModel(page));

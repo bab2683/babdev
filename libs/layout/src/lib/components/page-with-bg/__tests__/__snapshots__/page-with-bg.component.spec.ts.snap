@@ -2,98 +2,21 @@
 
 exports[`PageWithBgComponent should match snapshot 1`] = `
 <babdev-page-with-bg
-  assetsPath={[Function String]}
-  bgPath={[Function String]}
-  bgPositionX={[Function String]}
-  bgPositionY="0"
-  format={[Function String]}
-  isMobile="false"
-  path={[Function String]}
-  positionX={[Function String]}
-  positionY={[Function String]}
+  bgData={[Function Object]}
 >
   <div
     class="page-with-bg"
   >
-    <div
-      class="title-container"
+    
+    <babdev-bg
+      class="page-with-bg__bg"
     >
-      
       <h1
         class="title-container__title"
       >
           
       </h1>
-    </div>
-    <div
-      class="content"
-    />
-  </div><div
-    class="bg"
-    style="background-image: url(/assets/my_image_path.jpg); background-position-x: center; background-position-y: 0%;"
-  />
-</babdev-page-with-bg>
-`;
-
-exports[`PageWithBgComponent should match snapshot 2`] = `
-<babdev-page-with-bg
-  assetsPath={[Function String]}
-  bgPath={[Function String]}
-  bgPositionX={[Function Number]}
-  bgPositionY={[Function String]}
-  format={[Function String]}
-  isMobile="false"
-  path={[Function String]}
-  positionX={[Function String]}
-  positionY={[Function String]}
->
-  <div
-    class="page-with-bg"
-  >
-    <div
-      class="title-container"
-    >
-      
-      <h1
-        class="title-container__title"
-      >
-          
-      </h1>
-    </div>
-    <div
-      class="content"
-    />
-  </div><div
-    class="bg"
-    style="background-image: url(/assets/my_image_path.jpg); background-position-x: 10%; background-position-y: top;"
-  />
-</babdev-page-with-bg>
-`;
-
-exports[`PageWithBgComponent should match snapshot 3`] = `
-<babdev-page-with-bg
-  assetsPath={[Function String]}
-  bgPositionX={[Function String]}
-  bgPositionY="0"
-  format={[Function String]}
-  isMobile={[Function Boolean]}
-  path={[Function String]}
-  positionX={[Function String]}
-  positionY={[Function String]}
->
-  <div
-    class="page-with-bg"
-  >
-    <div
-      class="title-container title-container--mobile"
-    >
-      
-      <h1
-        class="title-container__title"
-      >
-          
-      </h1>
-    </div>
+    </babdev-bg>
     <div
       class="content"
     />

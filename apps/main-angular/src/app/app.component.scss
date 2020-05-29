@@ -19,10 +19,14 @@
     overflow: hidden;
     position: relative;
     width: 100%;
+  }
 
-    @include is-desktop {
-      margin-left: 300px;
-    }
+  &__header {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $menu-z-index;
   }
 
   &__nav {
@@ -36,12 +40,6 @@
       left: 50%;
       top: 40%;
       transform: translate(-50%, -50%);
-    }
-
-    &__list {
-      @include is-mobile {
-        text-align: center;
-      }
     }
   }
 }

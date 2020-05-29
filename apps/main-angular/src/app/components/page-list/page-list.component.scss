@@ -1,6 +1,19 @@
 @import "~@styleguide_funcional";
 
-.page-list {
+@mixin menu-open {
+  #{$selector}--open & {
+    @content;
+  }
+}
+
+$selector: ".page-list";
+
+#{$selector} {
+  &--open {
+    align-items: center;
+    display: flex;
+  }
+
   &__home {
     font-size: calc-fz(3);
     @include is-desktop {
@@ -9,12 +22,25 @@
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
     margin-top: calc-spacing(2);
+
+    @include menu-open {
+      flex-direction: row;
+      margin-left: calc-spacing(4);
+      margin-top: 0;
+    }
   }
 
   &__item {
     & + & {
       margin-top: px-to-rem(10);
+
+      @include menu-open {
+        margin-left: calc-spacing(4);
+        margin-top: 0;
+      }
     }
   }
 }

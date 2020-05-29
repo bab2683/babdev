@@ -1,4 +1,9 @@
-<section class="page-list">
+<section
+  class="page-list"
+  [ngClass]="{
+    'page-list--open': open
+  }"
+>
   <a class="page-list__home" routerLink="/">Braulio</a>
   <ul class="page-list__list">
     <li class="page-list__item" *ngFor="let page of pages">

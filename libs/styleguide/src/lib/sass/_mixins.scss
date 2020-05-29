@@ -1,5 +1,11 @@
-@mixin transition($name, $duration: $TRANSITION_DURATION, $timing: $TRANSITION_TIMING) {
-  transition: repeat-values(create-dynamic-list($name, #{$duration}ms #{$timing}));
+@mixin transition(
+  $name,
+  $duration: $TRANSITION_DURATION,
+  $timing: $TRANSITION_TIMING
+) {
+  transition: repeat-values(
+    create-dynamic-list($name, #{$duration}ms #{$timing})
+  );
 }
 
 @mixin under-max-width {

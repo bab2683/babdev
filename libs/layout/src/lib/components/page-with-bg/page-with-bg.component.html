@@ -1,28 +1,10 @@
 <div class="page-with-bg">
-  <div class="title-container" [ngClass]="{ 'title-container--mobile': isMobile }">
-    <div
-      class="title-container__mobile-bg"
-      *ngIf="bgPath && isMobile"
-      [ngStyle]="{
-        'background-image': 'url(' + path + ')',
-        'background-position-x': positionX,
-        'background-position-y': positionY
-      }"
-    ></div>
+  <babdev-bg class="page-with-bg__bg" *ngIf="bgData" [data]="bgData">
     <h1 class="title-container__title">
       {{ title }}
     </h1>
-  </div>
+  </babdev-bg>
   <div class="content">
     <ng-content></ng-content>
   </div>
 </div>
-<div
-  class="bg"
-  *ngIf="bgPath && !isMobile"
-  [ngStyle]="{
-    'background-image': 'url(' + path + ')',
-    'background-position-x': positionX,
-    'background-position-y': positionY
-  }"
-></div>

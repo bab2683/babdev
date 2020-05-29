@@ -5,7 +5,6 @@ describe('Page utils', () => {
     it('should match snapshot for homepage', () => {
       const result = generatePageModel({
         name: 'home',
-        hasBg: false,
         isHome: true
       });
 
@@ -15,7 +14,10 @@ describe('Page utils', () => {
     it('should match snapshot for landing page', () => {
       const result = generatePageModel({
         name: 'experience',
-        hasBg: true,
+        bgData: {
+          path: '/assets/bg/experience.jpg',
+          positionY: 200
+        },
         isHome: false
       });
 

@@ -3,11 +3,9 @@
 exports[`ContactsPageComponent should match snapshot 1`] = `
 <babdev-contacts-page
   actions={[Function Object]}
-  bgPath={[Function String]}
-  bgPositionY={[Function String]}
-  isMobile$={[Function Store]}
   itemType={[Function Object]}
   links={[Function Array]}
+  pageData$={[Function Store]}
   store={[Function MockStore]}
 >
   <babdev-page-with-bg
